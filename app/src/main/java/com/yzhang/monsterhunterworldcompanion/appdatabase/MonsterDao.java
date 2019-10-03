@@ -28,6 +28,9 @@ public interface MonsterDao {
     @Insert
     void insertMonster(Monster newMonster);
 
+    @Insert
+    void insertMonsters(List<Monster> monsterList);
+
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void updateMonster(Monster monster);
 

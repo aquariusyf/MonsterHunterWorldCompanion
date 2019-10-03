@@ -1,7 +1,9 @@
 package com.yzhang.monsterhunterworldcompanion;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.work.Data;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +12,8 @@ import android.widget.FrameLayout;
 
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetMonsters;
 import com.yzhang.monsterhunterworldcompanion.apirequest.UrlUtils;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.AppExecutors;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.Monster;
 
 import java.util.List;
@@ -36,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initViews();
-        Log.v(LOG_TAG, isFirstStart() + "");
+        if(isFirstStart()) {
+            getMonsters();
+        }
 
     }
     /** Life cycle end */
@@ -75,8 +81,14 @@ public class MainActivity extends AppCompatActivity {
         Call<List<Monster>> call = request.getMonsterCall();
         call.enqueue(new Callback<List<Monster>>() {
             @Override
-            public void onResponse(Call<List<Monster>> call, Response<List<Monster>> response) {
-
+            public void onResponse(Call<List<Monster>> call, final Response<List<Monster>> response) {
+                AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        AppDataBase db = AppDataBase.getInstance(MainActivity.this);
+                        db.monsterDao().insertMonsters(response.body());
+                    }
+                });
             }
 
             @Override
