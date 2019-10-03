@@ -5,4 +5,5 @@
     <color name="colorAccent">#ff5722</color>
     <color name="navButtonBackgroundColor">#50000000</color>
     <color name="navButtonTextColor">#FFF</color>
+    <color name="colorWhite">#FFF</color>
 </resources>
