@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/monster_list_item_margin">
 
     <ImageView
         android:id="@+id/iv_monster_icon"
@@ -35,6 +36,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="left|center"
+            android:textAllCaps="true"
             tools:text="Species"
             style="@style/MonsterListSpeciesTextStyle"/>
 

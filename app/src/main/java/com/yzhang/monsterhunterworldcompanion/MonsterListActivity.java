@@ -8,12 +8,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 
 import com.yzhang.monsterhunterworldcompanion.adapters.MonsterListAdapter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.Monster;
 import com.yzhang.monsterhunterworldcompanion.viewmodels.MonsterListViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MonsterListActivity extends AppCompatActivity {
@@ -33,6 +34,7 @@ public class MonsterListActivity extends AppCompatActivity {
 
         initViews();
         setupViewModel();
+
     }
     /** Life cycle end */
 
@@ -43,12 +45,13 @@ public class MonsterListActivity extends AppCompatActivity {
         mMonsterListRv.addItemDecoration(
                 new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL));
         mAdapter = new MonsterListAdapter(
-                this, null, new MonsterListAdapter.OnListItemClickListener() {
+                this, new ArrayList<Monster>(), new MonsterListAdapter.OnListItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 //TODO: go to monster details
             }
         });
+        mMonsterListRv.setAdapter(mAdapter);
     }
 
     /** Initiate and setup view model */
@@ -59,6 +62,7 @@ public class MonsterListActivity extends AppCompatActivity {
         viewModel.getMonsters().observe(this, new Observer<List<Monster>>() {
             @Override
             public void onChanged(List<Monster> monsterList) {
+                Log.v(LOG_TAG, "onChanged Called!!!!");
                 mAdapter.updateDataSet(monsterList);
             }
         });

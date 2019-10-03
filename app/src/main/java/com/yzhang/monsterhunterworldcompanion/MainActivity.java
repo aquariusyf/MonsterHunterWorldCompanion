@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /** Get monsters data from api */
+    /** Get monsters data from api and create monster table in database */
     private void getMonsters() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(UrlUtils.BASE_URL)
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         AppDataBase db = AppDataBase.getInstance(MainActivity.this);
-                        db.monsterDao().insertMonsters(response.body());
+                        db.monsterDao().insertMonsters(response.body().toArray(new Monster[response.body().size()]));
                     }
                 });
             }

@@ -29,7 +29,7 @@ public interface MonsterDao {
     void insertMonster(Monster newMonster);
 
     @Insert
-    void insertMonsters(List<Monster> monsterList);
+    void insertMonsters(Monster... monsters);
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void updateMonster(Monster monster);
