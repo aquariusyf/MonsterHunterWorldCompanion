@@ -8,6 +8,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.yzhang.monsterhunterworldcompanion.apirequest.GetMonsters;
+import com.yzhang.monsterhunterworldcompanion.apirequest.UrlUtils;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.Monster;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class MainActivity extends AppCompatActivity {
 
     //const
@@ -51,6 +63,27 @@ public class MainActivity extends AppCompatActivity {
             editor.commit();
             return true;
         }
+    }
+
+    /** Get monsters data from api */
+    private void getMonsters() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(UrlUtils.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        GetMonsters request = retrofit.create(GetMonsters.class);
+        Call<List<Monster>> call = request.getMonsterCall();
+        call.enqueue(new Callback<List<Monster>>() {
+            @Override
+            public void onResponse(Call<List<Monster>> call, Response<List<Monster>> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Monster>> call, Throwable t) {
+                Log.e(LOG_TAG, "Failed to connect" + UrlUtils.BASE_URL + UrlUtils.ALL_MONSTER_PATH);
+            }
+        });
     }
 
 }
