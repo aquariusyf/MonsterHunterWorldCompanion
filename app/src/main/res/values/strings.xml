@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MHW Companion</string>
+    <string name="monster_nav_button_text">Monsters</string>
+    <string name="item_nav_button_text">Items</string>
+    <string name="armor_nav_button_text">Armors</string>
+    <string name="weapon_nav_button_text">Weapons</string>
 </resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_screen_nav_button_height">100dp</dimen>
+    <dimen name="main_screen_nav_button_width">350dp</dimen>
+    <dimen name="main_screen_nav_button_margin">24dp</dimen>
+    <dimen name="main_screen_scollView_margin_top">100dp</dimen>
+    <dimen name="main_screen_scollView_margin_bottom">100dp</dimen>
+</resources>
