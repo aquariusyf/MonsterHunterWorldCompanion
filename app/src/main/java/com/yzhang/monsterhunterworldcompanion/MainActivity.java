@@ -1,9 +1,8 @@
 package com.yzhang.monsterhunterworldcompanion;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.work.Data;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -53,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
         mMonstersNavButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: go to monster activity
+                Intent intent = new Intent(MainActivity.this, MonsterListActivity.class);
+                startActivity(intent);
             }
         });
     }
