@@ -5,12 +5,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
+import com.bumptech.glide.Glide;
 import com.yzhang.monsterhunterworldcompanion.R;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.Monster;
 
@@ -43,6 +45,8 @@ public class MonsterListAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ((MonsterViewHolder) holder).name.setText(mMonsterList.get(position).getName());
         ((MonsterViewHolder) holder).species.setText(mMonsterList.get(position).getSpecies());
+        int monsterId = mMonsterList.get(position).getId();
+        Glide.with(mContext).load(getImage(monsterId)).into(((MonsterViewHolder) holder).icon);
     }
 
     @Override
@@ -52,6 +56,12 @@ public class MonsterListAdapter extends RecyclerView.Adapter<ViewHolder> {
         } else {
             return 0;
         }
+    }
+
+    private int getImage(int monsterId) {
+        int resourceId = mContext.getResources().getIdentifier(
+                "m" + monsterId, "drawable", mContext.getPackageName());
+        return resourceId;
     }
 
     public void updateDataSet(List<Monster> monsterList) {
@@ -67,11 +77,13 @@ public class MonsterListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
         private TextView name;
         private TextView species;
+        private ImageView icon;
 
         public MonsterViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.tv_monster_name);
             species = itemView.findViewById(R.id.tv_monster_species);
+            icon = itemView.findViewById(R.id.iv_monster_icon);
             itemView.setOnClickListener(this);
         }
 

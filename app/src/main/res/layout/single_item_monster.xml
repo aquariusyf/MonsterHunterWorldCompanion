@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/iv_monster_icon"
         android:src="@drawable/anjanath_icon"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:layout_width="@dimen/monster_list_screen_monster_icon_width"
         android:layout_height="@dimen/monster_list_screen_monster_icon_height"
         android:layout_gravity="left"/>
