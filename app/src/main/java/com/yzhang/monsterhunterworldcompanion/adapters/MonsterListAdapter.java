@@ -70,6 +70,10 @@ public class MonsterListAdapter extends RecyclerView.Adapter<ViewHolder> {
         notifyDataSetChanged();
     }
 
+    public Monster getMonster(int position) {
+        return mMonsterList.get(position);
+    }
+
     public interface OnListItemClickListener {
         void onItemClick(int position);
     }

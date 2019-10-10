@@ -1,4 +1,4 @@
-package com.yzhang.monsterhunterworldcompanion.viewmodels;
+package com.yzhang.monsterhunterworldcompanion;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -49,6 +49,7 @@ public class MonsterListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                 //TODO: go to monster details
+                Monster monster = mAdapter.getMonster(position);
             }
         });
         mMonsterListRv.setAdapter(mAdapter);
