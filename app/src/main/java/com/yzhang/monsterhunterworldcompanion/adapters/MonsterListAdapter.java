@@ -47,6 +47,7 @@ public class MonsterListAdapter extends RecyclerView.Adapter<ViewHolder> {
         ((MonsterViewHolder) holder).species.setText(mMonsterList.get(position).getSpecies());
         int monsterId = mMonsterList.get(position).getId();
         Glide.with(mContext).load(getImage(monsterId)).into(((MonsterViewHolder) holder).icon);
+        mMonsterList.get(position).setIcon(getImage(monsterId));
     }
 
     @Override

@@ -19,9 +19,9 @@ public class Monster {
     @ColumnInfo(name = "description")
     String description;
     @ColumnInfo(name = "icon")
-    String icon;
+    int icon;
 
-    public Monster(int idPrimary, int id, String name, String species, String description, String icon) {
+    public Monster(int idPrimary, int id, String name, String species, String description, int icon) {
         this.idPrimary = idPrimary;
         this.id = id;
         this.name = name;
@@ -31,7 +31,7 @@ public class Monster {
     }
 
     @Ignore
-    public Monster(int id, String name, String species, String description, String icon) {
+    public Monster(int id, String name, String species, String description, int icon) {
         this.id = id;
         this.name = name;
         this.species = species;
@@ -59,7 +59,7 @@ public class Monster {
         return description;
     }
 
-    public String getIcon() {
+    public int getIcon() {
         return icon;
     }
 
@@ -83,7 +83,7 @@ public class Monster {
         this.description = description;
     }
 
-    public void setIcon(String icon) {
+    public void setIcon(int icon) {
         this.icon = icon;
     }
 
