@@ -5,6 +5,8 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.util.List;
+
 @Entity(tableName = "monster")
 public class Monster {
 
@@ -20,23 +22,27 @@ public class Monster {
     String description;
     @ColumnInfo(name = "icon")
     int icon;
+    @ColumnInfo(name = "locations")
+    List<Location> locations;
 
-    public Monster(int idPrimary, int id, String name, String species, String description, int icon) {
+    public Monster(int idPrimary, int id, String name, String species, String description, int icon, List<Location> locations) {
         this.idPrimary = idPrimary;
         this.id = id;
         this.name = name;
         this.species = species;
         this.description = description;
         this.icon = icon;
+        this.locations = locations;
     }
 
     @Ignore
-    public Monster(int id, String name, String species, String description, int icon) {
+    public Monster(int id, String name, String species, String description, int icon, List<Location> locations) {
         this.id = id;
         this.name = name;
         this.species = species;
         this.description = description;
         this.icon = icon;
+        this.locations = locations;
     }
 
     public int getIdPrimary() {
@@ -63,6 +69,8 @@ public class Monster {
         return icon;
     }
 
+    public List<Location> getLocations() { return locations; }
+
     public void setIdPrimary(int idPrimary) {
         this.idPrimary = idPrimary;
     }
@@ -85,6 +93,44 @@ public class Monster {
 
     public void setIcon(int icon) {
         this.icon = icon;
+    }
+
+    public void setLocations(List<Location> locations) { this.locations = locations; }
+
+    public static class Location {
+        int id;
+        String name;
+        int zoneCount;
+
+        public Location(int id, String name, int zoneCount) {
+            this.id = id;
+            this.name = name;
+            this.zoneCount = zoneCount;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public int getZoneCount() {
+            return zoneCount;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setZoneCount(int zoneCount) {
+            this.zoneCount = zoneCount;
+        }
     }
 
 }

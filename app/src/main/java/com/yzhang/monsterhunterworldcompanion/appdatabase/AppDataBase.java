@@ -6,8 +6,10 @@ import android.util.Log;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 @Database(entities = {Monster.class}, version = 1, exportSchema = false)
+@TypeConverters(LocationConverter.class)
 public abstract class AppDataBase extends RoomDatabase {
 
     private static final String LOG_TAG = AppDataBase.class.getSimpleName();
