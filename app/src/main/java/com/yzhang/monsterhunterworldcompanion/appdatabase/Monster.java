@@ -48,7 +48,6 @@ public class Monster implements Parcelable {
         this.locations = locations;
     }
 
-    @Ignore
     protected Monster(Parcel in) {
         idPrimary = in.readInt();
         id = in.readInt();
@@ -56,6 +55,7 @@ public class Monster implements Parcelable {
         species = in.readString();
         description = in.readString();
         icon = in.readInt();
+        locations = in.createTypedArrayList(Location.CREATOR);
     }
 
     public static final Creator<Monster> CREATOR = new Creator<Monster>() {
@@ -135,6 +135,7 @@ public class Monster implements Parcelable {
         dest.writeString(species);
         dest.writeString(description);
         dest.writeInt(icon);
+        dest.writeTypedList(locations);
     }
 
     public static class Location implements Parcelable{

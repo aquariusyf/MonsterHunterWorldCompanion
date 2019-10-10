@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -21,6 +22,8 @@ public class MonsterListActivity extends AppCompatActivity {
 
     //const
     private static final String LOG_TAG = MonsterListActivity.class.getSimpleName();
+    public static final String MONSTER_KEY = "monster";
+    public static final String MONSTER_BUNDLE_KEY = "monster_bundle";
 
     //UI
     private RecyclerView mMonsterListRv;
@@ -48,8 +51,12 @@ public class MonsterListActivity extends AppCompatActivity {
                 this, new ArrayList<Monster>(), new MonsterListAdapter.OnListItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                //TODO: go to monster details
                 Monster monster = mAdapter.getMonster(position);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(MONSTER_KEY, monster);
+                Intent intent = new Intent(MonsterListActivity.this, MonsterDetailActivity.class);
+                intent.putExtra(MONSTER_BUNDLE_KEY, bundle);
+                startActivity(intent);
             }
         });
         mMonsterListRv.setAdapter(mAdapter);
