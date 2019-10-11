@@ -9,10 +9,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.yzhang.monsterhunterworldcompanion.apirequest.GetArmorSets;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetMonsters;
 import com.yzhang.monsterhunterworldcompanion.apirequest.UrlUtils;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppExecutors;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.ArmorSet;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.Monster;
 
 import java.util.List;
@@ -41,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         initViews();
         if(isFirstStart()) {
             getMonsters();
+            getArmorSets();
         }
-
     }
     /** Life cycle end */
 
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /** Get monsters data from api and create monster table in database */
+    /** Get monsters data using api and create monster table in database */
     private void getMonsters() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(UrlUtils.BASE_URL)
@@ -94,6 +96,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Monster>> call, Throwable t) {
                 Log.e(LOG_TAG, "Failed to connect" + UrlUtils.BASE_URL + UrlUtils.ALL_MONSTER_PATH);
+            }
+        });
+    }
+
+    /** Get armor sets data using api and create armor set table in database */
+    private void getArmorSets() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(UrlUtils.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        GetArmorSets request = retrofit.create(GetArmorSets.class);
+        Call<List<ArmorSet>> call = request.getArmorSetCall();
+        call.enqueue(new Callback<List<ArmorSet>>() {
+            @Override
+            public void onResponse(Call<List<ArmorSet>> call, Response<List<ArmorSet>> response) {
+                List<ArmorSet> armorSetList = response.body();
+                //TODO: save armor data into multiple database table
+            }
+
+            @Override
+            public void onFailure(Call<List<ArmorSet>> call, Throwable t) {
+                Log.e(LOG_TAG, "Failed to connect" + UrlUtils.BASE_URL + UrlUtils.ALL_ARMORSET_PATH);
             }
         });
     }
