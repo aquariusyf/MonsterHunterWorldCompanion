@@ -8,7 +8,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
-import com.yzhang.monsterhunterworldcompanion.appdatabase.Monster;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 
 import java.util.List;
 

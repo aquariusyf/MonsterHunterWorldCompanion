@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 import com.bumptech.glide.Glide;
 import com.yzhang.monsterhunterworldcompanion.R;
-import com.yzhang.monsterhunterworldcompanion.appdatabase.Monster;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 
 import java.util.List;
 

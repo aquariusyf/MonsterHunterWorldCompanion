@@ -14,8 +14,8 @@ import com.yzhang.monsterhunterworldcompanion.apirequest.GetMonsters;
 import com.yzhang.monsterhunterworldcompanion.apirequest.UrlUtils;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppExecutors;
-import com.yzhang.monsterhunterworldcompanion.appdatabase.ArmorSet;
-import com.yzhang.monsterhunterworldcompanion.appdatabase.Monster;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 
 import java.util.List;
 

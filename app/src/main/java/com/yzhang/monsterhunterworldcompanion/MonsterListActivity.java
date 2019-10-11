@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.yzhang.monsterhunterworldcompanion.adapters.MonsterListAdapter;
-import com.yzhang.monsterhunterworldcompanion.appdatabase.Monster;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 import com.yzhang.monsterhunterworldcompanion.viewmodels.MonsterListViewModel;
 
 import java.util.ArrayList;

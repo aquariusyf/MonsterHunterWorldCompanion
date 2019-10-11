@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.yzhang.monsterhunterworldcompanion.appdatabase.Monster;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class MonsterDetailActivity extends AppCompatActivity {
     private static final String LOG_TAG = MonsterDetailActivity.class.getSimpleName();
 
     //UI
-    private ImageView mIconIv;
+    private ImageView mLargeIcon;
     private TextView mNameTv;
     private TextView mSpeciesTv;
     private TextView mDescriptionTv;
@@ -57,8 +57,8 @@ public class MonsterDetailActivity extends AppCompatActivity {
     private void initViews() {
         Monster monster = monsterBundle.getParcelable(MonsterListActivity.MONSTER_KEY);
 
-        mIconIv = findViewById(R.id.iv_monster_icon);
-        Glide.with(this).load(monster.getIcon()).into(mIconIv);
+        mLargeIcon = findViewById(R.id.iv_monster_large_icon);
+        Glide.with(this).load(getImage(monster.getId())).into(mLargeIcon);
 
         mNameTv = findViewById(R.id.tv_monster_name);
         mNameTv.setText(monster.getName());
@@ -74,6 +74,13 @@ public class MonsterDetailActivity extends AppCompatActivity {
         for(int i = 0; i < locations.size(); i++) {
             mLocationTv.append(locations.get(i).getName() + "\n");
         }
+    }
+
+    /** Get the corresponding large icon of monster */
+    private int getImage(int monsterId) {
+        int resourceId = getResources().getIdentifier(
+                "ml" + monsterId, "drawable", getPackageName());
+        return resourceId;
     }
 
 }

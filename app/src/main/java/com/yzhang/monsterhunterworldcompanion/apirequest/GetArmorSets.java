@@ -1,6 +1,6 @@
 package com.yzhang.monsterhunterworldcompanion.apirequest;
 
-import com.yzhang.monsterhunterworldcompanion.appdatabase.ArmorSet;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
 
 import java.util.List;
 

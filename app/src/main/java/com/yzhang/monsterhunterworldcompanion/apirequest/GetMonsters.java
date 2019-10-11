@@ -1,6 +1,6 @@
 package com.yzhang.monsterhunterworldcompanion.apirequest;
 
-import com.yzhang.monsterhunterworldcompanion.appdatabase.Monster;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 
 import java.util.List;
 
