@@ -10,6 +10,12 @@ public class ArmorSet {
     private String rank;
     private List<ArmorPiece> pieces;
     private Bonus bonus;
+    private int totalDefence;
+    private int thunderRes;
+    private int fireRes;
+    private int iceRes;
+    private int waterRes;
+    private int dragonRes;
 
     public ArmorSet(int id, String name, String rank, List<ArmorPiece> pieces, Bonus bonus) {
         this.id = id;
@@ -17,6 +23,20 @@ public class ArmorSet {
         this.rank = rank;
         this.pieces = pieces;
         this.bonus = bonus;
+        totalDefence = 0;
+        thunderRes = 0;
+        fireRes = 0;
+        iceRes = 0;
+        waterRes = 0;
+        dragonRes = 0;
+        for(ArmorPiece armorPiece: pieces) {
+            totalDefence += armorPiece.getDefence().getBase();
+            thunderRes += armorPiece.getResistances().getThunder();
+            fireRes += armorPiece.getResistances().getFire();
+            iceRes += armorPiece.getResistances().getIce();
+            waterRes += armorPiece.getResistances().getWater();
+            dragonRes += armorPiece.getResistances().getDragon();
+        }
     }
 
     public int getId() {
