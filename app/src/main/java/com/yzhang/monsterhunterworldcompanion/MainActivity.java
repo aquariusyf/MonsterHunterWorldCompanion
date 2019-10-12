@@ -14,9 +14,11 @@ import com.yzhang.monsterhunterworldcompanion.apirequest.GetMonsters;
 import com.yzhang.monsterhunterworldcompanion.apirequest.UrlUtils;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppExecutors;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSetMaster;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -112,6 +114,31 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<ArmorSetMaster>> call, Response<List<ArmorSetMaster>> response) {
                 List<ArmorSetMaster> armorSetMasterList = response.body();
+                if(armorSetMasterList == null || armorSetMasterList.isEmpty()) {
+                    Log.v(LOG_TAG, "Armor set returned is empty!");
+                    return;
+                }
+                final List<ArmorSet> armorSetList = new ArrayList<>();
+                for(ArmorSetMaster armorSetMaster: armorSetMasterList) {
+                    ArmorSet armorSet = new ArmorSet(
+                            armorSetMaster.getId(),
+                            armorSetMaster.getName(),
+                            armorSetMaster.getRank(),
+                            armorSetMaster.getTotalDefence(),
+                            armorSetMaster.getThunderRes(),
+                            armorSetMaster.getFireRes(),
+                            armorSetMaster.getIceRes(),
+                            armorSetMaster.getWaterRes(),
+                            armorSetMaster.getDragonRes());
+                    armorSetList.add(armorSet);
+                }
+                AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        AppDataBase db = AppDataBase.getInstance(MainActivity.this);
+                        db.armorSetDao().insertArmorSets(armorSetList.toArray(new ArmorSet[armorSetList.size()]));
+                    }
+                });
                 //TODO: save armor data into multiple database table
             }
 

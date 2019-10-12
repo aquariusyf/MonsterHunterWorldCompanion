@@ -79,6 +79,54 @@ public class ArmorSetMaster {
         this.bonus = bonus;
     }
 
+    public int getTotalDefence() {
+        return totalDefence;
+    }
+
+    public void setTotalDefence(int totalDefence) {
+        this.totalDefence = totalDefence;
+    }
+
+    public int getThunderRes() {
+        return thunderRes;
+    }
+
+    public void setThunderRes(int thunderRes) {
+        this.thunderRes = thunderRes;
+    }
+
+    public int getFireRes() {
+        return fireRes;
+    }
+
+    public void setFireRes(int fireRes) {
+        this.fireRes = fireRes;
+    }
+
+    public int getIceRes() {
+        return iceRes;
+    }
+
+    public void setIceRes(int iceRes) {
+        this.iceRes = iceRes;
+    }
+
+    public int getWaterRes() {
+        return waterRes;
+    }
+
+    public void setWaterRes(int waterRes) {
+        this.waterRes = waterRes;
+    }
+
+    public int getDragonRes() {
+        return dragonRes;
+    }
+
+    public void setDragonRes(int dragonRes) {
+        this.dragonRes = dragonRes;
+    }
+
     /** Armor piece inner class */
     public static class ArmorPiece {
 
