@@ -1,6 +1,6 @@
 package com.yzhang.monsterhunterworldcompanion.apirequest;
 
-import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSetMaster;
 
 import java.util.List;
 
@@ -10,6 +10,6 @@ import retrofit2.http.GET;
 public interface GetArmorSets {
 
     @GET(UrlUtils.ALL_ARMORSET_PATH)
-    Call<List<ArmorSet>> getArmorSetCall();
+    Call<List<ArmorSetMaster>> getArmorSetCall();
 
 }

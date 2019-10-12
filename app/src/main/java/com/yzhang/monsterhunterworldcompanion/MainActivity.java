@@ -14,7 +14,7 @@ import com.yzhang.monsterhunterworldcompanion.apirequest.GetMonsters;
 import com.yzhang.monsterhunterworldcompanion.apirequest.UrlUtils;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppExecutors;
-import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSetMaster;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 
 import java.util.List;
@@ -107,16 +107,16 @@ public class MainActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         GetArmorSets request = retrofit.create(GetArmorSets.class);
-        Call<List<ArmorSet>> call = request.getArmorSetCall();
-        call.enqueue(new Callback<List<ArmorSet>>() {
+        Call<List<ArmorSetMaster>> call = request.getArmorSetCall();
+        call.enqueue(new Callback<List<ArmorSetMaster>>() {
             @Override
-            public void onResponse(Call<List<ArmorSet>> call, Response<List<ArmorSet>> response) {
-                List<ArmorSet> armorSetList = response.body();
+            public void onResponse(Call<List<ArmorSetMaster>> call, Response<List<ArmorSetMaster>> response) {
+                List<ArmorSetMaster> armorSetMasterList = response.body();
                 //TODO: save armor data into multiple database table
             }
 
             @Override
-            public void onFailure(Call<List<ArmorSet>> call, Throwable t) {
+            public void onFailure(Call<List<ArmorSetMaster>> call, Throwable t) {
                 Log.e(LOG_TAG, "Failed to connect" + UrlUtils.BASE_URL + UrlUtils.ALL_ARMORSET_PATH);
             }
         });
