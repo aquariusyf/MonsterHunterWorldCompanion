@@ -50,7 +50,6 @@
 
             <ImageView
                 android:id="@+id/iv_monster_large_icon"
-                android:src="@drawable/ml38"
                 android:layout_width="@dimen/monster_detail_large_icon_width"
                 android:layout_height="@dimen/monster_detail_large_icon_height"
                 android:layout_gravity="center"
@@ -86,6 +85,17 @@
                     style="@style/MonsterDetailLocationTextStyle"/>
 
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_monster_guide"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/monster_detail_guide_image_height"
+                android:layout_gravity="center"
+                android:elevation="16dp"
+                android:layout_marginBottom="@dimen/monster_detail_guide_image_margin_bottom"
+                android:layout_marginLeft="@dimen/monster_detail_guide_image_side_margin"
+                android:layout_marginRight="@dimen/monster_detail_guide_image_side_margin"
+                android:scaleType="fitXY" />
 
         </LinearLayout>
 

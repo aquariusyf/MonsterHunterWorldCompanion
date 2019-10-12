@@ -20,6 +20,7 @@ public class MonsterDetailActivity extends AppCompatActivity {
 
     //UI
     private ImageView mLargeIcon;
+    private ImageView mGuideImage;
     private TextView mNameTv;
     private TextView mSpeciesTv;
     private TextView mDescriptionTv;
@@ -58,7 +59,10 @@ public class MonsterDetailActivity extends AppCompatActivity {
         Monster monster = monsterBundle.getParcelable(MonsterListActivity.MONSTER_KEY);
 
         mLargeIcon = findViewById(R.id.iv_monster_large_icon);
-        Glide.with(this).load(getImage(monster.getId())).into(mLargeIcon);
+        Glide.with(this).load(getLargeIcon(monster.getId())).into(mLargeIcon);
+
+        mGuideImage = findViewById(R.id.iv_monster_guide);
+        Glide.with(this).load(getGuideImage(monster.getId())).into(mGuideImage);
 
         mNameTv = findViewById(R.id.tv_monster_name);
         mNameTv.setText(monster.getName());
@@ -77,9 +81,16 @@ public class MonsterDetailActivity extends AppCompatActivity {
     }
 
     /** Get the corresponding large icon of monster */
-    private int getImage(int monsterId) {
+    private int getLargeIcon(int monsterId) {
         int resourceId = getResources().getIdentifier(
                 "ml" + monsterId, "drawable", getPackageName());
+        return resourceId;
+    }
+
+    /** Get the corresponding guide image of monster */
+    private int getGuideImage(int monsterId) {
+        int resourceId = getResources().getIdentifier(
+                "mg" + monsterId, "drawable", getPackageName());
         return resourceId;
     }
 
