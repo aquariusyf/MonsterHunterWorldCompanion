@@ -8,11 +8,13 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
+import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSetDao;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.LocationConverter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.MonsterDao;
 
-@Database(entities = {Monster.class}, version = 1, exportSchema = false)
+@Database(entities = {Monster.class, ArmorSet.class}, version = 1, exportSchema = false)
 @TypeConverters(LocationConverter.class)
 public abstract class AppDataBase extends RoomDatabase {
 
@@ -34,5 +36,6 @@ public abstract class AppDataBase extends RoomDatabase {
     }
 
     public abstract MonsterDao monsterDao();
+    public abstract ArmorSetDao armorSetDao();
 
 }
