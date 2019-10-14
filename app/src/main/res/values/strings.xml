@@ -5,4 +5,7 @@
     <string name="armor_nav_button_text">Armors</string>
     <string name="weapon_nav_button_text">Weapons</string>
     <string name="monster_detail_location_label">Locations: </string>
+    <string name="rank_indicator_master">Master</string>
+    <string name="rank_indicator_high">High</string>
+    <string name="rank_indicator_low">Low</string>
 </resources>
