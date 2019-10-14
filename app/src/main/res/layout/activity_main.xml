@@ -88,6 +88,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/nav_button_armor"
                 android:layout_width="@dimen/main_screen_nav_button_width"
                 android:layout_height="@dimen/main_screen_nav_button_height"
                 android:layout_gravity="center"
