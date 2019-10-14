@@ -18,10 +18,9 @@ public class ArmorSetPagerAdapter extends FragmentPagerAdapter {
 
     public ArmorSetPagerAdapter(
             @NonNull FragmentManager fm,
-            int behavior,
             List<Fragment> fragmentList,
             Context context) {
-        super(fm, behavior);
+        super(fm);
         mFragmentList = fragmentList;
         mContext = context;
     }
