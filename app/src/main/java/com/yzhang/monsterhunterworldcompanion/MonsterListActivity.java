@@ -45,8 +45,6 @@ public class MonsterListActivity extends AppCompatActivity {
     private void initViews() {
         mMonsterListRv = findViewById(R.id.rv_monster_list);
         mMonsterListRv.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        mMonsterListRv.addItemDecoration(
-                new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL));
         mAdapter = new MonsterListAdapter(
                 this, new ArrayList<Monster>(), new MonsterListAdapter.OnListItemClickListener() {
             @Override

@@ -5,7 +5,9 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/monster_list_item_margin">
+    android:layout_margin="@dimen/monster_list_item_margin"
+    android:padding="@dimen/monster_list_item_padding"
+    android:background="@color/monsterListItemBackgroundColor">
 
     <ImageView
         android:id="@+id/iv_monster_icon"

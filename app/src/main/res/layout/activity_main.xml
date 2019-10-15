@@ -10,8 +10,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/background_main"
-        android:scaleType="centerCrop" />
+        android:src="@drawable/main_screen_background"
+        android:scaleType="fitXY" />
 
     <ScrollView
         android:layout_width="match_parent"

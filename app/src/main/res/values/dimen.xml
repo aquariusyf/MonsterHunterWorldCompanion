@@ -11,6 +11,7 @@
     <dimen name="monster_list_screen_monster_icon_width">60dp</dimen>
     <dimen name="monster_list_text_layout_margin_to_icon">8dp</dimen>
     <dimen name="monster_list_item_margin">16dp</dimen>
+    <dimen name="monster_list_item_padding">8dp</dimen>
     <dimen name="monster_detail_title_region_margin">8dp</dimen>
     <dimen name="monster_detail_large_icon_height">350dp</dimen>
     <dimen name="monster_detail_large_icon_width">350dp</dimen>

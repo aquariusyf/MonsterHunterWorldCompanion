@@ -4,13 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/monsterDetailBackgroundColor">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/background_other_activity"
-        android:scaleType="centerCrop" />
+        android:src="@drawable/sapphire_star"
+        android:scaleType="fitStart" />
 
     <ScrollView
         android:layout_width="match_parent"

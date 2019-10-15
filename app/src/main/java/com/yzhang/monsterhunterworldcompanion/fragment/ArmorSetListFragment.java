@@ -42,6 +42,7 @@ public class ArmorSetListFragment extends Fragment {
         // Required empty constructor
     }
 
+    /** Use newInstance method to pass arguments to fragment */
     public static ArmorSetListFragment newInstance(int rankIndicator) {
         Bundle args = new Bundle();
         args.putInt(RANK_INDICATOR_KEY, rankIndicator);
