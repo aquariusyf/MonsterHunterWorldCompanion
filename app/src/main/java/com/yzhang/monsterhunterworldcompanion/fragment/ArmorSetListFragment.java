@@ -12,6 +12,7 @@ import com.yzhang.monsterhunterworldcompanion.R;
 
 public class ArmorSetListFragment extends Fragment {
 
+    //val
     private int mRankIndicator;
     private Context mContext;
 

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="16dp"
+    android:layout_margin="@dimen/armorset_list_item_margin">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <ImageView
+            android:id="@+id/iv_armorset_icon"
+            android:src="@drawable/armorset_icon_plate_holder"
+            android:layout_width="@dimen/armorset_list_item_armor_icon_width"
+            android:layout_height="@dimen/armorset_list_item_armor_icon_height"
+            android:scaleType="fitXY"/>
+        
+        <TextView
+            android:id="@+id/tv_armorset_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/armorset_list_item_name_to_icon_margin"
+            tools:text="ArmorSet Name goes here"
+            style="@style/ArmorSetNameTextStyle"/>
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/armorset_list_item_defence_elemental_line_margin_top">
+        
+        <ImageView
+            android:src="@drawable/defence"
+            android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_width"
+            android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/tv_total_defence"
+            android:layout_width="@dimen/armorset_list_item_defence_elemental_text_width"
+            android:layout_height="@dimen/armorset_list_item_defence_elemental_text_height"
+            android:gravity="center"
+            tools:text="888"
+            style="@style/ArmorSetDefenceTextStyle"/>
+
+        <ImageView
+            android:src="@drawable/thunder"
+            android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_width"
+            android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/tv_elemental_thunder"
+            android:layout_width="@dimen/armorset_list_item_defence_elemental_text_width"
+            android:layout_height="@dimen/armorset_list_item_defence_elemental_text_height"
+            android:gravity="center"
+            tools:text="-2"
+            style="@style/ArmorSetDefenceTextStyle"/>
+
+        <ImageView
+            android:src="@drawable/fire"
+            android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_width"
+            android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/tv_elemental_fire"
+            android:layout_width="@dimen/armorset_list_item_defence_elemental_text_width"
+            android:layout_height="@dimen/armorset_list_item_defence_elemental_text_height"
+            android:gravity="center"
+            tools:text="11"
+            style="@style/ArmorSetDefenceTextStyle"/>
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/armorset_list_item_defence_elemental_line_margin_top">
+
+        <ImageView
+            android:src="@drawable/ice"
+            android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_width"
+            android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/tv_elemental_ice"
+            android:layout_width="@dimen/armorset_list_item_defence_elemental_text_width"
+            android:layout_height="@dimen/armorset_list_item_defence_elemental_text_height"
+            android:gravity="center"
+            tools:text="-6"
+            style="@style/ArmorSetDefenceTextStyle"/>
+
+        <ImageView
+            android:src="@drawable/water"
+            android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_width"
+            android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/tv_elemental_water"
+            android:layout_width="@dimen/armorset_list_item_defence_elemental_text_width"
+            android:layout_height="@dimen/armorset_list_item_defence_elemental_text_height"
+            android:gravity="center"
+            tools:text="7"
+            style="@style/ArmorSetDefenceTextStyle"/>
+
+        <ImageView
+            android:src="@drawable/dragon"
+            android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_width"
+            android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/tv_elemental_dragon"
+            android:layout_width="@dimen/armorset_list_item_defence_elemental_text_width"
+            android:layout_height="@dimen/armorset_list_item_defence_elemental_text_height"
+            android:gravity="center"
+            tools:text="-3"
+            style="@style/ArmorSetDefenceTextStyle"/>
+
+    </LinearLayout>
+
+</LinearLayout>
