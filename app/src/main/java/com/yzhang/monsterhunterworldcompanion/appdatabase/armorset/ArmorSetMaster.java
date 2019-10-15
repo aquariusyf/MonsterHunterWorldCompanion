@@ -29,13 +29,16 @@ public class ArmorSetMaster {
         iceRes = 0;
         waterRes = 0;
         dragonRes = 0;
-        for(ArmorPiece armorPiece: pieces) {
-            totalDefence += armorPiece.getDefence().getBase();
-            thunderRes += armorPiece.getResistances().getThunder();
-            fireRes += armorPiece.getResistances().getFire();
-            iceRes += armorPiece.getResistances().getIce();
-            waterRes += armorPiece.getResistances().getWater();
-            dragonRes += armorPiece.getResistances().getDragon();
+    }
+
+    public static void calculateTotalDefenceStats(ArmorSetMaster armorSetMaster) {
+        for(ArmorPiece armorPiece: armorSetMaster.pieces) {
+            armorSetMaster.totalDefence += armorPiece.getDefense().getBase();
+            armorSetMaster.thunderRes += armorPiece.getResistances().getThunder();
+            armorSetMaster.fireRes += armorPiece.getResistances().getFire();
+            armorSetMaster.iceRes += armorPiece.getResistances().getIce();
+            armorSetMaster.waterRes += armorPiece.getResistances().getWater();
+            armorSetMaster.dragonRes += armorPiece.getResistances().getDragon();
         }
     }
 
@@ -135,7 +138,7 @@ public class ArmorSetMaster {
         private String type;
         private String rank;
         private int rarity;
-        private Defence defence;
+        private Defence defense;
         private Resistance resistances;
         private List<Slot> slots;
         private List<ArmorSkill> skills;
@@ -146,7 +149,7 @@ public class ArmorSetMaster {
                 String type,
                 String rank,
                 int rarity,
-                Defence defence,
+                Defence defense,
                 Resistance resistances,
                 List<Slot> slots,
                 List<ArmorSkill> skills) {
@@ -155,7 +158,7 @@ public class ArmorSetMaster {
             this.type = type;
             this.rank = rank;
             this.rarity = rarity;
-            this.defence = defence;
+            this.defense = defense;
             this.resistances = resistances;
             this.slots = slots;
             this.skills = skills;
@@ -201,12 +204,12 @@ public class ArmorSetMaster {
             this.rarity = rarity;
         }
 
-        public Defence getDefence() {
-            return defence;
+        public Defence getDefense() {
+            return defense;
         }
 
-        public void setDefence(Defence defence) {
-            this.defence = defence;
+        public void setDefense(Defence defense) {
+            this.defense = defense;
         }
 
         public Resistance getResistances() {

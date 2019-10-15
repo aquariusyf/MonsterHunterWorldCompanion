@@ -17,6 +17,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/armorset_list_screen_title_text_margin_top"
+            android:text="@string/armor_list_screen_title_text"
+            style="@style/NavButtonTextStyle"/>
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/pager_tab"
             android:layout_width="match_parent"

@@ -20,7 +20,7 @@ public class MonsterListViewModel extends AndroidViewModel {
     public MonsterListViewModel(@NonNull Application application) {
         super(application);
         AppDataBase db = AppDataBase.getInstance(this.getApplication());
-        Log.d(LOG_TAG, "Actively retrieving monster data from DB");
+        Log.d(LOG_TAG, "Actively retrieving data from DB");
         mMonsters = db.monsterDao().getAll();
     }
 

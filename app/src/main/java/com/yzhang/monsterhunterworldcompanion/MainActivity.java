@@ -130,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 final List<ArmorSet> armorSetList = new ArrayList<>();
                 for(ArmorSetMaster armorSetMaster: armorSetMasterList) {
+                    ArmorSetMaster.calculateTotalDefenceStats(armorSetMaster);
                     ArmorSet armorSet = new ArmorSet(
                             armorSetMaster.getId(),
                             armorSetMaster.getName(),

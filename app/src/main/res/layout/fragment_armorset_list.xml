@@ -9,6 +9,11 @@
         android:id="@+id/rv_armorset_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="16dp"/>
+        android:elevation="16dp"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="insideOverlay"
+        android:scrollbarSize="@dimen/recyclerview_scrollbar_size"
+        android:scrollbarThumbVertical="@color/colorAccent"
+        android:scrollbarDefaultDelayBeforeFade="3000"/>
 
 </LinearLayout>

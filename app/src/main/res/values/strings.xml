@@ -3,6 +3,7 @@
     <string name="monster_nav_button_text">Monsters</string>
     <string name="item_nav_button_text">Items</string>
     <string name="armor_nav_button_text">Armors</string>
+    <string name="armor_list_screen_title_text">Armor Set</string>
     <string name="weapon_nav_button_text">Weapons</string>
     <string name="monster_detail_location_label">Locations: </string>
     <string name="rank_indicator_master">Master</string>
