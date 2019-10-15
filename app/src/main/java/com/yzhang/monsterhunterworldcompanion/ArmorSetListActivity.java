@@ -38,12 +38,9 @@ public class ArmorSetListActivity extends AppCompatActivity {
         mTab = findViewById(R.id.pager_tab);
 
         List<Fragment> fragmentList = new ArrayList<>();
-        ArmorSetListFragment masterFragment = new ArmorSetListFragment(this, 0);
-        fragmentList.add(masterFragment);
-        ArmorSetListFragment highFragment = new ArmorSetListFragment(this, 1);
-        fragmentList.add(highFragment);
-        ArmorSetListFragment lowFragment = new ArmorSetListFragment(this, 2);
-        fragmentList.add(lowFragment);
+        fragmentList.add(ArmorSetListFragment.newInstance(0));
+        fragmentList.add(ArmorSetListFragment.newInstance(1));
+        fragmentList.add(ArmorSetListFragment.newInstance(2));
 
         mViewPager.setAdapter(
                 new ArmorSetPagerAdapter(getSupportFragmentManager(), fragmentList, this));

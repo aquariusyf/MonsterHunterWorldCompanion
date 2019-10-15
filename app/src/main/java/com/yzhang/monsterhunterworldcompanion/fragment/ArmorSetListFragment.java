@@ -26,6 +26,7 @@ public class ArmorSetListFragment extends Fragment {
 
     //const
     private static final String LOG_TAG = ArmorSetListFragment.class.getSimpleName();
+    private static final String RANK_INDICATOR_KEY = "rank_indicator";
     private static final String MASTER_RANK = "master";
     private static final String HIGH_RANK = "high";
     private static final String LOW_RANK = "low";
@@ -35,13 +36,18 @@ public class ArmorSetListFragment extends Fragment {
     private ArmorSetListAdapter mAdapter;
 
     //val
-    private int mRankIndicator;
-    private Context mContext;
     private AppDataBase mDb;
 
-    public ArmorSetListFragment(Context context, int rankIndicator) {
-        mContext = context;
-        mRankIndicator = rankIndicator;
+    public ArmorSetListFragment() {
+        // Required empty constructor
+    }
+
+    public static ArmorSetListFragment newInstance(int rankIndicator) {
+        Bundle args = new Bundle();
+        args.putInt(RANK_INDICATOR_KEY, rankIndicator);
+        ArmorSetListFragment f = new ArmorSetListFragment();
+        f.setArguments(args);
+        return f;
     }
 
     /** Life cycle begin */
@@ -54,11 +60,11 @@ public class ArmorSetListFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mDb = AppDataBase.getInstance(mContext);
+        mDb = AppDataBase.getInstance(getContext());
 
         mArmorSetListRv = view.findViewById(R.id.rv_armorset_list);
-        mArmorSetListRv.setLayoutManager(new LinearLayoutManager(mContext));
-        mAdapter = new ArmorSetListAdapter(mContext, new ArrayList<ArmorSet>());
+        mArmorSetListRv.setLayoutManager(new LinearLayoutManager(getContext()));
+        mAdapter = new ArmorSetListAdapter(getContext(), new ArrayList<ArmorSet>());
         mArmorSetListRv.setAdapter(mAdapter);
         setupViewModel();
     }
@@ -67,7 +73,7 @@ public class ArmorSetListFragment extends Fragment {
     /** Initiate and setup view model */
     private void setupViewModel() {
         ArmorSetListViewModelFactory factory = null;
-        switch (mRankIndicator) {
+        switch (getArguments().getInt(RANK_INDICATOR_KEY)) {
             case 0:
                 factory = new ArmorSetListViewModelFactory(mDb, MASTER_RANK);
                 break;
