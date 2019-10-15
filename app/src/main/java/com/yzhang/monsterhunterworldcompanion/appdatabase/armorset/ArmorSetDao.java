@@ -22,6 +22,9 @@ public interface ArmorSetDao {
     @Query("SELECT * FROM armorSet WHERE primaryId = :id")
     LiveData<ArmorSet> getArmorSetByPrimaryId(int id);
 
+    @Query("SELECT * FROM armorSet WHERE rank = :rank ORDER BY name")
+    LiveData<List<ArmorSet>> getArmorSetByRank(String rank);
+
     @Insert
     void insertArmorset(ArmorSet newArmorSet);
 
