@@ -9,4 +9,9 @@
     <string name="rank_indicator_master">Master</string>
     <string name="rank_indicator_high">High</string>
     <string name="rank_indicator_low">Low</string>
+    <string name="armor_piece_helm">head</string>
+    <string name="armor_piece_mail">chest</string>
+    <string name="armor_piece_arm">gloves</string>
+    <string name="armor_piece_waist">waist</string>
+    <string name="armor_piece_leg">legs</string>
 </resources>

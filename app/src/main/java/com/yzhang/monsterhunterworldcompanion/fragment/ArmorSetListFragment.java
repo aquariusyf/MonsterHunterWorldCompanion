@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.yzhang.monsterhunterworldcompanion.R;
 import com.yzhang.monsterhunterworldcompanion.adapters.ArmorSetListAdapter;
+import com.yzhang.monsterhunterworldcompanion.adapters.MonsterListAdapter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
 import com.yzhang.monsterhunterworldcompanion.viewmodels.ArmorSetListViewModel;
@@ -65,7 +66,15 @@ public class ArmorSetListFragment extends Fragment {
 
         mArmorSetListRv = view.findViewById(R.id.rv_armorset_list);
         mArmorSetListRv.setLayoutManager(new LinearLayoutManager(getContext()));
-        mAdapter = new ArmorSetListAdapter(getContext(), new ArrayList<ArmorSet>());
+        mAdapter = new ArmorSetListAdapter(
+                getContext(),
+                new ArrayList<ArmorSet>(),
+                new MonsterListAdapter.OnListItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        //TODO: Go to armor set details
+                    }
+                });
         mArmorSetListRv.setAdapter(mAdapter);
         setupViewModel();
     }

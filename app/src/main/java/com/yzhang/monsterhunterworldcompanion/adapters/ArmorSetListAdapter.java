@@ -19,10 +19,15 @@ public class ArmorSetListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private Context mContext;
     private List<ArmorSet> mArmorSetList;
+    private MonsterListAdapter.OnListItemClickListener mListener;
 
-    public ArmorSetListAdapter(Context context, List<ArmorSet> armorSetList) {
+    public ArmorSetListAdapter(
+            Context context,
+            List<ArmorSet> armorSetList,
+            MonsterListAdapter.OnListItemClickListener listener) {
         mContext = context;
         mArmorSetList = armorSetList;
+        mListener = listener;
     }
 
     @NonNull
@@ -58,7 +63,7 @@ public class ArmorSetListAdapter extends RecyclerView.Adapter<ViewHolder> {
         notifyDataSetChanged();
     }
 
-    class ArmorSetViewHolder extends ViewHolder {
+    class ArmorSetViewHolder extends ViewHolder implements View.OnClickListener {
 
         private TextView nameTv;
         private TextView defenceTv;
@@ -78,6 +83,12 @@ public class ArmorSetListAdapter extends RecyclerView.Adapter<ViewHolder> {
             waterTv = itemView.findViewById(R.id.tv_elemental_water);
             dragonTv = itemView.findViewById(R.id.tv_elemental_dragon);
         }
+
+        @Override
+        public void onClick(View v) {
+            mListener.onItemClick(getAdapterPosition());
+        }
+
     }
 
 }

@@ -14,6 +14,7 @@ import com.yzhang.monsterhunterworldcompanion.apirequest.GetMonsters;
 import com.yzhang.monsterhunterworldcompanion.apirequest.UrlUtils;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppExecutors;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorDetail;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSetMaster;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
@@ -150,6 +151,9 @@ public class MainActivity extends AppCompatActivity {
                         db.armorSetDao().insertArmorSets(armorSetList.toArray(new ArmorSet[armorSetList.size()]));
                     }
                 });
+
+                List<ArmorDetail> armorDetailList = getArmorDetails(armorSetMasterList);
+                displayArmorDetail(armorDetailList);
                 //TODO: save armor data into multiple database table
             }
 
@@ -158,6 +162,62 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(LOG_TAG, "Failed to connect" + UrlUtils.BASE_URL + UrlUtils.ALL_ARMORSET_PATH);
             }
         });
+    }
+
+    /** Get list of ArmorDetails from armorSetMasterList */
+    private List<ArmorDetail> getArmorDetails(List<ArmorSetMaster> armorSetMasterList) {
+        List<ArmorDetail> armorDetailList = new ArrayList<>();
+        for(ArmorSetMaster armorSetMaster: armorSetMasterList) {
+            ArmorDetail armorDetail = new ArmorDetail(
+                    armorSetMaster.getId(),
+                    ArmorSetMaster.getSetSkillName(armorSetMaster),
+                    ArmorSetMaster.getSetSkills(armorSetMaster),
+                    ArmorSetMaster.getSetSkillDescription(armorSetMaster),
+                    ArmorSetMaster.getArmorPieceName(armorSetMaster, getString(R.string.armor_piece_helm)),
+                    ArmorSetMaster.getArmorPieceSkills(armorSetMaster, getString(R.string.armor_piece_helm)),
+                    ArmorSetMaster.getArmorPieceSlots(armorSetMaster, getString(R.string.armor_piece_helm)),
+                    ArmorSetMaster.getArmorPieceName(armorSetMaster, getString(R.string.armor_piece_mail)),
+                    ArmorSetMaster.getArmorPieceSkills(armorSetMaster, getString(R.string.armor_piece_mail)),
+                    ArmorSetMaster.getArmorPieceSlots(armorSetMaster, getString(R.string.armor_piece_mail)),
+                    ArmorSetMaster.getArmorPieceName(armorSetMaster, getString(R.string.armor_piece_arm)),
+                    ArmorSetMaster.getArmorPieceSkills(armorSetMaster, getString(R.string.armor_piece_arm)),
+                    ArmorSetMaster.getArmorPieceSlots(armorSetMaster, getString(R.string.armor_piece_arm)),
+                    ArmorSetMaster.getArmorPieceName(armorSetMaster, getString(R.string.armor_piece_waist)),
+                    ArmorSetMaster.getArmorPieceSkills(armorSetMaster, getString(R.string.armor_piece_waist)),
+                    ArmorSetMaster.getArmorPieceSlots(armorSetMaster, getString(R.string.armor_piece_waist)),
+                    ArmorSetMaster.getArmorPieceName(armorSetMaster, getString(R.string.armor_piece_leg)),
+                    ArmorSetMaster.getArmorPieceSkills(armorSetMaster, getString(R.string.armor_piece_leg)),
+                    ArmorSetMaster.getArmorPieceSlots(armorSetMaster, getString(R.string.armor_piece_leg)));
+            //Log.v(LOG_TAG, "Mail name: " + ArmorSetMaster.getArmorPieceName(armorSetMaster, getString(R.string.armor_piece_helm)));
+            armorDetailList.add(armorDetail);
+        }
+        return armorDetailList;
+    }
+
+    private void displayArmorDetail(List<ArmorDetail> armorDetailList) {
+        for(ArmorDetail armorDetail: armorDetailList) {
+            if(armorDetail.getMailName() == null || armorDetail.getMailName().isEmpty()) {
+                continue;
+            }
+            Log.v(LOG_TAG, armorDetail.getMailName());
+            if(armorDetail.getMailSkills() == null || armorDetail.getMailSkills().isEmpty()) {
+                Log.v(LOG_TAG, "No armor skills!");
+            } else {
+                int size = armorDetail.getMailSkills().size();
+                for(int i = 0; i < size; i++) {
+                    Log.v(LOG_TAG, armorDetail.getMailSkills().get(i).first + " Level " + armorDetail.getMailSkills().get(i).second);
+                }
+            }
+            if(armorDetail.getMailSlots() == null || armorDetail.getMailSlots().isEmpty()) {
+                Log.v(LOG_TAG, "No decor slots!");
+            } else {
+                int size = armorDetail.getMailSlots().size();
+                for(int i = 0; i < size; i++) {
+                    Log.v(LOG_TAG, armorDetail.getMailSlots().get(i) + "");
+                }
+            }
+
+        }
     }
 
 }

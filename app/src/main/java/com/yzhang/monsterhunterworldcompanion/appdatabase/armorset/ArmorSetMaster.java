@@ -5,6 +5,12 @@ import java.util.List;
 /** Armor set class */
 public class ArmorSetMaster {
 
+    private static final String HELM = "head";
+    private static final String MAIL = "chest";
+    private static final String ARM = "gloves";
+    private static final String WAIST = "waist";
+    private static final String LEG = "legs";
+
     private int id;
     private String name;
     private String rank;
@@ -39,6 +45,121 @@ public class ArmorSetMaster {
             armorSetMaster.iceRes += armorPiece.getResistances().getIce();
             armorSetMaster.waterRes += armorPiece.getResistances().getWater();
             armorSetMaster.dragonRes += armorPiece.getResistances().getDragon();
+        }
+    }
+
+    public static String getSetSkillName(ArmorSetMaster armorSetMaster) {
+        if(armorSetMaster.getBonus() == null || armorSetMaster.getBonus().getRanks().isEmpty()) {
+            return "";
+        }
+        return armorSetMaster.getBonus().getName();
+    }
+
+    public static String getSetSkills(ArmorSetMaster armorSetMaster) {
+        if(armorSetMaster.getBonus() == null || armorSetMaster.getBonus().getRanks().isEmpty()) {
+            return "";
+        }
+        String setSkills = "";
+        List<Bonus.Rank> rankList = armorSetMaster.getBonus().getRanks();
+        for(int i = 0; i < rankList.size(); i++) {
+            setSkills += rankList.get(i).getSkill().getSkillName();
+            setSkills += "@";
+            setSkills += rankList.get(i).getPieces();
+            if(i != rankList.size() - 1) {
+                setSkills += "@";
+            }
+        }
+        return setSkills;
+    }
+
+    public static String getSetSkillDescription(ArmorSetMaster armorSetMaster) {
+        if(armorSetMaster.getBonus() == null || armorSetMaster.getBonus().getRanks().isEmpty()) {
+            return "";
+        }
+        String setSkillDescriptions = "";
+        List<Bonus.Rank> rankList = armorSetMaster.getBonus().getRanks();
+        for(int i = 0; i < rankList.size(); i++) {
+            setSkillDescriptions += rankList.get(i).getSkill().getDescription();
+            if(i != rankList.size() - 1) {
+                setSkillDescriptions += "@";
+            }
+        }
+        return setSkillDescriptions;
+    }
+
+    public static String getArmorPieceName(ArmorSetMaster armorSetMaster, String type) {
+        ArmorPiece armorPiece = getArmorPieceByType(armorSetMaster, type);
+        if(armorPiece == null) {
+            return "";
+        }
+        return armorPiece.getName();
+    }
+
+    public static String getArmorPieceSkills(ArmorSetMaster armorSetMaster, String type) {
+        ArmorPiece armorPiece = getArmorPieceByType(armorSetMaster, type);
+        String skills = "";
+        if(armorPiece == null || armorPiece.getSkills() == null || armorPiece.getSkills().isEmpty()) {
+            return skills;
+        }
+        for(int i = 0; i < armorPiece.getSkills().size(); i++) {
+            skills += armorPiece.getSkills().get(i).getSkillName();
+            skills += "@";
+            skills += armorPiece.getSkills().get(i).getLevel();
+            if(i != armorPiece.getSkills().size() - 1) {
+                skills += "@";
+            }
+        }
+        return skills;
+    }
+
+    public static String getArmorPieceSlots(ArmorSetMaster armorSetMaster, String type) {
+        ArmorPiece armorPiece = getArmorPieceByType(armorSetMaster, type);
+        String slots = "";
+        if(armorPiece == null || armorPiece.getSlots() == null || armorPiece.getSlots().isEmpty()) {
+            return slots;
+        }
+        for(int i = 0; i < armorPiece.getSlots().size(); i++) {
+            slots += armorPiece.getSlots().get(i).getRank();
+            if(i != armorPiece.getSlots().size() - 1) {
+                slots += "@";
+            }
+        }
+        return slots;
+    }
+
+    private static ArmorPiece getArmorPieceByType(ArmorSetMaster armorSetMaster, String type) {
+        switch (type) {
+            case HELM:
+                for(ArmorPiece armorPiece: armorSetMaster.getPieces()) {
+                    if(armorPiece.getType().equals(HELM)) {
+                        return armorPiece;
+                    }
+                }
+            case MAIL:
+                for(ArmorPiece armorPiece: armorSetMaster.getPieces()) {
+                    if(armorPiece.getType().equals(MAIL)) {
+                        return armorPiece;
+                    }
+                }
+            case ARM:
+                for(ArmorPiece armorPiece: armorSetMaster.getPieces()) {
+                    if(armorPiece.getType().equals(ARM)) {
+                        return armorPiece;
+                    }
+                }
+            case WAIST:
+                for(ArmorPiece armorPiece: armorSetMaster.getPieces()) {
+                    if(armorPiece.getType().equals(WAIST)) {
+                        return armorPiece;
+                    }
+                }
+            case LEG:
+                for(ArmorPiece armorPiece: armorSetMaster.getPieces()) {
+                    if(armorPiece.getType().equals(LEG)) {
+                        return armorPiece;
+                    }
+                }
+            default: return null;
         }
     }
 
@@ -446,12 +567,10 @@ public class ArmorSetMaster {
 
             private int pieces;
             private ArmorSetSkill skill;
-            private String skillName;
 
-            public Rank(int pieces, ArmorSetSkill skill, String skillName) {
+            public Rank(int pieces, ArmorSetSkill skill) {
                 this.pieces = pieces;
                 this.skill = skill;
-                this.skillName = skillName;
             }
 
             public int getPieces() {
@@ -470,21 +589,15 @@ public class ArmorSetMaster {
                 this.skill = skill;
             }
 
-            public String getSkillName() {
-                return skillName;
-            }
-
-            public void setSkillName(String skillName) {
-                this.skillName = skillName;
-            }
-
             /** Armor Set Skill inner class */
             public static class ArmorSetSkill {
 
                 private String description;
+                private String skillName;
 
-                public ArmorSetSkill(String description) {
+                public ArmorSetSkill(String description, String skillName) {
                     this.description = description;
+                    this.skillName = skillName;
                 }
 
                 public String getDescription() {
@@ -494,6 +607,15 @@ public class ArmorSetMaster {
                 public void setDescription(String description) {
                     this.description = description;
                 }
+
+                public String getSkillName() {
+                    return skillName;
+                }
+
+                public void setSkillName(String skillName) {
+                    this.skillName = skillName;
+                }
+
             }
 
         }
