@@ -52,7 +52,7 @@ public class ArmorDetail {
     private String waistName;
     @ColumnInfo(name = "waistSkills")
     private String waistSkills;
-    @ColumnInfo(name = "helmSlots")
+    @ColumnInfo(name = "waistSlots")
     private String waistSlots;
 
     @ColumnInfo(name = "legName")
@@ -159,7 +159,7 @@ public class ArmorDetail {
         return setSkillName;
     }
 
-    public List<Pair<String, String>> getSetSkills() {
+    public List<Pair<String, String>> getSetSkillList() {
         List<Pair<String, String>> setSkillList = new ArrayList<>();
         String[] rawData = this.setSkills.split("@");
         List<String> nameList = new ArrayList<>();
@@ -178,7 +178,7 @@ public class ArmorDetail {
         return setSkillList;
     }
 
-    public List<String> getSetSkillDescription() {
+    public List<String> getSetSkillDescriptionList() {
         String[] rawData = this.setSkillDescription.split("@");
         return Arrays.asList(rawData);
     }
@@ -187,7 +187,7 @@ public class ArmorDetail {
         return helmName;
     }
 
-    public List<Pair<String, String>> getHelmSkills() {
+    public List<Pair<String, String>> getHelmSkillList() {
         List<Pair<String, String>> skillList = new ArrayList<>();
         if(this.helmSkills == null || this.helmSkills.isEmpty()) {
             return null;
@@ -209,7 +209,7 @@ public class ArmorDetail {
         return skillList;
     }
 
-    public List<String> getHelmSlots() {
+    public List<String> getHelmSlotList() {
         if(this.helmSlots == null || this.helmSlots.isEmpty()) {
             return null;
         }
@@ -223,7 +223,7 @@ public class ArmorDetail {
         return mailName;
     }
 
-    public List<Pair<String, String>> getMailSkills() {
+    public List<Pair<String, String>> getMailSkillList() {
         List<Pair<String, String>> skillList = new ArrayList<>();
         if(this.mailSkills == null || this.mailSkills.isEmpty()) {
             return null;
@@ -245,7 +245,7 @@ public class ArmorDetail {
         return skillList;
     }
 
-    public List<String> getMailSlots() {
+    public List<String> getMailSlotList() {
         if(this.mailSlots == null || this.mailSlots.isEmpty()) {
             return null;
         }
@@ -259,7 +259,7 @@ public class ArmorDetail {
         return armName;
     }
 
-    public List<Pair<String, String>> getArmSkills() {
+    public List<Pair<String, String>> getArmSkillList() {
         List<Pair<String, String>> skillList = new ArrayList<>();
         if(this.armSkills == null || this.armSkills.isEmpty()) {
             return null;
@@ -281,7 +281,7 @@ public class ArmorDetail {
         return skillList;
     }
 
-    public List<String> getArmSlots() {
+    public List<String> getArmSlotList() {
         if(this.armSlots == null || this.armSlots.isEmpty()) {
             return null;
         }
@@ -295,7 +295,7 @@ public class ArmorDetail {
         return waistName;
     }
 
-    public List<Pair<String, String>> getWaistSkills() {
+    public List<Pair<String, String>> getWaistSkillList() {
         List<Pair<String, String>> skillList = new ArrayList<>();
         if(this.waistSkills == null || this.waistSkills.isEmpty()) {
             return null;
@@ -317,7 +317,7 @@ public class ArmorDetail {
         return skillList;
     }
 
-    public List<String> getWaistSlots() {
+    public List<String> getWaistSlotList() {
         if(this.waistSlots == null || this.waistSlots.isEmpty()) {
             return null;
         }
@@ -331,7 +331,7 @@ public class ArmorDetail {
         return legName;
     }
 
-    public List<Pair<String, String>> getLegSkills() {
+    public List<Pair<String, String>> getLegSkillList() {
         List<Pair<String, String>> skillList = new ArrayList<>();
         if(this.legSkills == null || this.legSkills.isEmpty()) {
             return null;
@@ -353,7 +353,7 @@ public class ArmorDetail {
         return skillList;
     }
 
-    public List<String> getLegSlots() {
+    public List<String> getLegSlotList() {
         if(this.legSlots == null || this.legSlots.isEmpty()) {
             return null;
         }
@@ -361,6 +361,54 @@ public class ArmorDetail {
         List<String> slots = Arrays.asList(rawData);
         Collections.sort(slots, Collections.reverseOrder());
         return slots;
+    }
+
+    public String getSetSkills() {
+        return setSkills;
+    }
+
+    public String getSetSkillDescription() {
+        return setSkillDescription;
+    }
+
+    public String getHelmSkills() {
+        return helmSkills;
+    }
+
+    public String getHelmSlots() {
+        return helmSlots;
+    }
+
+    public String getMailSkills() {
+        return mailSkills;
+    }
+
+    public String getMailSlots() {
+        return mailSlots;
+    }
+
+    public String getArmSkills() {
+        return armSkills;
+    }
+
+    public String getArmSlots() {
+        return armSlots;
+    }
+
+    public String getWaistSkills() {
+        return waistSkills;
+    }
+
+    public String getWaistSlots() {
+        return waistSlots;
+    }
+
+    public String getLegSkills() {
+        return legSkills;
+    }
+
+    public String getLegSlots() {
+        return legSlots;
     }
 
 }

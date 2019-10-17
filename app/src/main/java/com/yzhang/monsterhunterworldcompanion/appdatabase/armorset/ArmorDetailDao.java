@@ -17,13 +17,13 @@ public interface ArmorDetailDao {
     LiveData<List<ArmorDetail>> getAll();
 
     @Query("SELECT * FROM armorDetail WHERE armorSetId = :id")
-    LiveData<ArmorSet> getArmorSetById(int id);
+    LiveData<ArmorDetail> getArmorDetailById(int id);
 
     @Insert
     void insertArmorDetail(ArmorDetail newArmorDetail);
 
     @Insert
-    void insertAArmorDetails(ArmorDetail... armorDetails);
+    void insertArmorDetails(ArmorDetail... armorDetails);
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void updateArmorDetail(ArmorDetail armorDetail);

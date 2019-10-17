@@ -144,17 +144,15 @@ public class MainActivity extends AppCompatActivity {
                             armorSetMaster.getDragonRes());
                     armorSetList.add(armorSet);
                 }
+                final List<ArmorDetail> armorDetailList = getArmorDetails(armorSetMasterList);
                 AppExecutors.getInstance().diskIO().execute(new Runnable() {
                     @Override
                     public void run() {
                         AppDataBase db = AppDataBase.getInstance(MainActivity.this);
                         db.armorSetDao().insertArmorSets(armorSetList.toArray(new ArmorSet[armorSetList.size()]));
+                        db.armorDetailDao().insertArmorDetails(armorDetailList.toArray(new ArmorDetail[armorDetailList.size()]));
                     }
                 });
-
-                List<ArmorDetail> armorDetailList = getArmorDetails(armorSetMasterList);
-                displayArmorDetail(armorDetailList);
-                //TODO: save armor data into multiple database table
             }
 
             @Override
@@ -188,36 +186,9 @@ public class MainActivity extends AppCompatActivity {
                     ArmorSetMaster.getArmorPieceName(armorSetMaster, getString(R.string.armor_piece_leg)),
                     ArmorSetMaster.getArmorPieceSkills(armorSetMaster, getString(R.string.armor_piece_leg)),
                     ArmorSetMaster.getArmorPieceSlots(armorSetMaster, getString(R.string.armor_piece_leg)));
-            //Log.v(LOG_TAG, "Mail name: " + ArmorSetMaster.getArmorPieceName(armorSetMaster, getString(R.string.armor_piece_helm)));
             armorDetailList.add(armorDetail);
         }
         return armorDetailList;
-    }
-
-    private void displayArmorDetail(List<ArmorDetail> armorDetailList) {
-        for(ArmorDetail armorDetail: armorDetailList) {
-            if(armorDetail.getMailName() == null || armorDetail.getMailName().isEmpty()) {
-                continue;
-            }
-            Log.v(LOG_TAG, armorDetail.getMailName());
-            if(armorDetail.getMailSkills() == null || armorDetail.getMailSkills().isEmpty()) {
-                Log.v(LOG_TAG, "No armor skills!");
-            } else {
-                int size = armorDetail.getMailSkills().size();
-                for(int i = 0; i < size; i++) {
-                    Log.v(LOG_TAG, armorDetail.getMailSkills().get(i).first + " Level " + armorDetail.getMailSkills().get(i).second);
-                }
-            }
-            if(armorDetail.getMailSlots() == null || armorDetail.getMailSlots().isEmpty()) {
-                Log.v(LOG_TAG, "No decor slots!");
-            } else {
-                int size = armorDetail.getMailSlots().size();
-                for(int i = 0; i < size; i++) {
-                    Log.v(LOG_TAG, armorDetail.getMailSlots().get(i) + "");
-                }
-            }
-
-        }
     }
 
 }
