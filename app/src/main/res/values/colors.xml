@@ -6,6 +6,7 @@
     <color name="navButtonBackgroundColor">#80000000</color>
     <color name="monsterListItemBackgroundColor">#80000000</color>
     <color name="armorsetListItemBackgroundColor">#80000000</color>
+    <color name="labelOrTitleTextBackgroundColor">#80000000</color>
     <color name="monsterDetailBackgroundColor">#455a64</color>
     <color name="navButtonTextColor">#FFF</color>
     <color name="colorWhite">#FFF</color>

@@ -1,9 +1,611 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/monsterDetailBackgroundColor"
     tools:context=".ArmorSetDetailActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/sapphire_star"
+        android:scaleType="fitStart" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_armor_set_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/label_title_text_background"
+                android:gravity="center"
+                android:layout_margin="@dimen/armorset_detail_title_text_margin"
+                tools:text="Armor Set Name"
+                style="@style/ArmorSetDetailTitleTextStyle"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/label_title_text_background"
+                    android:gravity="center"
+                    android:text="@string/armor_detail_armorlist_label"
+                    style="@style/ArmorSetDetailArmorListLabelTextStyle"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/armorset_detail_armor_piece_padding">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="24dp"
+                        app:layout_constraintStart_toStartOf="@+id/iv_helm_decor_1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/helm_icon" />
+
+                    <ImageView
+                        android:id="@+id/iv_helm_decor_1"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="16dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView"
+                        app:srcCompat="@drawable/decorlv4" />
+
+                    <ImageView
+                        android:id="@+id/iv_helm_decor_2"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_helm_decor_1"
+                        app:layout_constraintStart_toEndOf="@+id/iv_helm_decor_1"
+                        app:layout_constraintTop_toTopOf="@+id/iv_helm_decor_1"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/decorlv2" />
+
+                    <ImageView
+                        android:id="@+id/iv_helm_decor_3"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_helm_decor_2"
+                        app:layout_constraintStart_toEndOf="@+id/iv_helm_decor_2"
+                        app:layout_constraintTop_toTopOf="@+id/iv_helm_decor_2"
+                        app:srcCompat="@drawable/decorlv1" />
+
+                    <TextView
+                        android:id="@+id/tv_helm_name"
+                        style="@style/ArmorSetDetailArmorPieceNameTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/iv_helm_decor_3"
+                        app:layout_constraintTop_toTopOf="@+id/imageView"
+                        tools:text="Helm Armor Name" />
+
+                    <ImageView
+                        android:id="@+id/iv_helm_skill_1_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginTop="16dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_helm_decor_3"
+                        app:layout_constraintStart_toStartOf="@+id/tv_helm_name"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_helm_name"
+                        app:srcCompat="@drawable/skill_plate_holder" />
+
+                    <TextView
+                        android:id="@+id/tv_helm_skill_1"
+                        style="@style/ArmorSetDetailArmorPieceSkillTextStyle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_helm_skill_1_icon"
+                        app:layout_constraintStart_toEndOf="@+id/iv_helm_skill_1_icon"
+                        app:layout_constraintTop_toTopOf="@+id/iv_helm_skill_1_icon"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Helm Skill 1" />
+
+                    <ImageView
+                        android:id="@+id/iv_helm_skill_2_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="12dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_helm_skill_1"
+                        app:layout_constraintStart_toEndOf="@+id/tv_helm_skill_1"
+                        app:layout_constraintTop_toTopOf="@+id/tv_helm_skill_1"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/skill_plate_holder" />
+
+                    <TextView
+                        android:id="@+id/tv_helm_skill_2"
+                        style="@style/ArmorSetDetailArmorPieceSkillTextStyle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_helm_skill_2_icon"
+                        app:layout_constraintStart_toEndOf="@+id/iv_helm_skill_2_icon"
+                        app:layout_constraintTop_toTopOf="@+id/iv_helm_skill_2_icon"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Helm Skill 2" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/armorset_detail_armor_piece_padding">
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="24dp"
+                        app:layout_constraintStart_toStartOf="@+id/iv_mail_decor_1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/mail_icon" />
+
+                    <ImageView
+                        android:id="@+id/iv_mail_decor_1"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="16dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView1"
+                        app:srcCompat="@drawable/decorlv4" />
+
+                    <ImageView
+                        android:id="@+id/iv_mail_decor_2"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_mail_decor_1"
+                        app:layout_constraintStart_toEndOf="@+id/iv_mail_decor_1"
+                        app:layout_constraintTop_toTopOf="@+id/iv_mail_decor_1"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/decorlv2" />
+
+                    <ImageView
+                        android:id="@+id/iv_mail_decor_3"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_mail_decor_2"
+                        app:layout_constraintStart_toEndOf="@+id/iv_mail_decor_2"
+                        app:layout_constraintTop_toTopOf="@+id/iv_mail_decor_2"
+                        app:srcCompat="@drawable/decorlv1" />
+
+                    <TextView
+                        android:id="@+id/tv_mail_name"
+                        style="@style/ArmorSetDetailArmorPieceNameTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/iv_mail_decor_3"
+                        app:layout_constraintTop_toTopOf="@+id/imageView1"
+                        tools:text="Mail Armor Name" />
+
+                    <ImageView
+                        android:id="@+id/iv_mail_skill_1_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginTop="16dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_mail_decor_3"
+                        app:layout_constraintStart_toStartOf="@+id/tv_mail_name"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_mail_name"
+                        app:srcCompat="@drawable/skill_plate_holder" />
+
+                    <TextView
+                        android:id="@+id/tv_mail_skill_1"
+                        style="@style/ArmorSetDetailArmorPieceSkillTextStyle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_mail_skill_1_icon"
+                        app:layout_constraintStart_toEndOf="@+id/iv_mail_skill_1_icon"
+                        app:layout_constraintTop_toTopOf="@+id/iv_mail_skill_1_icon"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Mail Skill 1" />
+
+                    <ImageView
+                        android:id="@+id/iv_mail_skill_2_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="12dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_mail_skill_1"
+                        app:layout_constraintStart_toEndOf="@+id/tv_mail_skill_1"
+                        app:layout_constraintTop_toTopOf="@+id/tv_mail_skill_1"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/skill_plate_holder" />
+
+                    <TextView
+                        android:id="@+id/tv_mail_skill_2"
+                        style="@style/ArmorSetDetailArmorPieceSkillTextStyle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_mail_skill_2_icon"
+                        app:layout_constraintStart_toEndOf="@+id/iv_mail_skill_2_icon"
+                        app:layout_constraintTop_toTopOf="@+id/iv_mail_skill_2_icon"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Mail Skill 2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/armorset_detail_armor_piece_padding">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="24dp"
+                        app:layout_constraintStart_toStartOf="@+id/iv_arm_decor_1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/arm_icon" />
+
+                    <ImageView
+                        android:id="@+id/iv_arm_decor_1"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="16dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                        app:srcCompat="@drawable/decorlv4" />
+
+                    <ImageView
+                        android:id="@+id/iv_arm_decor_2"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_arm_decor_1"
+                        app:layout_constraintStart_toEndOf="@+id/iv_arm_decor_1"
+                        app:layout_constraintTop_toTopOf="@+id/iv_arm_decor_1"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/decorlv2" />
+
+                    <ImageView
+                        android:id="@+id/iv_arm_decor_3"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_arm_decor_2"
+                        app:layout_constraintStart_toEndOf="@+id/iv_arm_decor_2"
+                        app:layout_constraintTop_toTopOf="@+id/iv_arm_decor_2"
+                        app:srcCompat="@drawable/decorlv1" />
+
+                    <TextView
+                        android:id="@+id/tv_arm_name"
+                        style="@style/ArmorSetDetailArmorPieceNameTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/iv_arm_decor_3"
+                        app:layout_constraintTop_toTopOf="@+id/imageView2"
+                        tools:text="Arm Armor Name" />
+
+                    <ImageView
+                        android:id="@+id/iv_arm_skill_1_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginTop="16dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_arm_decor_3"
+                        app:layout_constraintStart_toStartOf="@+id/tv_arm_name"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_arm_name"
+                        app:srcCompat="@drawable/skill_plate_holder" />
+
+                    <TextView
+                        android:id="@+id/tv_arm_skill_1"
+                        style="@style/ArmorSetDetailArmorPieceSkillTextStyle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_arm_skill_1_icon"
+                        app:layout_constraintStart_toEndOf="@+id/iv_arm_skill_1_icon"
+                        app:layout_constraintTop_toTopOf="@+id/iv_arm_skill_1_icon"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Arm Skill 1" />
+
+                    <ImageView
+                        android:id="@+id/iv_arm_skill_2_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="12dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_arm_skill_1"
+                        app:layout_constraintStart_toEndOf="@+id/tv_arm_skill_1"
+                        app:layout_constraintTop_toTopOf="@+id/tv_arm_skill_1"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/skill_plate_holder" />
+
+                    <TextView
+                        android:id="@+id/tv_arm_skill_2"
+                        style="@style/ArmorSetDetailArmorPieceSkillTextStyle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_arm_skill_2_icon"
+                        app:layout_constraintStart_toEndOf="@+id/iv_arm_skill_2_icon"
+                        app:layout_constraintTop_toTopOf="@+id/iv_arm_skill_2_icon"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Arm Skill 2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/armorset_detail_armor_piece_padding">
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="24dp"
+                        app:layout_constraintStart_toStartOf="@+id/iv_waist_decor_1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/waist_icon" />
+
+                    <ImageView
+                        android:id="@+id/iv_waist_decor_1"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="16dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                        app:srcCompat="@drawable/decorlv4" />
+
+                    <ImageView
+                        android:id="@+id/iv_waist_decor_2"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_waist_decor_1"
+                        app:layout_constraintStart_toEndOf="@+id/iv_waist_decor_1"
+                        app:layout_constraintTop_toTopOf="@+id/iv_waist_decor_1"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/decorlv2" />
+
+                    <ImageView
+                        android:id="@+id/iv_waist_decor_3"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_waist_decor_2"
+                        app:layout_constraintStart_toEndOf="@+id/iv_waist_decor_2"
+                        app:layout_constraintTop_toTopOf="@+id/iv_waist_decor_2"
+                        app:srcCompat="@drawable/decorlv1" />
+
+                    <TextView
+                        android:id="@+id/tv_waist_name"
+                        style="@style/ArmorSetDetailArmorPieceNameTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/iv_waist_decor_3"
+                        app:layout_constraintTop_toTopOf="@+id/imageView3"
+                        tools:text="Waist Armor Name" />
+
+                    <ImageView
+                        android:id="@+id/iv_waist_skill_1_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginTop="16dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_waist_decor_3"
+                        app:layout_constraintStart_toStartOf="@+id/tv_waist_name"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_waist_name"
+                        app:srcCompat="@drawable/skill_plate_holder" />
+
+                    <TextView
+                        android:id="@+id/tv_waist_skill_1"
+                        style="@style/ArmorSetDetailArmorPieceSkillTextStyle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_waist_skill_1_icon"
+                        app:layout_constraintStart_toEndOf="@+id/iv_waist_skill_1_icon"
+                        app:layout_constraintTop_toTopOf="@+id/iv_waist_skill_1_icon"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Waist Skill 1" />
+
+                    <ImageView
+                        android:id="@+id/iv_waist_skill_2_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="12dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_waist_skill_1"
+                        app:layout_constraintStart_toEndOf="@+id/tv_waist_skill_1"
+                        app:layout_constraintTop_toTopOf="@+id/tv_waist_skill_1"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/skill_plate_holder" />
+
+                    <TextView
+                        android:id="@+id/tv_waist_skill_2"
+                        style="@style/ArmorSetDetailArmorPieceSkillTextStyle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_waist_skill_2_icon"
+                        app:layout_constraintStart_toEndOf="@+id/iv_waist_skill_2_icon"
+                        app:layout_constraintTop_toTopOf="@+id/iv_waist_skill_2_icon"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Waist Skill 2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/armorset_detail_armor_piece_padding">
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="24dp"
+                        app:layout_constraintStart_toStartOf="@+id/iv_leg_decor_1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/leg_icon" />
+
+                    <ImageView
+                        android:id="@+id/iv_leg_decor_1"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="16dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+                        app:srcCompat="@drawable/decorlv4" />
+
+                    <ImageView
+                        android:id="@+id/iv_leg_decor_2"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_leg_decor_1"
+                        app:layout_constraintStart_toEndOf="@+id/iv_leg_decor_1"
+                        app:layout_constraintTop_toTopOf="@+id/iv_leg_decor_1"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/decorlv2" />
+
+                    <ImageView
+                        android:id="@+id/iv_leg_decor_3"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_leg_decor_2"
+                        app:layout_constraintStart_toEndOf="@+id/iv_leg_decor_2"
+                        app:layout_constraintTop_toTopOf="@+id/iv_leg_decor_2"
+                        app:srcCompat="@drawable/decorlv1" />
+
+                    <TextView
+                        android:id="@+id/tv_leg_name"
+                        style="@style/ArmorSetDetailArmorPieceNameTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/iv_leg_decor_3"
+                        app:layout_constraintTop_toTopOf="@+id/imageView4"
+                        tools:text="Leg Armor Name" />
+
+                    <ImageView
+                        android:id="@+id/iv_leg_skill_1_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginTop="16dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_leg_decor_3"
+                        app:layout_constraintStart_toStartOf="@+id/tv_leg_name"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_leg_name"
+                        app:srcCompat="@drawable/skill_plate_holder" />
+
+                    <TextView
+                        android:id="@+id/tv_leg_skill_1"
+                        style="@style/ArmorSetDetailArmorPieceSkillTextStyle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_leg_skill_1_icon"
+                        app:layout_constraintStart_toEndOf="@+id/iv_leg_skill_1_icon"
+                        app:layout_constraintTop_toTopOf="@+id/iv_leg_skill_1_icon"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Leg Skill 1" />
+
+                    <ImageView
+                        android:id="@+id/iv_leg_skill_2_icon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="12dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_leg_skill_1"
+                        app:layout_constraintStart_toEndOf="@+id/tv_leg_skill_1"
+                        app:layout_constraintTop_toTopOf="@+id/tv_leg_skill_1"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/skill_plate_holder" />
+
+                    <TextView
+                        android:id="@+id/tv_leg_skill_2"
+                        style="@style/ArmorSetDetailArmorPieceSkillTextStyle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_leg_skill_2_icon"
+                        app:layout_constraintStart_toEndOf="@+id/iv_leg_skill_2_icon"
+                        app:layout_constraintTop_toTopOf="@+id/iv_leg_skill_2_icon"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Leg Skill 2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/label_title_text_background"
+                    android:gravity="center"
+                    android:text="@string/armor_detail_skill_summary_label"
+                    style="@style/ArmorSetDetailArmorListLabelTextStyle"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_skill_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/label_title_text_background"
+                    android:gravity="center"
+                    android:text="@string/armor_detail_set_skill_label"
+                    style="@style/ArmorSetDetailArmorListLabelTextStyle"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>
