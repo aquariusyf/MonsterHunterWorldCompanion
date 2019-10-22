@@ -1,6 +1,7 @@
 package com.yzhang.monsterhunterworldcompanion.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.yzhang.monsterhunterworldcompanion.ArmorSetDetailActivity;
 import com.yzhang.monsterhunterworldcompanion.R;
 import com.yzhang.monsterhunterworldcompanion.adapters.ArmorSetListAdapter;
 import com.yzhang.monsterhunterworldcompanion.adapters.MonsterListAdapter;
@@ -31,6 +33,7 @@ public class ArmorSetListFragment extends Fragment {
     private static final String MASTER_RANK = "master";
     private static final String HIGH_RANK = "high";
     private static final String LOW_RANK = "low";
+    public static final String ARMOR_SET_ID_KEY = "armor_set_id";
 
     //UI
     private RecyclerView mArmorSetListRv;
@@ -71,8 +74,10 @@ public class ArmorSetListFragment extends Fragment {
                 new ArrayList<ArmorSet>(),
                 new MonsterListAdapter.OnListItemClickListener() {
                     @Override
-                    public void onItemClick(int position) {
-                        //TODO: Go to armor set details
+                    public void onItemClick(int armorSetId) {
+                        Intent intent = new Intent(getActivity(), ArmorSetDetailActivity.class);
+                        intent.putExtra(ARMOR_SET_ID_KEY, armorSetId);
+                        startActivity(intent);
                     }
                 });
         mArmorSetListRv.setAdapter(mAdapter);

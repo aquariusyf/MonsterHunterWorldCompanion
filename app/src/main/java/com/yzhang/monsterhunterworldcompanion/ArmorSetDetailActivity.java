@@ -2,9 +2,12 @@ package com.yzhang.monsterhunterworldcompanion;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.yzhang.monsterhunterworldcompanion.fragment.ArmorSetListFragment;
 
 public class ArmorSetDetailActivity extends AppCompatActivity {
 
@@ -57,7 +60,8 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
     private ImageView mLegSkill2Icon;
     private TextView mLegSkill2Name;
 
-
+    //val
+    private int mArmorSetId;
 
 
     /** Life cycle begin */
@@ -65,6 +69,9 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_armor_set_detail);
+
+        getArmorSetId();
+        initViews();
     }
     /** Life cycle end */
 
@@ -115,6 +122,18 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
         mLegSkill2Icon = findViewById(R.id.iv_leg_skill_2_icon);
         mLegSkill2Name = findViewById(R.id.tv_leg_skill_2);
 
+    }
+
+    /** Get and check armor set id from intent */
+    private void getArmorSetId() {
+        Intent intent = getIntent();
+        if(intent == null) {
+            finish();
+        }
+        if(!intent.hasExtra(ArmorSetListFragment.ARMOR_SET_ID_KEY)) {
+            finish();
+        }
+        mArmorSetId = intent.getIntExtra(ArmorSetListFragment.ARMOR_SET_ID_KEY, -1);
     }
 
 }

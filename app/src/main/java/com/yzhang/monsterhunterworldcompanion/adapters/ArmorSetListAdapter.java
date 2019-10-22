@@ -86,7 +86,7 @@ public class ArmorSetListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
         @Override
         public void onClick(View v) {
-            mListener.onItemClick(getAdapterPosition());
+            mListener.onItemClick(mArmorSetList.get(getAdapterPosition()).getId());
         }
 
     }
