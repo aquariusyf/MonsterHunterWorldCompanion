@@ -10,6 +10,7 @@ import androidx.room.PrimaryKey;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 @Entity(tableName = "armorDetail")
@@ -419,6 +420,35 @@ public class ArmorDetail {
 
     public String getLegSlots() {
         return legSlots;
+    }
+
+    public static HashMap<String, Integer> getSkillSummary(ArmorDetail armorDetail) {
+        HashMap<String, Integer> skillSummary = new HashMap<>();
+        List<Pair<String, String>> helmSkills = armorDetail.getHelmSkillList();
+        List<Pair<String, String>> mailSkills = armorDetail.getMailSkillList();
+        List<Pair<String, String>> armSkills = armorDetail.getArmSkillList();
+        List<Pair<String, String>> waistSkills = armorDetail.getWaistSkillList();
+        List<Pair<String, String>> legSkills = armorDetail.getLegSkillList();
+        List<List<Pair<String, String>>> skills = new ArrayList<>();
+        skills.add(helmSkills);
+        skills.add(mailSkills);
+        skills.add(armSkills);
+        skills.add(waistSkills);
+        skills.add(legSkills);
+        for(List<Pair<String, String>> skillList: skills) {
+            if(skillList == null || skillList.isEmpty()) {
+                continue;
+            }
+            for(Pair<String, String> pair: skillList) {
+                if(skillSummary.containsKey(pair.first)) {
+                    skillSummary.put(pair.first, skillSummary.get(pair.first)
+                            + Integer.valueOf(pair.second));
+                } else {
+                    skillSummary.put(pair.first, Integer.valueOf(pair.second));
+                }
+            }
+        }
+        return skillSummary;
     }
 
 }
