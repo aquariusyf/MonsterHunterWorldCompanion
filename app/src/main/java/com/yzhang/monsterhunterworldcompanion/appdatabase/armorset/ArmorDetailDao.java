@@ -1,6 +1,5 @@
 package com.yzhang.monsterhunterworldcompanion.appdatabase.armorset;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,10 +13,10 @@ import java.util.List;
 public interface ArmorDetailDao {
 
     @Query("SELECT * FROM armorDetail ORDER BY armorSetId")
-    LiveData<List<ArmorDetail>> getAll();
+    List<ArmorDetail> getAll();
 
     @Query("SELECT * FROM armorDetail WHERE armorSetId = :id")
-    LiveData<ArmorDetail> getArmorDetailById(int id);
+    ArmorDetail getArmorDetailById(int id);
 
     @Insert
     void insertArmorDetail(ArmorDetail newArmorDetail);

@@ -32,5 +32,6 @@
     <dimen name="armorset_list_item_defence_elemental_line_margin_top">8dp</dimen>
     <dimen name="armorset_detail_title_text_margin">8dp</dimen>
     <dimen name="armorset_detail_armor_piece_padding">8dp</dimen>
+    <dimen name="armorset_detail_armor_piece_margin_top_bottom">8dp</dimen>
 
 </resources>

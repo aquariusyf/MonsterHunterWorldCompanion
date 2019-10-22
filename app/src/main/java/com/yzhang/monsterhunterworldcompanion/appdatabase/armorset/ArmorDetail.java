@@ -19,6 +19,8 @@ public class ArmorDetail {
     private int primaryId;
     @ColumnInfo(name = "armorSetId")
     private int armorSetId;
+    @ColumnInfo(name = "armorSetName")
+    private String armorSetName;
 
     @ColumnInfo(name = "setSkillName")
     private String setSkillName;
@@ -65,6 +67,7 @@ public class ArmorDetail {
     public ArmorDetail(
             int primaryId,
             int armorSetId,
+            String armorSetName,
             String setSkillName,
             String setSkills,
             String setSkillDescription,
@@ -85,6 +88,7 @@ public class ArmorDetail {
             String legSlots) {
         this.primaryId = primaryId;
         this.armorSetId = armorSetId;
+        this.armorSetName = armorSetName;
         this.setSkillName = setSkillName;
         this.setSkills = setSkills;
         this.setSkillDescription = setSkillDescription;
@@ -108,6 +112,7 @@ public class ArmorDetail {
     @Ignore
     public ArmorDetail(
             int armorSetId,
+            String armorSetName,
             String setSkillName,
             String setSkills,
             String setSkillDescription,
@@ -127,6 +132,7 @@ public class ArmorDetail {
             String legSkills,
             String legSlots) {
         this.armorSetId = armorSetId;
+        this.armorSetName = armorSetName;
         this.setSkillName = setSkillName;
         this.setSkills = setSkills;
         this.setSkillDescription = setSkillDescription;
@@ -153,6 +159,10 @@ public class ArmorDetail {
 
     public int getArmorSetId() {
         return armorSetId;
+    }
+
+    public String getArmorSetName() {
+        return armorSetName;
     }
 
     public String getSetSkillName() {

@@ -169,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
         for(ArmorSetMaster armorSetMaster: armorSetMasterList) {
             ArmorDetail armorDetail = new ArmorDetail(
                     armorSetMaster.getId(),
+                    armorSetMaster.getName(),
                     ArmorSetMaster.getSetSkillName(armorSetMaster),
                     ArmorSetMaster.getSetSkills(armorSetMaster),
                     ArmorSetMaster.getSetSkillDescription(armorSetMaster),

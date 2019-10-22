@@ -82,6 +82,7 @@ public class ArmorSetListAdapter extends RecyclerView.Adapter<ViewHolder> {
             iceTv = itemView.findViewById(R.id.tv_elemental_ice);
             waterTv = itemView.findViewById(R.id.tv_elemental_water);
             dragonTv = itemView.findViewById(R.id.tv_elemental_dragon);
+            itemView.setOnClickListener(this);
         }
 
         @Override
