@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity(tableName = "armorDetail")
 public class ArmorDetail {
@@ -422,8 +423,8 @@ public class ArmorDetail {
         return legSlots;
     }
 
-    public static HashMap<String, Integer> getSkillSummary(ArmorDetail armorDetail) {
-        HashMap<String, Integer> skillSummary = new HashMap<>();
+    public static Pair<ArrayList<String>, ArrayList<Integer>> getSkillSummary(ArmorDetail armorDetail) {
+        HashMap<String, Integer> skillSummaryMap = new HashMap<>();
         List<Pair<String, String>> helmSkills = armorDetail.getHelmSkillList();
         List<Pair<String, String>> mailSkills = armorDetail.getMailSkillList();
         List<Pair<String, String>> armSkills = armorDetail.getArmSkillList();
@@ -440,13 +441,19 @@ public class ArmorDetail {
                 continue;
             }
             for(Pair<String, String> pair: skillList) {
-                if(skillSummary.containsKey(pair.first)) {
-                    skillSummary.put(pair.first, skillSummary.get(pair.first)
+                if(skillSummaryMap.containsKey(pair.first)) {
+                    skillSummaryMap.put(pair.first, skillSummaryMap.get(pair.first)
                             + Integer.valueOf(pair.second));
                 } else {
-                    skillSummary.put(pair.first, Integer.valueOf(pair.second));
+                    skillSummaryMap.put(pair.first, Integer.valueOf(pair.second));
                 }
             }
+        }
+        Pair<ArrayList<String>, ArrayList<Integer>> skillSummary =
+                new Pair<>(new ArrayList<String>(), new ArrayList<Integer>());
+        for(Map.Entry<String, Integer> entry: skillSummaryMap.entrySet()) {
+            skillSummary.first.add(entry.getKey());
+            skillSummary.second.add(entry.getValue());
         }
         return skillSummary;
     }
