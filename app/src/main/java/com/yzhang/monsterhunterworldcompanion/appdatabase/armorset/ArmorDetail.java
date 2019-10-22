@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 @Entity(tableName = "armorDetail")
 public class ArmorDetail {
@@ -449,9 +450,10 @@ public class ArmorDetail {
                 }
             }
         }
+        Map<String, Integer> sortedSkillSummaryMap = new TreeMap<>(skillSummaryMap);
         Pair<ArrayList<String>, ArrayList<Integer>> skillSummary =
                 new Pair<>(new ArrayList<String>(), new ArrayList<Integer>());
-        for(Map.Entry<String, Integer> entry: skillSummaryMap.entrySet()) {
+        for(Map.Entry<String, Integer> entry: sortedSkillSummaryMap.entrySet()) {
             skillSummary.first.add(entry.getKey());
             skillSummary.second.add(entry.getValue());
         }

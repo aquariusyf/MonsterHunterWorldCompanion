@@ -1,6 +1,8 @@
 package com.yzhang.monsterhunterworldcompanion;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.yzhang.monsterhunterworldcompanion.adapters.ArmorSetSkillListAdapter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppExecutors;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorDetail;
@@ -46,9 +49,14 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
     private TextView mLegName;
     private List<Pair<ImageView, TextView>> mLegSkill = new ArrayList<>();
 
+    private RecyclerView mSkillSummaryListRv;
+    private ArmorSetSkillListAdapter mAdapter;
+
     //val
     private int mArmorSetId;
     private ArmorDetail mArmorDetail;
+    private List<String> mSkillNames;
+    private List<Integer> mSkillLevels;
 
 
     /** Life cycle begin */
@@ -121,6 +129,11 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
         mLegSkill.add(new Pair<>(
                 (ImageView) findViewById(R.id.iv_leg_skill_2_icon),
                 (TextView) findViewById(R.id.tv_leg_skill_2)));
+
+        mSkillSummaryListRv = findViewById(R.id.rv_skill_summary);
+        mSkillSummaryListRv.setLayoutManager(new LinearLayoutManager(this));
+        mAdapter = new ArmorSetSkillListAdapter(this, null, null);
+        mSkillSummaryListRv.setAdapter(mAdapter);
     }
 
     /** Get and check armor set id from intent */
@@ -143,6 +156,13 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
             public void run() {
                 AppDataBase db = AppDataBase.getInstance(ArmorSetDetailActivity.this);
                 mArmorDetail = db.armorDetailDao().getArmorDetailById(mArmorSetId);
+
+                /** Get skill summary and update adapter*/
+                Pair<ArrayList<String>, ArrayList<Integer>> skillSummary =
+                        ArmorDetail.getSkillSummary(mArmorDetail);
+                mSkillNames = skillSummary.first;
+                mSkillLevels = skillSummary.second;
+                mAdapter.updateDataSet(mSkillNames, mSkillLevels);
 
                 String armorSetName = mArmorDetail.getArmorSetName();
                 mArmorSetName.setText(armorSetName);
