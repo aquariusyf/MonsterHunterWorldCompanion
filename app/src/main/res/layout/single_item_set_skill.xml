@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/armorset_detail_skill_summary_item_padding">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_num_of_pieces"
+            android:src="@drawable/setof3"
+            android:layout_width="@dimen/armorset_detail_skill_summary_icon_size"
+            android:layout_height="@dimen/armorset_detail_skill_summary_icon_size"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="16dp"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:id="@+id/iv_single_set_skill_icon"
+            android:src="@drawable/skill_plate_holder"
+            android:layout_width="@dimen/armorset_detail_skill_summary_icon_size"
+            android:layout_height="@dimen/armorset_detail_skill_summary_icon_size"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/tv_single_set_skill_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="4dp"
+            android:gravity="left"
+            tools:text="Single Set Skill Name Demo"
+            style="@style/ArmorSetDetailSkillSummaryTextStyle" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_set_skill_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="72dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        android:gravity="left"
+        tools:text="Set skill description demo. Prevents attacks from being deflected. Also shortens the distance before ammo and arrows reach maximum power."
+        style="@style/ArmorSetDetailSetSkillDescriptionTextStyle" />
+
+</LinearLayout>

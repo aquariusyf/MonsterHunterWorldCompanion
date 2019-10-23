@@ -173,6 +173,9 @@ public class ArmorDetail {
     }
 
     public List<Pair<String, String>> getSetSkillList() {
+        if (this.setSkills == null || this.setSkills.isEmpty()) {
+            return null;
+        }
         List<Pair<String, String>> setSkillList = new ArrayList<>();
         String[] rawData = this.setSkills.split("@");
         List<String> nameList = new ArrayList<>();
@@ -192,6 +195,9 @@ public class ArmorDetail {
     }
 
     public List<String> getSetSkillDescriptionList() {
+        if(this.setSkillDescription == null || this.setSkillDescription.isEmpty()) {
+            return null;
+        }
         String[] rawData = this.setSkillDescription.split("@");
         return Arrays.asList(rawData);
     }

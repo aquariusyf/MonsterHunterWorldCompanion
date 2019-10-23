@@ -154,6 +154,11 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/armor_piece_divider_background" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -258,6 +263,11 @@
                         tools:text="Mail Skill 2" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/armor_piece_divider_background" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -364,6 +374,11 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/armor_piece_divider_background" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -468,6 +483,11 @@
                         tools:text="Waist Skill 2" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/armor_piece_divider_background" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -598,21 +618,57 @@
 
             </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginBottom="32dp">
 
                 <TextView
+                    android:id="@+id/tv_set_skill_label"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
                     android:elevation="8dp"
                     android:background="@drawable/label_title_text_background"
                     android:gravity="center"
                     android:text="@string/armor_detail_set_skill_label"
                     style="@style/ArmorSetDetailArmorListLabelTextStyle"/>
 
-            </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/set_skill_name_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:layout_below="@+id/tv_set_skill_label">
+
+                    <ImageView
+                        android:id="@+id/iv_set_skill_icon"
+                        android:src="@drawable/armor_set_skill_plate_holder"
+                        android:layout_width="@dimen/armorset_detail_set_skill_icon_size"
+                        android:layout_height="@dimen/armorset_detail_set_skill_icon_size"
+                        android:layout_marginLeft="16dp"
+                        android:scaleType="fitXY"/>
+
+                    <TextView
+                        android:id="@+id/tv_set_skill_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"
+                        android:gravity="left"
+                        tools:text="Set Skill Name Demo"
+                        style="@style/ArmorSetDetailSetSkillNameTextStyle"/>
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_set_skill_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/set_skill_name_section"/>
+
+            </RelativeLayout>
 
         </LinearLayout>
 

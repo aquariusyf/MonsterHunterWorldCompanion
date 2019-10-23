@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yzhang.monsterhunterworldcompanion.adapters.ArmorSetSkillListAdapter;
+import com.yzhang.monsterhunterworldcompanion.adapters.ArmorSkillListAdapter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppExecutors;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorDetail;
@@ -50,13 +51,18 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
     private List<Pair<ImageView, TextView>> mLegSkill = new ArrayList<>();
 
     private RecyclerView mSkillSummaryListRv;
-    private ArmorSetSkillListAdapter mAdapter;
+    private ArmorSkillListAdapter mSkillSummaryAdapter;
+    private RecyclerView mSetSkillListRv;
+    private ArmorSetSkillListAdapter mSetSkillListAdapter;
+    private TextView mArmorSetSkillName;
 
     //val
     private int mArmorSetId;
     private ArmorDetail mArmorDetail;
     private List<String> mSkillNames;
     private List<Integer> mSkillLevels;
+    private List<Pair<String, String>> mSetSkillList;
+    private List<String> mSetSkillDescriptionList;
 
 
     /** Life cycle begin */
@@ -132,8 +138,15 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
 
         mSkillSummaryListRv = findViewById(R.id.rv_skill_summary);
         mSkillSummaryListRv.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new ArmorSetSkillListAdapter(this, null, null);
-        mSkillSummaryListRv.setAdapter(mAdapter);
+        mSkillSummaryAdapter = new ArmorSkillListAdapter(this, null, null);
+        mSkillSummaryListRv.setAdapter(mSkillSummaryAdapter);
+
+        mSetSkillListRv = findViewById(R.id.rv_set_skill_list);
+        mSetSkillListRv.setLayoutManager(new LinearLayoutManager(this));
+        mSetSkillListAdapter = new ArmorSetSkillListAdapter(this, null, null);
+        mSetSkillListRv.setAdapter(mSetSkillListAdapter);
+
+        mArmorSetSkillName = findViewById(R.id.tv_set_skill_name);
     }
 
     /** Get and check armor set id from intent */
@@ -162,7 +175,17 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
                         ArmorDetail.getSkillSummary(mArmorDetail);
                 mSkillNames = skillSummary.first;
                 mSkillLevels = skillSummary.second;
-                mAdapter.updateDataSet(mSkillNames, mSkillLevels);
+                mSkillSummaryAdapter.updateDataSet(mSkillNames, mSkillLevels);
+
+                /** Get set skills and update adapter */
+                if(mArmorDetail.getSetSkillName() == null || mArmorDetail.getSetSkillName().isEmpty()) {
+                    mArmorSetSkillName.setText(getString(R.string.armor_detail_no_set_skill_text));
+                } else {
+                    mSetSkillList = mArmorDetail.getSetSkillList();
+                    mSetSkillDescriptionList = mArmorDetail.getSetSkillDescriptionList();
+                    mSetSkillListAdapter.updateDataSet(mSetSkillList, mSetSkillDescriptionList);
+                    mArmorSetSkillName.setText(mArmorDetail.getSetSkillName());
+                }
 
                 String armorSetName = mArmorDetail.getArmorSetName();
                 mArmorSetName.setText(armorSetName);

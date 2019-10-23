@@ -17,4 +17,5 @@
     <string name="armor_detail_armorlist_label">Armor List</string>
     <string name="armor_detail_skill_summary_label">Skill Summary</string>
     <string name="armor_detail_set_skill_label">Set Skill</string>
+    <string name="armor_detail_no_set_skill_text">No set skills</string>
 </resources>
