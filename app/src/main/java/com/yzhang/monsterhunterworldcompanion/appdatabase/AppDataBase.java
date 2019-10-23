@@ -15,9 +15,15 @@ import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSetDao;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.LocationConverter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.MonsterDao;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.Skill;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.SkillRankConverter;
 
-@Database(entities = {Monster.class, ArmorSet.class, ArmorDetail.class}, version = 1, exportSchema = false)
-@TypeConverters(LocationConverter.class)
+@Database(entities = {
+        Monster.class,
+        ArmorSet.class,
+        ArmorDetail.class,
+        Skill.class}, version = 1, exportSchema = false)
+@TypeConverters({LocationConverter.class, SkillRankConverter.class})
 public abstract class AppDataBase extends RoomDatabase {
 
     private static final String LOG_TAG = AppDataBase.class.getSimpleName();
