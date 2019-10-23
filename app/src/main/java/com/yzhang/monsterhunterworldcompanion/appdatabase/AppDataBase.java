@@ -16,6 +16,7 @@ import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.LocationConver
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.MonsterDao;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.Skill;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.SkillDao;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.SkillRankConverter;
 
 @Database(entities = {
@@ -46,5 +47,6 @@ public abstract class AppDataBase extends RoomDatabase {
     public abstract MonsterDao monsterDao();
     public abstract ArmorSetDao armorSetDao();
     public abstract ArmorDetailDao armorDetailDao();
+    public abstract SkillDao skillDao();
 
 }

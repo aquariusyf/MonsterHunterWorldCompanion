@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetArmorSets;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetMonsters;
+import com.yzhang.monsterhunterworldcompanion.apirequest.GetSkills;
 import com.yzhang.monsterhunterworldcompanion.apirequest.UrlUtils;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppExecutors;
@@ -19,6 +19,7 @@ import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorDetail;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSetMaster;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.Skill;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         if(isFirstStart()) {
             getMonsters();
             getArmorSets();
+            getSkills();
         }
     }
     /** Life cycle end */
@@ -191,6 +193,33 @@ public class MainActivity extends AppCompatActivity {
             armorDetailList.add(armorDetail);
         }
         return armorDetailList;
+    }
+
+    /** Get skills data using api and create skill table in database */
+    private void getSkills() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(UrlUtils.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        GetSkills request = retrofit.create(GetSkills.class);
+        Call<List<Skill>> call = request.getSkillCall();
+        call.enqueue(new Callback<List<Skill>>() {
+            @Override
+            public void onResponse(Call<List<Skill>> call, final Response<List<Skill>> response) {
+                AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        AppDataBase db = AppDataBase.getInstance(MainActivity.this);
+                        db.skillDao().insertSkills(response.body().toArray(new Skill[response.body().size()]));
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<List<Skill>> call, Throwable t) {
+                Log.e(LOG_TAG, "Failed to connect" + UrlUtils.BASE_URL + UrlUtils.ALL_SKILL_PATH);
+            }
+        });
     }
 
 }
