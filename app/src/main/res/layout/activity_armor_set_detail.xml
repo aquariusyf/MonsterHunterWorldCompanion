@@ -56,9 +56,9 @@
 
                     <ImageView
                         android:id="@+id/imageView"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="18dp"
                         android:background="@color/armorPieceIconBackgroundColor"
                         app:layout_constraintStart_toStartOf="@+id/iv_helm_decor_1"
                         app:layout_constraintTop_toTopOf="parent"
@@ -167,9 +167,9 @@
 
                     <ImageView
                         android:id="@+id/imageView1"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="18dp"
                         android:background="@color/armorPieceIconBackgroundColor"
                         app:layout_constraintStart_toStartOf="@+id/iv_mail_decor_1"
                         app:layout_constraintTop_toTopOf="parent"
@@ -277,9 +277,9 @@
 
                     <ImageView
                         android:id="@+id/imageView2"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="18dp"
                         android:background="@color/armorPieceIconBackgroundColor"
                         app:layout_constraintStart_toStartOf="@+id/iv_arm_decor_1"
                         app:layout_constraintTop_toTopOf="parent"
@@ -387,9 +387,9 @@
 
                     <ImageView
                         android:id="@+id/imageView3"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="18dp"
                         android:background="@color/armorPieceIconBackgroundColor"
                         app:layout_constraintStart_toStartOf="@+id/iv_waist_decor_1"
                         app:layout_constraintTop_toTopOf="parent"
@@ -496,9 +496,9 @@
 
                     <ImageView
                         android:id="@+id/imageView4"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="18dp"
                         android:background="@color/armorPieceIconBackgroundColor"
                         app:layout_constraintStart_toStartOf="@+id/iv_leg_decor_1"
                         app:layout_constraintTop_toTopOf="parent"
