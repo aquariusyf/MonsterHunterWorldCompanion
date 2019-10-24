@@ -4,12 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
+import com.bumptech.glide.Glide;
 import com.yzhang.monsterhunterworldcompanion.R;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
 
@@ -17,7 +19,7 @@ import java.util.List;
 
 public class ArmorSetListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
-    private Context mContext;
+    private static Context mContext;
     private List<ArmorSet> mArmorSetList;
     private MonsterListAdapter.OnListItemClickListener mListener;
 
@@ -47,6 +49,10 @@ public class ArmorSetListAdapter extends RecyclerView.Adapter<ViewHolder> {
         ((ArmorSetViewHolder) holder).iceTv.setText(mArmorSetList.get(position).getIceRes() + "");
         ((ArmorSetViewHolder) holder).waterTv.setText(mArmorSetList.get(position).getWaterRes() + "");
         ((ArmorSetViewHolder) holder).dragonTv.setText(mArmorSetList.get(position).getDragonRes() + "");
+        Glide.with(mContext)
+                .load(getArmorSetIcon(Integer.valueOf(mArmorSetList.get(position).getRarity())))
+                .placeholder(R.drawable.armorsetrare1)
+                .into(((ArmorSetViewHolder) holder).armorSetIcon);
     }
 
     @Override
@@ -63,6 +69,12 @@ public class ArmorSetListAdapter extends RecyclerView.Adapter<ViewHolder> {
         notifyDataSetChanged();
     }
 
+    private static int getArmorSetIcon(int id) {
+        int resourceId = mContext.getResources()
+                .getIdentifier("armorsetrare" + id, "drawable", mContext.getPackageName());
+        return resourceId;
+    }
+
     class ArmorSetViewHolder extends ViewHolder implements View.OnClickListener {
 
         private TextView nameTv;
@@ -72,6 +84,7 @@ public class ArmorSetListAdapter extends RecyclerView.Adapter<ViewHolder> {
         private TextView iceTv;
         private TextView waterTv;
         private TextView dragonTv;
+        private ImageView armorSetIcon;
 
         public ArmorSetViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -82,6 +95,7 @@ public class ArmorSetListAdapter extends RecyclerView.Adapter<ViewHolder> {
             iceTv = itemView.findViewById(R.id.tv_elemental_ice);
             waterTv = itemView.findViewById(R.id.tv_elemental_water);
             dragonTv = itemView.findViewById(R.id.tv_elemental_dragon);
+            armorSetIcon = itemView.findViewById(R.id.iv_armorset_icon);
             itemView.setOnClickListener(this);
         }
 

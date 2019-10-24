@@ -604,7 +604,7 @@
                     android:id="@+id/rv_skill_summary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_skill_summary_label"/>
+                    android:layout_below="@id/tv_skill_summary_label" />
 
             </RelativeLayout>
 
@@ -655,7 +655,7 @@
                     android:id="@+id/rv_set_skill_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/set_skill_name_section"/>
+                    android:layout_below="@+id/set_skill_name_section" />
 
             </RelativeLayout>
 

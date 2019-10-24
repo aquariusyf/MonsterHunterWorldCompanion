@@ -16,6 +16,8 @@ public class ArmorSet {
     private String name;
     @ColumnInfo(name = "rank")
     private String rank;
+    @ColumnInfo(name = "rarity")
+    private int rarity;
     @ColumnInfo(name = "totalDefence")
     private int totalDefence;
     @ColumnInfo(name = "thunderRes")
@@ -34,6 +36,7 @@ public class ArmorSet {
             int id,
             String name,
             String rank,
+            int rarity,
             int totalDefence,
             int thunderRes,
             int fireRes,
@@ -44,6 +47,7 @@ public class ArmorSet {
         this.id = id;
         this.name = name;
         this.rank = rank;
+        this.rarity = rarity;
         this.totalDefence = totalDefence;
         this.thunderRes = thunderRes;
         this.fireRes = fireRes;
@@ -57,6 +61,7 @@ public class ArmorSet {
             int id,
             String name,
             String rank,
+            int rarity,
             int totalDefence,
             int thunderRes,
             int fireRes,
@@ -66,6 +71,7 @@ public class ArmorSet {
         this.id = id;
         this.name = name;
         this.rank = rank;
+        this.rarity = rarity;
         this.totalDefence = totalDefence;
         this.thunderRes = thunderRes;
         this.fireRes = fireRes;
@@ -104,6 +110,14 @@ public class ArmorSet {
 
     public void setRank(String rank) {
         this.rank = rank;
+    }
+
+    public int getRarity() {
+        return rarity;
+    }
+
+    public void setRarity(int rarity) {
+        this.rarity = rarity;
     }
 
     public int getTotalDefence() {

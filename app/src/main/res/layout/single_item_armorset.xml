@@ -17,7 +17,6 @@
         
         <ImageView
             android:id="@+id/iv_armorset_icon"
-            android:src="@drawable/armorset_icon_plate_holder"
             android:layout_width="@dimen/armorset_list_item_armor_icon_width"
             android:layout_height="@dimen/armorset_list_item_armor_icon_height"
             android:scaleType="fitXY"/>

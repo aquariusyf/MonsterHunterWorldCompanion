@@ -139,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                             armorSetMaster.getId(),
                             armorSetMaster.getName(),
                             armorSetMaster.getRank(),
+                            armorSetMaster.getPieces() == null || armorSetMaster.getPieces().isEmpty() ? 1 : armorSetMaster.getPieces().get(0).getRarity(),
                             armorSetMaster.getTotalDefence(),
                             armorSetMaster.getThunderRes(),
                             armorSetMaster.getFireRes(),
