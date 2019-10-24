@@ -18,4 +18,11 @@
     <string name="armor_detail_skill_summary_label">Skill Summary</string>
     <string name="armor_detail_set_skill_label">Set Skill</string>
     <string name="armor_detail_no_set_skill_text">No set skills</string>
+    <string name="armor_detail_set_rarity_label">Rare</string>
+    <string name="armor_detail_total_defence_label">Physical Defence</string>
+    <string name="armor_detail_thunder_defence_label">Thunder Resistance</string>
+    <string name="armor_detail_fire_defence_label">Fire Resistance</string>
+    <string name="armor_detail_water_defence_label">Water Resistance</string>
+    <string name="armor_detail_ice_defence_label">Ice Resistance</string>
+    <string name="armor_detail_dragon_defence_label">Dragon Resistance</string>
 </resources>

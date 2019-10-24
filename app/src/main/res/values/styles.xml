@@ -103,4 +103,14 @@
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
+    <style name="ArmorSetDetailSetRarityTextStyle">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ArmorSetDetailSetDefenceTextStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
 </resources>

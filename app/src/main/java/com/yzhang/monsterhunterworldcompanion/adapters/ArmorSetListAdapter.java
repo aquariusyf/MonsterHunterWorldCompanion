@@ -69,6 +69,10 @@ public class ArmorSetListAdapter extends RecyclerView.Adapter<ViewHolder> {
         notifyDataSetChanged();
     }
 
+    public ArmorSet getCurrentArmorSet(int position) {
+        return mArmorSetList.get(position);
+    }
+
     private static int getArmorSetIcon(int id) {
         int resourceId = mContext.getResources()
                 .getIdentifier("armorsetrare" + id, "drawable", mContext.getPackageName());
@@ -101,7 +105,7 @@ public class ArmorSetListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
         @Override
         public void onClick(View v) {
-            mListener.onItemClick(mArmorSetList.get(getAdapterPosition()).getId());
+            mListener.onItemClick(getAdapterPosition());
         }
 
     }

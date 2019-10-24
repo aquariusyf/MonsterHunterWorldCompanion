@@ -34,6 +34,240 @@
                 tools:text="Armor Set Name"
                 style="@style/ArmorSetDetailTitleTextStyle"/>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tv_rarity"
+                    style="@style/ArmorSetDetailSetRarityTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/armor_detail_set_rarity_label"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_defence_icon"
+                    android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_height"
+                    android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_rarity"
+                    app:srcCompat="@drawable/defence" />
+
+                <TextView
+                    android:id="@+id/tv_total_defence_label"
+                    style="@style/ArmorSetDetailSetDefenceTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/label_title_text_background"
+                    android:text="@string/armor_detail_total_defence_label"
+                    app:layout_constraintStart_toEndOf="@+id/iv_defence_icon"
+                    app:layout_constraintTop_toTopOf="@+id/iv_defence_icon" />
+
+                <TextView
+                    android:id="@+id/tv_physical_defence"
+                    style="@style/ArmorSetDetailSetDefenceTextStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_total_defence_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_total_defence_label"
+                    app:layout_constraintTop_toTopOf="@+id/tv_total_defence_label"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="850" />
+
+                <ImageView
+                    android:id="@+id/iv_thunder_res_icon"
+                    android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_height"
+                    android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_defence_icon"
+                    app:srcCompat="@drawable/thunder" />
+
+                <TextView
+                    android:id="@+id/tv_thunder_res_label"
+                    style="@style/ArmorSetDetailSetDefenceTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/label_title_text_background"
+                    android:text="@string/armor_detail_thunder_defence_label"
+                    app:layout_constraintStart_toEndOf="@+id/iv_thunder_res_icon"
+                    app:layout_constraintTop_toTopOf="@+id/iv_thunder_res_icon" />
+
+                <TextView
+                    android:id="@+id/tv_thunder_res"
+                    style="@style/ArmorSetDetailSetDefenceTextStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_thunder_res_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.44"
+                    app:layout_constraintStart_toEndOf="@+id/tv_thunder_res_label"
+                    app:layout_constraintTop_toTopOf="@+id/tv_thunder_res_label"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="-11" />
+
+                <ImageView
+                    android:id="@+id/iv_fire_res_icon"
+                    android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_height"
+                    android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_thunder_res_icon"
+                    app:srcCompat="@drawable/fire" />
+
+                <TextView
+                    android:id="@+id/tv_fire_res_label"
+                    style="@style/ArmorSetDetailSetDefenceTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/label_title_text_background"
+                    android:text="@string/armor_detail_fire_defence_label"
+                    app:layout_constraintStart_toEndOf="@+id/iv_fire_res_icon"
+                    app:layout_constraintTop_toTopOf="@+id/iv_fire_res_icon" />
+
+                <TextView
+                    android:id="@+id/tv_fire_res"
+                    style="@style/ArmorSetDetailSetDefenceTextStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_fire_res_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.54"
+                    app:layout_constraintStart_toEndOf="@+id/tv_fire_res_label"
+                    app:layout_constraintTop_toTopOf="@+id/tv_fire_res_label"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="7" />
+
+                <ImageView
+                    android:id="@+id/iv_water_res_icon"
+                    android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_height"
+                    android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_fire_res_icon"
+                    app:srcCompat="@drawable/water" />
+
+                <TextView
+                    android:id="@+id/tv_water_res_label"
+                    style="@style/ArmorSetDetailSetDefenceTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/label_title_text_background"
+                    android:text="@string/armor_detail_fire_defence_label"
+                    app:layout_constraintStart_toEndOf="@+id/iv_water_res_icon"
+                    app:layout_constraintTop_toTopOf="@+id/iv_water_res_icon" />
+
+                <TextView
+                    android:id="@+id/tv_water_res"
+                    style="@style/ArmorSetDetailSetDefenceTextStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_water_res_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.54"
+                    app:layout_constraintStart_toEndOf="@+id/tv_water_res_label"
+                    app:layout_constraintTop_toTopOf="@+id/tv_water_res_label"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="-1" />
+
+                <ImageView
+                    android:id="@+id/iv_ice_res_icon"
+                    android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_height"
+                    android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_water_res_icon"
+                    app:srcCompat="@drawable/ice" />
+
+                <TextView
+                    android:id="@+id/tv_ice_res_label"
+                    style="@style/ArmorSetDetailSetDefenceTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/label_title_text_background"
+                    android:text="@string/armor_detail_ice_defence_label"
+                    app:layout_constraintStart_toEndOf="@+id/iv_ice_res_icon"
+                    app:layout_constraintTop_toTopOf="@+id/iv_ice_res_icon" />
+
+                <TextView
+                    android:id="@+id/tv_ice_res"
+                    style="@style/ArmorSetDetailSetDefenceTextStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_ice_res_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.549"
+                    app:layout_constraintStart_toEndOf="@+id/tv_ice_res_label"
+                    app:layout_constraintTop_toTopOf="@+id/tv_ice_res_label"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="3" />
+
+                <ImageView
+                    android:id="@+id/iv_dragon_res_icon"
+                    android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_height"
+                    android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="fitXY"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_ice_res_icon"
+                    app:srcCompat="@drawable/dragon" />
+
+                <TextView
+                    android:id="@+id/tv_dragon_res_label"
+                    style="@style/ArmorSetDetailSetDefenceTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/label_title_text_background"
+                    android:text="@string/armor_detail_dragon_defence_label"
+                    app:layout_constraintStart_toEndOf="@+id/iv_dragon_res_icon"
+                    app:layout_constraintTop_toTopOf="@+id/iv_dragon_res_icon" />
+
+                <TextView
+                    android:id="@+id/tv_dragon_res"
+                    style="@style/ArmorSetDetailSetDefenceTextStyle"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_dragon_res_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.462"
+                    app:layout_constraintStart_toEndOf="@+id/tv_dragon_res_label"
+                    app:layout_constraintTop_toTopOf="@+id/tv_dragon_res_label"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,6 +332,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
+                        android:background="@drawable/label_title_text_background"
                         app:layout_constraintStart_toEndOf="@+id/iv_helm_decor_3"
                         app:layout_constraintTop_toTopOf="@+id/imageView"
                         tools:text="Helm Armor Name" />
@@ -207,6 +442,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
+                        android:background="@drawable/label_title_text_background"
                         app:layout_constraintStart_toEndOf="@+id/iv_mail_decor_3"
                         app:layout_constraintTop_toTopOf="@+id/imageView1"
                         tools:text="Mail Armor Name" />
@@ -315,6 +551,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
+                        android:background="@drawable/label_title_text_background"
                         app:layout_constraintStart_toEndOf="@+id/iv_arm_decor_3"
                         app:layout_constraintTop_toTopOf="@+id/imageView2"
                         tools:text="Arm Armor Name" />
@@ -423,6 +660,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
+                        android:background="@drawable/label_title_text_background"
                         app:layout_constraintStart_toEndOf="@+id/iv_waist_decor_3"
                         app:layout_constraintTop_toTopOf="@+id/imageView3"
                         tools:text="Waist Armor Name" />
@@ -530,6 +768,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
+                        android:background="@drawable/label_title_text_background"
                         app:layout_constraintStart_toEndOf="@+id/iv_leg_decor_3"
                         app:layout_constraintTop_toTopOf="@+id/imageView4"
                         tools:text="Leg Armor Name" />

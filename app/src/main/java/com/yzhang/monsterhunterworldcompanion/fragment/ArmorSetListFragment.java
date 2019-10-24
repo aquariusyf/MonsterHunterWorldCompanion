@@ -1,6 +1,5 @@
 package com.yzhang.monsterhunterworldcompanion.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -34,6 +33,13 @@ public class ArmorSetListFragment extends Fragment {
     private static final String HIGH_RANK = "high";
     private static final String LOW_RANK = "low";
     public static final String ARMOR_SET_ID_KEY = "armor_set_id";
+    public static final String RARITY_KEY = "rarity";
+    public static final String DEFENCE_KEY = "defence";
+    public static final String THUNDER_RES_KEY = "thunder_res";
+    public static final String FIRE_RES_KEY = "fire_res";
+    public static final String WATER_RES_KEY = "water_res";
+    public static final String ICE_RES_KEY = "ice_res";
+    public static final String DRAGON_RES_KEY = "dragon_res";
 
     //UI
     private RecyclerView mArmorSetListRv;
@@ -74,9 +80,16 @@ public class ArmorSetListFragment extends Fragment {
                 new ArrayList<ArmorSet>(),
                 new MonsterListAdapter.OnListItemClickListener() {
                     @Override
-                    public void onItemClick(int armorSetId) {
+                    public void onItemClick(int position) {
+                        ArmorSet currentArmorSet = mAdapter.getCurrentArmorSet(position);
                         Intent intent = new Intent(getActivity(), ArmorSetDetailActivity.class);
-                        intent.putExtra(ARMOR_SET_ID_KEY, armorSetId);
+                        intent.putExtra(ARMOR_SET_ID_KEY, currentArmorSet.getId());
+                        intent.putExtra(RARITY_KEY, currentArmorSet.getRarity());
+                        intent.putExtra(DEFENCE_KEY, currentArmorSet.getTotalDefence());
+                        intent.putExtra(THUNDER_RES_KEY, currentArmorSet.getThunderRes());
+                        intent.putExtra(FIRE_RES_KEY, currentArmorSet.getFireRes());
+                        intent.putExtra(ICE_RES_KEY, currentArmorSet.getIceRes());
+                        intent.putExtra(DRAGON_RES_KEY, currentArmorSet.getDragonRes());
                         startActivity(intent);
                     }
                 });

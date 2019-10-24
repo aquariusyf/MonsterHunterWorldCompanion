@@ -12,4 +12,18 @@
     <color name="navButtonTextColor">#FFF</color>
     <color name="colorWhite">#FFF</color>
     <color name="colorBlack">#000</color>
+
+    <color name="colorRare1">#fafafa</color>
+    <color name="colorRare2">#fafafa</color>
+    <color name="colorRare3">#c6ff00</color>
+    <color name="colorRare4">#00c853</color>
+    <color name="colorRare5">#26c6da</color>
+    <color name="colorRare6">#5c6bc0</color>
+    <color name="colorRare7">#5e35b1</color>
+    <color name="colorRare8">#ff5722</color>
+    <color name="colorRare9">#d81b60</color>
+    <color name="colorRare10">#1e88e5</color>
+    <color name="colorRare11">#ffea00</color>
+    <color name="colorRare12">#FFFFFF</color>
+
 </resources>

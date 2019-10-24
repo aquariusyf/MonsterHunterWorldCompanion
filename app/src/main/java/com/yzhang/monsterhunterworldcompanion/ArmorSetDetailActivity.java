@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
@@ -35,6 +34,14 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
 
     //UI
     private TextView mArmorSetName;
+
+    private TextView mRarityTv;
+    private TextView mDefenceTv;
+    private TextView mThunderResTv;
+    private TextView mFireResTv;
+    private TextView mWaterResTv;
+    private TextView mIceResTv;
+    private TextView mDragonResTv;
 
     private List<ImageView> mHelmDecor = new ArrayList<>();
     private TextView mHelmName;
@@ -65,6 +72,13 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
 
     //val
     private int mArmorSetId;
+    private int mRarity;
+    private int mDefence;
+    private int mThunderRes;
+    private int mFireRes;
+    private int mWaterRes;
+    private int mIceRes;
+    private int mDragonRes;
     private ArmorDetail mArmorDetail;
     private List<String> mSkillNames;
     private List<Integer> mSkillLevels;
@@ -78,7 +92,7 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_armor_set_detail);
 
-        getArmorSetId();
+        getDataFromIntent();
         initViews();
         populateUI();
     }
@@ -87,6 +101,22 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
     /** Initialize views */
     private void initViews() {
         mArmorSetName = findViewById(R.id.tv_armor_set_detail_title);
+
+        mRarityTv = findViewById(R.id.tv_rarity);
+        mRarityTv.append(" " + mRarity);
+        mRarityTv.setTextColor(getResources().getColor(getRarityColor(mRarity)));
+        mDefenceTv = findViewById(R.id.tv_physical_defence);
+        mDefenceTv.setText(mDefence + "");
+        mThunderResTv = findViewById(R.id.tv_thunder_res);
+        mThunderResTv.setText(mThunderRes + "");
+        mFireResTv = findViewById(R.id.tv_fire_res);
+        mFireResTv.setText(mFireRes + "");
+        mWaterResTv = findViewById(R.id.tv_water_res);
+        mWaterResTv.setText(mWaterRes + "");
+        mIceResTv = findViewById(R.id.tv_ice_res);
+        mIceResTv.setText(mIceRes + "");
+        mDragonResTv = findViewById(R.id.tv_dragon_res);
+        mDragonResTv.setText(mDragonRes + "");
 
         mHelmDecor.add((ImageView) findViewById(R.id.iv_helm_decor_1));
         mHelmDecor.add((ImageView) findViewById(R.id.iv_helm_decor_2));
@@ -157,8 +187,8 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
         mArmorSetSkillIcon = findViewById(R.id.iv_set_skill_icon);
     }
 
-    /** Get and check armor set id from intent */
-    private void getArmorSetId() {
+    /** Get and check armor set data from intent */
+    private void getDataFromIntent() {
         Intent intent = getIntent();
         if(intent == null) {
             finish();
@@ -167,7 +197,13 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
             finish();
         }
         mArmorSetId = intent.getIntExtra(ArmorSetListFragment.ARMOR_SET_ID_KEY, -1);
-        Log.v(LOG_TAG, "Armor Set ID: " + mArmorSetId);
+        mRarity = intent.getIntExtra(ArmorSetListFragment.RARITY_KEY, 1);
+        mDefence = intent.getIntExtra(ArmorSetListFragment.DEFENCE_KEY, 0);
+        mThunderRes = intent.getIntExtra(ArmorSetListFragment.THUNDER_RES_KEY, 0);
+        mFireRes = intent.getIntExtra(ArmorSetListFragment.FIRE_RES_KEY, 0);
+        mWaterRes = intent.getIntExtra(ArmorSetListFragment.WATER_RES_KEY, 0);
+        mIceRes = intent.getIntExtra(ArmorSetListFragment.ICE_RES_KEY, 0);
+        mDragonRes = intent.getIntExtra(ArmorSetListFragment.DRAGON_RES_KEY, 0);
     }
 
     /** Populate UI */
@@ -337,6 +373,13 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
         int resourceId = getResources()
                 .getIdentifier("ss" + id, "drawable", getPackageName());
         return resourceId;
+    }
+
+    /** Get the rarity color */
+    private int getRarityColor(int id) {
+        int colorId = getResources()
+                .getIdentifier("colorRare" + id, "color", getPackageName());
+        return colorId;
     }
 
 }
