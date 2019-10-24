@@ -6,20 +6,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.util.Pair;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.yzhang.monsterhunterworldcompanion.adapters.ArmorSetSkillListAdapter;
 import com.yzhang.monsterhunterworldcompanion.adapters.ArmorSkillListAdapter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppExecutors;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorDetail;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.Skill;
 import com.yzhang.monsterhunterworldcompanion.fragment.ArmorSetListFragment;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ArmorSetDetailActivity extends AppCompatActivity {
@@ -55,6 +61,7 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
     private RecyclerView mSetSkillListRv;
     private ArmorSetSkillListAdapter mSetSkillListAdapter;
     private TextView mArmorSetSkillName;
+    private ImageView mArmorSetSkillIcon;
 
     //val
     private int mArmorSetId;
@@ -147,6 +154,7 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
         mSetSkillListRv.setAdapter(mSetSkillListAdapter);
 
         mArmorSetSkillName = findViewById(R.id.tv_set_skill_name);
+        mArmorSetSkillIcon = findViewById(R.id.iv_set_skill_icon);
     }
 
     /** Get and check armor set id from intent */
@@ -170,25 +178,48 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
                 AppDataBase db = AppDataBase.getInstance(ArmorSetDetailActivity.this);
                 mArmorDetail = db.armorDetailDao().getArmorDetailById(mArmorSetId);
 
+                /** Create skill name and id map */
+                List<Skill> skillList = db.skillDao().getAllSkill();
+                HashMap<String, Integer> skillNameIdMap = new HashMap<>();
+                for(Skill skill: skillList) {
+                    skillNameIdMap.put(skill.getName(), skill.getId());
+                }
+
                 /** Get skill summary and update adapter*/
                 Pair<ArrayList<String>, ArrayList<Integer>> skillSummary =
                         ArmorDetail.getSkillSummary(mArmorDetail);
                 mSkillNames = skillSummary.first;
                 mSkillLevels = skillSummary.second;
-                mSkillSummaryAdapter.updateDataSet(mSkillNames, mSkillLevels);
+                mSkillSummaryAdapter.updateDataSet(mSkillNames, mSkillLevels, skillNameIdMap);
 
                 /** Get set skills and update adapter */
                 if(mArmorDetail.getSetSkillName() == null || mArmorDetail.getSetSkillName().isEmpty()) {
                     mArmorSetSkillName.setText(getString(R.string.armor_detail_no_set_skill_text));
+                    mArmorSetSkillName.setGravity(Gravity.CENTER);
+                    mArmorSetSkillIcon.setVisibility(View.GONE);
                 } else {
                     mSetSkillList = mArmorDetail.getSetSkillList();
                     mSetSkillDescriptionList = mArmorDetail.getSetSkillDescriptionList();
-                    mSetSkillListAdapter.updateDataSet(mSetSkillList, mSetSkillDescriptionList);
+                    mSetSkillListAdapter.updateDataSet(mSetSkillList, mSetSkillDescriptionList, skillNameIdMap);
                     mArmorSetSkillName.setText(mArmorDetail.getSetSkillName());
                 }
 
                 String armorSetName = mArmorDetail.getArmorSetName();
                 mArmorSetName.setText(armorSetName);
+                if(mArmorDetail.getBonusId() != -1) {
+                    Handler mainHandler = new Handler(Looper.getMainLooper());
+
+                    Runnable myRunnable = new Runnable() {
+                        @Override
+                        public void run() {
+                            Glide.with(getApplicationContext())
+                                    .load(getSetSkillIcon(mArmorDetail.getBonusId()))
+                                    .placeholder(R.drawable.set_skill_place_holder)
+                                    .into(mArmorSetSkillIcon);
+                        }
+                    };
+                    mainHandler.post(myRunnable);
+                }
 
                 populateArmorPieceUI(
                         mArmorDetail.getHelmName(),
@@ -196,7 +227,8 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
                         mHelmDecor,
                         mHelmSkill,
                         mArmorDetail.getHelmSlotList(),
-                        mArmorDetail.getHelmSkillList());
+                        mArmorDetail.getHelmSkillList(),
+                        skillNameIdMap);
 
                 populateArmorPieceUI(
                         mArmorDetail.getMailName(),
@@ -204,7 +236,8 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
                         mMailDecor,
                         mMailSkill,
                         mArmorDetail.getMailSlotList(),
-                        mArmorDetail.getMailSkillList());
+                        mArmorDetail.getMailSkillList(),
+                        skillNameIdMap);
 
                 populateArmorPieceUI(
                         mArmorDetail.getArmName(),
@@ -212,7 +245,8 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
                         mArmDecor,
                         mArmSkill,
                         mArmorDetail.getArmSlotList(),
-                        mArmorDetail.getArmSkillList());
+                        mArmorDetail.getArmSkillList(),
+                        skillNameIdMap);
 
                 populateArmorPieceUI(
                         mArmorDetail.getWaistName(),
@@ -220,7 +254,8 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
                         mWaistDecor,
                         mWaistSkill,
                         mArmorDetail.getWaistSlotList(),
-                        mArmorDetail.getWaistSkillList());
+                        mArmorDetail.getWaistSkillList(),
+                        skillNameIdMap);
 
                 populateArmorPieceUI(
                         mArmorDetail.getLegName(),
@@ -228,7 +263,8 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
                         mLegDecor,
                         mLegSkill,
                         mArmorDetail.getLegSlotList(),
-                        mArmorDetail.getLegSkillList());
+                        mArmorDetail.getLegSkillList(),
+                        skillNameIdMap);
             }
         });
     }
@@ -240,7 +276,8 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
             List<ImageView> decorIcon,
             List<Pair<ImageView, TextView>> skills,
             List<String> slotList,
-            List<Pair<String, String>> skillList) {
+            List<Pair<String, String>> skillList,
+            HashMap<String, Integer> skillNameIdMap) {
         if(name == null || name.isEmpty()) {
             nameTv.setText("No Armor Piece");
             for(ImageView imageView: decorIcon) {
@@ -270,7 +307,8 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
                         pair.first.setVisibility(View.INVISIBLE);
                         pair.second.setVisibility(View.INVISIBLE);
                     } else {
-                        //TODO: load skill icon;
+                        pair.first.setImageResource(getSkillIcon(
+                                skillNameIdMap.get(skillList.get(skillListIndex).first)));
                         pair.second.setText(skillList.get(skillListIndex).first
                                 + " Lv." + skillList.get(skillListIndex).second);
                         skillListIndex++;
@@ -284,6 +322,20 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
     private int getSlotIcon(String level) {
         int resourceId = getResources()
                 .getIdentifier("decorlv" + level, "drawable", getPackageName());
+        return resourceId;
+    }
+
+    /** Get the skill icon by id */
+    private int getSkillIcon(int id) {
+        int resourceId = getResources()
+                .getIdentifier("s" + id, "drawable", getPackageName());
+        return resourceId;
+    }
+
+    /** Get the set skill icon by id */
+    private int getSetSkillIcon(int id) {
+        int resourceId = getResources()
+                .getIdentifier("ss" + id, "drawable", getPackageName());
         return resourceId;
     }
 

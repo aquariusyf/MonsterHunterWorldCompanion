@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import com.bumptech.glide.Glide;
 import com.yzhang.monsterhunterworldcompanion.R;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class ArmorSetSkillListAdapter extends RecyclerView.Adapter<ViewHolder> {
@@ -22,6 +23,7 @@ public class ArmorSetSkillListAdapter extends RecyclerView.Adapter<ViewHolder> {
     private static Context mContext;
     private List<Pair<String, String>> mSetSkillList;
     private List<String> mSetSkillDescriptionList;
+    private HashMap<String, Integer> mSKillNameIdMap;
 
     public ArmorSetSkillListAdapter(
             Context context,
@@ -42,7 +44,12 @@ public class ArmorSetSkillListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        //TODO: set skill icons
+        if(mSKillNameIdMap != null && !mSKillNameIdMap.isEmpty()) {
+            Glide.with(mContext)
+                    .load(getSetSkillIcon(mSKillNameIdMap.get(mSetSkillList.get(position).first)))
+                    .placeholder(R.drawable.skill_place_holder)
+                    .into(((SetSkillViewHolder) holder).singleSetSKillIcon);
+        }
         Glide.with(mContext)
                 .load(getNumOfPieceImage(mSetSkillList.get(position).second))
                 .into(((SetSkillViewHolder) holder).numOfPieceIcon);
@@ -61,9 +68,11 @@ public class ArmorSetSkillListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     public void updateDataSet(
             List<Pair<String, String>> newSetSkillList,
-            List<String> newSetSkillDescriptionList) {
+            List<String> newSetSkillDescriptionList,
+            HashMap<String, Integer> map) {
         mSetSkillList = newSetSkillList;
         mSetSkillDescriptionList = newSetSkillDescriptionList;
+        mSKillNameIdMap = map;
         notifyDataSetChanged();
     }
 
@@ -72,6 +81,12 @@ public class ArmorSetSkillListAdapter extends RecyclerView.Adapter<ViewHolder> {
                 "setof" + numOfPiece,
                 "drawable",
                 mContext.getPackageName());
+        return resourceId;
+    }
+
+    private static int getSetSkillIcon(int id) {
+        int resourceId = mContext.getResources()
+                .getIdentifier("s" + id, "drawable", mContext.getPackageName());
         return resourceId;
     }
 

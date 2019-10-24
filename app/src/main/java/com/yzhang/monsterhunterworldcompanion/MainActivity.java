@@ -172,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
             ArmorDetail armorDetail = new ArmorDetail(
                     armorSetMaster.getId(),
                     armorSetMaster.getName(),
+                    armorSetMaster.getBonus() == null ? -1 : armorSetMaster.getBonus().getId(),
                     ArmorSetMaster.getSetSkillName(armorSetMaster),
                     ArmorSetMaster.getSetSkills(armorSetMaster),
                     ArmorSetMaster.getSetSkillDescription(armorSetMaster),

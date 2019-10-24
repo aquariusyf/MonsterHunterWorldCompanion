@@ -110,8 +110,7 @@
                         android:scaleType="fitXY"
                         app:layout_constraintBottom_toBottomOf="@+id/iv_helm_decor_3"
                         app:layout_constraintStart_toStartOf="@+id/tv_helm_name"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_helm_name"
-                        app:srcCompat="@drawable/skill_plate_holder" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_helm_name" />
 
                     <TextView
                         android:id="@+id/tv_helm_skill_1"
@@ -134,8 +133,7 @@
                         app:layout_constraintBottom_toBottomOf="@+id/iv_helm_skill_1_icon"
                         app:layout_constraintStart_toEndOf="@+id/tv_helm_skill_1"
                         app:layout_constraintTop_toTopOf="@+id/iv_helm_skill_1_icon"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/skill_plate_holder" />
+                        app:layout_constraintVertical_bias="0.0" />
 
                     <TextView
                         android:id="@+id/tv_helm_skill_2"
@@ -221,8 +219,7 @@
                         android:scaleType="fitXY"
                         app:layout_constraintBottom_toBottomOf="@+id/iv_mail_decor_3"
                         app:layout_constraintStart_toStartOf="@+id/tv_mail_name"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_mail_name"
-                        app:srcCompat="@drawable/skill_plate_holder" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_mail_name" />
 
                     <TextView
                         android:id="@+id/tv_mail_skill_1"
@@ -245,8 +242,7 @@
                         app:layout_constraintBottom_toBottomOf="@+id/iv_mail_skill_1_icon"
                         app:layout_constraintStart_toEndOf="@+id/tv_mail_skill_1"
                         app:layout_constraintTop_toTopOf="@+id/iv_mail_skill_1_icon"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/skill_plate_holder" />
+                        app:layout_constraintVertical_bias="0.0" />
 
                     <TextView
                         android:id="@+id/tv_mail_skill_2"
@@ -331,8 +327,7 @@
                         android:scaleType="fitXY"
                         app:layout_constraintBottom_toBottomOf="@+id/iv_arm_decor_3"
                         app:layout_constraintStart_toStartOf="@+id/tv_arm_name"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_arm_name"
-                        app:srcCompat="@drawable/skill_plate_holder" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_arm_name" />
 
                     <TextView
                         android:id="@+id/tv_arm_skill_1"
@@ -355,8 +350,7 @@
                         app:layout_constraintBottom_toBottomOf="@+id/iv_arm_skill_1_icon"
                         app:layout_constraintStart_toEndOf="@+id/tv_arm_skill_1"
                         app:layout_constraintTop_toTopOf="@+id/iv_arm_skill_1_icon"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/skill_plate_holder" />
+                        app:layout_constraintVertical_bias="0.0" />
 
                     <TextView
                         android:id="@+id/tv_arm_skill_2"
@@ -441,8 +435,7 @@
                         android:scaleType="fitXY"
                         app:layout_constraintBottom_toBottomOf="@+id/iv_waist_decor_3"
                         app:layout_constraintStart_toStartOf="@+id/tv_waist_name"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_waist_name"
-                        app:srcCompat="@drawable/skill_plate_holder" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_waist_name" />
 
                     <TextView
                         android:id="@+id/tv_waist_skill_1"
@@ -465,8 +458,7 @@
                         app:layout_constraintBottom_toBottomOf="@+id/iv_waist_skill_1_icon"
                         app:layout_constraintStart_toEndOf="@+id/tv_waist_skill_1"
                         app:layout_constraintTop_toTopOf="@+id/iv_waist_skill_1_icon"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/skill_plate_holder" />
+                        app:layout_constraintVertical_bias="0.0" />
 
                     <TextView
                         android:id="@+id/tv_waist_skill_2"
@@ -550,8 +542,7 @@
                         android:scaleType="fitXY"
                         app:layout_constraintBottom_toBottomOf="@+id/iv_leg_decor_3"
                         app:layout_constraintStart_toStartOf="@+id/tv_leg_name"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_leg_name"
-                        app:srcCompat="@drawable/skill_plate_holder" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_leg_name" />
 
                     <TextView
                         android:id="@+id/tv_leg_skill_1"
@@ -574,8 +565,7 @@
                         app:layout_constraintBottom_toBottomOf="@+id/iv_leg_skill_1_icon"
                         app:layout_constraintStart_toEndOf="@+id/tv_leg_skill_1"
                         app:layout_constraintTop_toTopOf="@+id/iv_leg_skill_1_icon"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/skill_plate_holder" />
+                        app:layout_constraintVertical_bias="0.0" />
 
                     <TextView
                         android:id="@+id/tv_leg_skill_2"
@@ -644,7 +634,6 @@
 
                     <ImageView
                         android:id="@+id/iv_set_skill_icon"
-                        android:src="@drawable/armor_set_skill_plate_holder"
                         android:layout_width="@dimen/armorset_detail_set_skill_icon_size"
                         android:layout_height="@dimen/armorset_detail_set_skill_icon_size"
                         android:layout_marginLeft="16dp"
@@ -652,7 +641,7 @@
 
                     <TextView
                         android:id="@+id/tv_set_skill_name"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="8dp"

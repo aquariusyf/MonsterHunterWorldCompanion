@@ -16,6 +16,9 @@ public interface SkillDao {
     @Query("SELECT * FROM skill ORDER BY name")
     LiveData<List<Skill>> getAll();
 
+    @Query("SELECT * FROM skill ORDER BY name")
+    List<Skill> getAllSkill();
+
     @Query("SELECT * FROM skill WHERE id = :id")
     LiveData<Skill> getSkillById(int id);
 

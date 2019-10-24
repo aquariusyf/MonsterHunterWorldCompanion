@@ -23,7 +23,6 @@
 
         <ImageView
             android:id="@+id/iv_single_set_skill_icon"
-            android:src="@drawable/skill_plate_holder"
             android:layout_width="@dimen/armorset_detail_skill_summary_icon_size"
             android:layout_height="@dimen/armorset_detail_skill_summary_icon_size"
             android:layout_gravity="center_vertical"

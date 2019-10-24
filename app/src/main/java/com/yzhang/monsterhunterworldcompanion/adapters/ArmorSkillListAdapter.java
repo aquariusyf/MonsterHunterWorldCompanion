@@ -11,15 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
+import com.bumptech.glide.Glide;
 import com.yzhang.monsterhunterworldcompanion.R;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class ArmorSkillListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
-    private Context mContext;
+    private static Context mContext;
     private List<String> mSkillNameList;
     private List<Integer> mSkillLevelList;
+    private HashMap<String, Integer> mSKillNameIdMap;
 
     public ArmorSkillListAdapter(
             Context context,
@@ -40,7 +43,12 @@ public class ArmorSkillListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        //TODO: set skill icon
+        if(mSKillNameIdMap != null && !mSKillNameIdMap.isEmpty()) {
+            Glide.with(mContext)
+                    .load(getSkillIcon(mSKillNameIdMap.get(mSkillNameList.get(position))))
+                    .placeholder(R.drawable.skill_place_holder)
+                    .into(((SkillViewHolder) holder).skillIcon);
+        }
         ((SkillViewHolder) holder).skillName.setText(mSkillNameList.get(position));
         ((SkillViewHolder) holder).skillLevel.setText("Lv." + mSkillLevelList.get(position));
     }
@@ -54,10 +62,20 @@ public class ArmorSkillListAdapter extends RecyclerView.Adapter<ViewHolder> {
         }
     }
 
-    public void updateDataSet(List<String> newSkillNameList, List<Integer> newSkillLevelList) {
+    public void updateDataSet(
+            List<String> newSkillNameList,
+            List<Integer> newSkillLevelList,
+            HashMap<String, Integer> map) {
         mSkillNameList = newSkillNameList;
         mSkillLevelList = newSkillLevelList;
+        mSKillNameIdMap = map;
         notifyDataSetChanged();
+    }
+
+    private static int getSkillIcon(int id) {
+        int resourceId = mContext.getResources()
+                .getIdentifier("s" + id, "drawable", mContext.getPackageName());
+        return resourceId;
     }
 
     class SkillViewHolder extends ViewHolder {
