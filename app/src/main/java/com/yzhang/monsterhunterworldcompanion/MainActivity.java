@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     //UI
     private FrameLayout mMonstersNavButton;
+    private FrameLayout mSkillsNavButton;
     private FrameLayout mArmorSetNavButton;
 
     /** Life cycle begin */
@@ -62,6 +63,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MonsterListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mSkillsNavButton = findViewById(R.id.nav_button_skills);
+        mSkillsNavButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SkillListActivity.class);
                 startActivity(intent);
             }
         });

@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ArmorSetDetailActivity"></activity>
+        <activity android:name=".SkillListActivity"></activity>
+        <activity android:name=".ArmorSetDetailActivity" />
         <activity android:name=".ArmorSetListActivity" />
         <activity android:name=".MonsterDetailActivity" />
         <activity android:name=".MonsterListActivity" />

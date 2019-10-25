@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" >
 
     <ImageView
-        android:src="@drawable/armorset_list_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
+        android:src="@drawable/skill_list_background"
+        android:scaleType="centerCrop" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,25 +22,20 @@
             android:layout_height="wrap_content"
             android:background="@drawable/label_title_text_background"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/armorset_list_screen_title_text_margin_top"
-            android:text="@string/armor_list_screen_title_text"
+            android:layout_marginTop="@dimen/monster_list_screen_title_text_margin_top"
+            android:text="@string/skill_list_title"
             style="@style/NavButtonTextStyle"/>
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/pager_tab"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_skill_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:tabGravity="fill"
-            app:tabMaxWidth="0dp"
-            app:tabTextColor="@color/colorWhite"
-            app:tabSelectedTextColor="@color/colorAccent"
-            app:tabIndicatorColor="@color/colorAccent"/>
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:elevation="16dp"
+            android:scrollbars="vertical"
+            android:scrollbarStyle="insideOverlay"
+            android:scrollbarSize="@dimen/recyclerview_scrollbar_size"
+            android:scrollbarThumbVertical="@color/colorWhite"
+            android:scrollbarDefaultDelayBeforeFade="3000"/>
 
     </LinearLayout>
 

@@ -21,6 +21,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/label_title_text_background"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/monster_list_screen_title_text_margin_top"
             android:text="@string/monster_nav_button_text"

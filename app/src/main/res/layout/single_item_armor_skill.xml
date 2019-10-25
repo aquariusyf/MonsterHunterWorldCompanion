@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/armorset_detail_skill_summary_item_padding">
+
+    <ImageView
+        android:id="@+id/iv_skill_icon"
+        android:layout_width="@dimen/armorset_detail_skill_summary_icon_size"
+        android:layout_height="@dimen/armorset_detail_skill_summary_icon_size"
+        android:layout_marginLeft="16dp"
+        android:scaleType="fitXY"/>
+
+    <TextView
+        android:id="@+id/tv_skill_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/label_title_text_background"
+        android:gravity="left"
+        android:layout_gravity="center_vertical"
+        tools:text="Attack Boost Skill Name Example"
+        style="@style/ArmorSetDetailSkillSummaryTextStyle"/>
+
+    <TextView
+        android:id="@+id/tv_skill_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_gravity="center_vertical"
+        tools:text="Lv.5"
+        style="@style/ArmorSetDetailSkillSummaryTextStyle"/>
+
+</LinearLayout>

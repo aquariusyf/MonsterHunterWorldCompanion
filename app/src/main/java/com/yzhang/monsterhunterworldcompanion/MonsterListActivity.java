@@ -68,7 +68,6 @@ public class MonsterListActivity extends AppCompatActivity {
         viewModel.getMonsters().observe(this, new Observer<List<Monster>>() {
             @Override
             public void onChanged(List<Monster> monsterList) {
-                Log.v(LOG_TAG, "onChanged Called!!!!");
                 mAdapter.updateDataSet(monsterList);
             }
         });

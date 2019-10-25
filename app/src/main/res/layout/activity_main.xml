@@ -57,6 +57,7 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/nav_button_skills"
                 android:layout_width="@dimen/main_screen_nav_button_width"
                 android:layout_height="@dimen/main_screen_nav_button_height"
                 android:layout_gravity="center"
@@ -82,7 +83,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="@string/item_nav_button_text"
+                    android:text="@string/skill_nav_button_text"
                     style="@style/NavButtonTextStyle"/>
 
             </FrameLayout>

@@ -36,7 +36,7 @@ public class ArmorSkillListAdapter extends RecyclerView.Adapter<ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.single_item_skill, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.single_item_armor_skill, parent, false);
         SkillViewHolder viewHolder = new SkillViewHolder(view);
         return viewHolder;
     }
