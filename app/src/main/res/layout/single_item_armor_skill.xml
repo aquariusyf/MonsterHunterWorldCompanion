@@ -33,6 +33,7 @@
         android:gravity="left"
         android:layout_gravity="center_vertical"
         tools:text="Lv.5"
-        style="@style/ArmorSetDetailSkillSummaryTextStyle"/>
+        style="@style/ArmorSetDetailSkillSummaryTextStyle"
+        android:textColor="@color/colorGolden"/>
 
 </LinearLayout>

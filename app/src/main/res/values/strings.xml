@@ -26,4 +26,6 @@
     <string name="armor_detail_ice_defence_label">Ice Resistance</string>
     <string name="armor_detail_dragon_defence_label">Dragon Resistance</string>
     <string name="skill_list_title">Skills</string>
+    <string name="skill_effect_label">Skill Effect</string>
+    <string name="skill_level_description_label">Skill Level Description</string>
 </resources>

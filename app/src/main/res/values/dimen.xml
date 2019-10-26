@@ -38,5 +38,7 @@
     <dimen name="armorset_detail_set_skill_icon_size">49dp</dimen>
     <dimen name="skill_list_item_padding">8dp</dimen>
     <dimen name="skill_list_item_margin">16dp</dimen>
+    <dimen name="skill_level_item_padding">8dp</dimen>
+    <dimen name="skill_level_item_margin">8dp</dimen>
 
 </resources>
