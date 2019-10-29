@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetArmorSets;
+import com.yzhang.monsterhunterworldcompanion.apirequest.GetWeapons;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetMonsters;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetSkills;
 import com.yzhang.monsterhunterworldcompanion.apirequest.UrlUtils;
@@ -20,6 +21,7 @@ import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSetMaster;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.Skill;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.CommonMeleeWeapon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             getMonsters();
             getArmorSets();
             getSkills();
+            getCommonMeleeWeapon();
         }
     }
     /** Life cycle end */
@@ -121,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Monster>> call, Throwable t) {
-                Log.e(LOG_TAG, "Failed to connect" + UrlUtils.BASE_URL + UrlUtils.ALL_MONSTER_PATH);
+                Log.e(LOG_TAG, "Failed to connect " + UrlUtils.BASE_URL + UrlUtils.ALL_MONSTER_PATH);
             }
         });
     }
@@ -171,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<ArmorSetMaster>> call, Throwable t) {
-                Log.e(LOG_TAG, "Failed to connect" + UrlUtils.BASE_URL + UrlUtils.ALL_ARMORSET_PATH);
+                Log.e(LOG_TAG, "Failed to connect " + UrlUtils.BASE_URL + UrlUtils.ALL_ARMORSET_PATH);
             }
         });
     }
@@ -229,7 +232,35 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Skill>> call, Throwable t) {
-                Log.e(LOG_TAG, "Failed to connect" + UrlUtils.BASE_URL + UrlUtils.ALL_SKILL_PATH);
+                Log.e(LOG_TAG, "Failed to connect " + UrlUtils.BASE_URL + UrlUtils.ALL_SKILL_PATH);
+            }
+        });
+    }
+
+    /** Get common melee weapon data using api and create table in database */
+    private void getCommonMeleeWeapon() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(UrlUtils.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        GetWeapons request = retrofit.create(GetWeapons.class);
+        Call<List<CommonMeleeWeapon>> greatSwordCall = request.getGreatSwordCall();
+        greatSwordCall.enqueue(new Callback<List<CommonMeleeWeapon>>() {
+            @Override
+            public void onResponse(Call<List<CommonMeleeWeapon>> call, final Response<List<CommonMeleeWeapon>> response) {
+                AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        AppDataBase db = AppDataBase.getInstance(MainActivity.this);
+                        db.commonMeleeWeaponDao().insertWeapons(response.body()
+                                .toArray(new CommonMeleeWeapon[response.body().size()]));
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<List<CommonMeleeWeapon>> call, Throwable t) {
+                Log.e(LOG_TAG, "Failed to connect " + UrlUtils.BASE_URL + UrlUtils.ALL_GREAT_SWORD_PATH);
             }
         });
     }

@@ -6,11 +6,10 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
 
-public interface getCommonMeleeWeapons {
+public interface GetWeapons {
 
-    @GET(UrlUtils.ALL_WEAPON_PATH)
-    Call<List<CommonMeleeWeapon>> getGreatSword(@Query("type") String greatSwordType);
+    @GET(UrlUtils.ALL_GREAT_SWORD_PATH)
+    Call<List<CommonMeleeWeapon>> getGreatSwordCall();
 
 }

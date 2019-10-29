@@ -2,6 +2,7 @@ package com.yzhang.monsterhunterworldcompanion.appdatabase.weapons;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.List;
@@ -30,10 +31,110 @@ public class CommonMeleeWeapon {
     @ColumnInfo(name = "slots")
     private List<Slot> slots;
     @ColumnInfo(name = "elements")
-    private Element elements;
+    private List<Element> elements;
     @ColumnInfo(name = "assets")
     private Assets assets;
 
+    public CommonMeleeWeapon(
+            int primaryId,
+            int id,
+            String name,
+            String type,
+            int rarity,
+            Attack attack,
+            String elderseal,
+            Attribute attributes,
+            List<Durability> durability,
+            List<Slot> slots,
+            List<Element> elements,
+            Assets assets) {
+        this.primaryId = primaryId;
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.rarity = rarity;
+        this.attack = attack;
+        this.elderseal = elderseal;
+        this.attributes = attributes;
+        this.durability = durability;
+        this.slots = slots;
+        this.elements = elements;
+        this.assets = assets;
+    }
+
+    @Ignore
+    public CommonMeleeWeapon(
+            int id,
+            String name,
+            String type,
+            int rarity,
+            Attack attack,
+            String elderseal,
+            Attribute attributes,
+            List<Durability> durability,
+            List<Slot> slots,
+            List<Element> elements,
+            Assets assets) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.rarity = rarity;
+        this.attack = attack;
+        this.elderseal = elderseal;
+        this.attributes = attributes;
+        this.durability = durability;
+        this.slots = slots;
+        this.elements = elements;
+        this.assets = assets;
+    }
+
+    public int getPrimaryId() {
+        return primaryId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getRarity() {
+        return rarity;
+    }
+
+    public Attack getAttack() {
+        return attack;
+    }
+
+    public String getElderseal() {
+        return elderseal;
+    }
+
+    public Attribute getAttributes() {
+        return attributes;
+    }
+
+    public List<Durability> getDurability() {
+        return durability;
+    }
+
+    public List<Slot> getSlots() {
+        return slots;
+    }
+
+    public List<Element> getElements() {
+        return elements;
+    }
+
+    public Assets getAssets() {
+        return assets;
+    }
 
     public static class Attack {
 

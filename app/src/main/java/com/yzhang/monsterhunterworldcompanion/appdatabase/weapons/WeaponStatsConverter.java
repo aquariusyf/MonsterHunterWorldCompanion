@@ -19,6 +19,9 @@ public class WeaponStatsConverter {
 
     @TypeConverter
     public static String attributeToString(CommonMeleeWeapon.Attribute attributes) {
+        if(attributes == null) {
+            return "";
+        }
         String attr = "";
         attr += attributes.getDamageType();
         attr += "@";
@@ -28,6 +31,9 @@ public class WeaponStatsConverter {
 
     @TypeConverter
     public static CommonMeleeWeapon.Attribute stringToAttribute(String attr) {
+        if(attr == null || attr.isEmpty()) {
+            return null;
+        }
         String[] attrArray = attr.split("@");
         return new CommonMeleeWeapon.Attribute(attrArray[0], Integer.valueOf(attrArray[1]));
     }
@@ -86,6 +92,9 @@ public class WeaponStatsConverter {
 
     @TypeConverter
     public static String slotListToString(List<CommonMeleeWeapon.Slot> slotList) {
+        if(slotList == null || slotList.isEmpty()) {
+            return "";
+        }
         String slots = "";
         for(int i = 0; i <slotList.size(); i++) {
             if(i == 0) {
@@ -100,6 +109,9 @@ public class WeaponStatsConverter {
 
     @TypeConverter
     public static List<CommonMeleeWeapon.Slot> stringToSlotList(String slots) {
+        if(slots == null || slots.isEmpty()) {
+            return null;
+        }
         String[] slotArray = slots.split("@");
         List<CommonMeleeWeapon.Slot> slotList = new ArrayList<>();
         for(String slot: slotArray) {
@@ -109,7 +121,11 @@ public class WeaponStatsConverter {
     }
 
     @TypeConverter
-    public static String elementToString(CommonMeleeWeapon.Element element) {
+    public static String elementToString(List<CommonMeleeWeapon.Element> elementList) {
+        if(elementList == null || elementList.isEmpty()) {
+            return "";
+        }
+        CommonMeleeWeapon.Element element = elementList.get(0);
         String elementString = "";
         elementString += element.getType();
         elementString += "@";
@@ -124,14 +140,22 @@ public class WeaponStatsConverter {
     }
 
     @TypeConverter
-    public static CommonMeleeWeapon.Element stringToElement(String elementString) {
+    public static List<CommonMeleeWeapon.Element> stringToElement(String elementString) {
+        if(elementString == null || elementString.isEmpty()) {
+            return null;
+        }
+        List<CommonMeleeWeapon.Element> elementList = new ArrayList<>();
         String[] elementArray = elementString.split("@");
         boolean hidden = elementArray[2].equals("1") ? true : false;
-        return new CommonMeleeWeapon.Element(elementArray[0], Integer.valueOf(elementArray[1]), hidden);
+        elementList.add(new CommonMeleeWeapon.Element(elementArray[0], Integer.valueOf(elementArray[1]), hidden));
+        return elementList;
     }
 
     @TypeConverter
     public static String assetsToString(CommonMeleeWeapon.Assets assets) {
+        if(assets == null) {
+            return "";
+        }
         String assetString = "";
         assetString += assets.getIcon();
         assetString += "@#&";
@@ -141,6 +165,9 @@ public class WeaponStatsConverter {
 
     @TypeConverter
     public static CommonMeleeWeapon.Assets stringToAssets(String assetString) {
+        if(assetString == null || assetString.isEmpty()) {
+            return null;
+        }
         String[] assetArray = assetString.split("@#&");
         return new CommonMeleeWeapon.Assets(assetArray[0], assetArray[1]);
     }
