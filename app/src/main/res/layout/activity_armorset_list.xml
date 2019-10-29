@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:src="@drawable/armorset_list_background"
+        android:src="@drawable/weapon_and_armorset_list_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"/>
