@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/weapon_category_item_padding"
+    android:layout_margin="@dimen/weapon_category_item_margin"
+    android:background="@color/labelOrTitleTextBackgroundColor">
+
+    <ImageView
+        android:id="@+id/iv_weapon_category_icon"
+        android:src="@drawable/weapon0"
+        android:layout_width="@dimen/weapon_category_icon_size"
+        android:layout_height="@dimen/weapon_category_icon_size"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitXY"/>
+
+    <TextView
+        android:id="@+id/tv_weapon_category_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        tools:text="Great Sword"
+        style="@style/WeaponCategoryNameTextStyle"/>
+
+</LinearLayout>
