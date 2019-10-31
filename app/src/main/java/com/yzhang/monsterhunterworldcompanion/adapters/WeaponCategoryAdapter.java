@@ -88,6 +88,10 @@ public class WeaponCategoryAdapter extends RecyclerView.Adapter<ViewHolder> {
         }
     }
 
+    public Pair<String, String> getWeaponCategory(int position) {
+        return mCategoryList.get(position);
+    }
+
     private int getCategoryIcon(int position) {
         int resourceId = mContext.getResources()
                 .getIdentifier("weapon" + position, "drawable", mContext.getPackageName());

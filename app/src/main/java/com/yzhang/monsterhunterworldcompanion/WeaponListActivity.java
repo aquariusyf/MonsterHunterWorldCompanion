@@ -7,6 +7,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 
 import com.yzhang.monsterhunterworldcompanion.adapters.WeaponListPagerAdapter;
+import com.yzhang.monsterhunterworldcompanion.fragment.SingleCategoryWeaponListFragment;
 import com.yzhang.monsterhunterworldcompanion.fragment.WeaponCategoryFragment;
 
 import java.util.ArrayList;
@@ -18,8 +19,12 @@ public class WeaponListActivity extends AppCompatActivity {
     private static final String LOG_TAG = WeaponListActivity.class.getSimpleName();
 
     //UI
-    private ViewPager mWeaponListViewPager;
-    private WeaponListPagerAdapter mAdapter;
+    private static ViewPager mWeaponListViewPager;
+    private  WeaponListPagerAdapter mAdapter;
+    private  SingleCategoryWeaponListFragment mWeaponListFragment;
+
+    //val
+    private  List<Fragment> mFragmentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +37,19 @@ public class WeaponListActivity extends AppCompatActivity {
     private void initViewPager() {
         mWeaponListViewPager = findViewById(R.id.weapon_list_view_pager);
 
-        List<Fragment> fragmentList = new ArrayList<>();
+        mFragmentList = new ArrayList<>();
         WeaponCategoryFragment categoryFragment = new WeaponCategoryFragment();
-        fragmentList.add(categoryFragment);
+        mFragmentList.add(categoryFragment);
+        mWeaponListFragment = new SingleCategoryWeaponListFragment();
+        mFragmentList.add(mWeaponListFragment);
 
-        mAdapter = new WeaponListPagerAdapter(getSupportFragmentManager(), fragmentList, this);
+        mAdapter = new WeaponListPagerAdapter(getSupportFragmentManager(), mFragmentList, this);
         mWeaponListViewPager.setAdapter(mAdapter);
+    }
+
+    /** Set view pager position to weapon list */
+    public static void showWeaponList() {
+        mWeaponListViewPager.setCurrentItem(1);
     }
 
 }

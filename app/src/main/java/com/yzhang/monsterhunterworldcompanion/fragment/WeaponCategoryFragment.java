@@ -1,8 +1,12 @@
 package com.yzhang.monsterhunterworldcompanion.fragment;
 
 import android.app.Activity;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.yzhang.monsterhunterworldcompanion.R;
+import com.yzhang.monsterhunterworldcompanion.WeaponListActivity;
 import com.yzhang.monsterhunterworldcompanion.adapters.MonsterListAdapter;
 import com.yzhang.monsterhunterworldcompanion.adapters.WeaponCategoryAdapter;
 
@@ -19,6 +24,9 @@ public class WeaponCategoryFragment extends Fragment {
 
     //const
     private static final String LOG_TAG = WeaponCategoryFragment.class.getSimpleName();
+    public static final String CATEGORY_BUNDLE_KEY = "category-bundle";
+    public static final String WEAPON_TYPE_KEY = "weapon-type";
+    public static final String WEAPON_CATEGORY_KEY = "weapon-category";
 
     //UI
     private RecyclerView mCategoryGrid;
@@ -42,7 +50,8 @@ public class WeaponCategoryFragment extends Fragment {
         mAdapter = new WeaponCategoryAdapter(getContext(), new MonsterListAdapter.OnListItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                //TODO: Go to weapon list
+                updateWeaponList(mAdapter.getWeaponCategory(position));
+                WeaponListActivity.showWeaponList();
             }
         });
         mCategoryGrid.setAdapter(mAdapter);
@@ -58,6 +67,28 @@ public class WeaponCategoryFragment extends Fragment {
         int nColumns = width / widthDivider;
         if (nColumns < 2) return 2;
         return nColumns;
+    }
+
+    /** Create and send intent to update weapon list */
+    private void updateWeaponList(Pair<String, String> category) {
+        Intent updateWeaponIntent =
+                new Intent(SingleCategoryWeaponListFragment.ACTION_UPDATE_WEAPON_LIST);
+        Bundle bundle = new Bundle();
+        bundle.putString(WEAPON_CATEGORY_KEY, category.first);
+        bundle.putString(WEAPON_TYPE_KEY, category.second);
+        updateWeaponIntent.putExtra(CATEGORY_BUNDLE_KEY, bundle);
+        getActivity().sendBroadcast(updateWeaponIntent);
+//        PendingIntent update = PendingIntent.getBroadcast(
+//                getContext(),
+//                0,
+//                updateWeaponIntent,
+//                PendingIntent.FLAG_UPDATE_CURRENT);
+//        try {
+//            update.send();
+//            Log.v(LOG_TAG, "update pending intent sent!");
+//        } catch (PendingIntent.CanceledException e) {
+//            e.printStackTrace();
+//        }
     }
 
 }

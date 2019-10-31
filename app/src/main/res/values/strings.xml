@@ -29,4 +29,5 @@
     <string name="skill_effect_label">Skill Effect</string>
     <string name="skill_level_description_label">Skill Level Description</string>
     <string name="weapon_category_screen_title_text">Weapons</string>
+    <string name="weapon_list_empty_view_text">Select a weapon category</string>
 </resources>

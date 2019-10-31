@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:layout_margin="4dp">
+
+    <ImageView
+        android:id="@+id/iv_weapon_icon"
+        android:src="@drawable/weapon1"
+        android:scaleType="fitXY"
+        android:layout_width="55dp"
+        android:layout_height="55dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_weapon_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/skill_list_bottom_sheet_label_title_text_background"
+            android:gravity="start"
+            tools:text="Weapon Name Empress Galea"
+            style="@style/WeaponNameTextStyle"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+
+            <ImageView
+                android:src="@drawable/damage_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="4dp"
+                android:scaleType="fitXY"/>
+
+            <TextView
+                android:id="@+id/tv_attack_damage"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                tools:text="1024"
+                style="@style/WeaponAttackDamageTextStyle"/>
+
+            <ImageView
+                android:src="@drawable/affinity_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="4dp"
+                android:scaleType="fitXY"/>
+
+            <TextView
+                android:id="@+id/tv_affinity"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                tools:text="20%"
+                style="@style/WeaponAttackDamageTextStyle"/>
+
+            <ImageView
+                android:id="@+id/iv_element_damage_icon"
+                android:src="@drawable/sleep"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="4dp"
+                android:scaleType="fitXY"/>
+
+            <TextView
+                android:id="@+id/tv_element_damage"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                tools:text="(350)"
+                style="@style/WeaponAttackDamageTextStyle"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
