@@ -26,12 +26,6 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".fragment.SingleCategoryWeaponListFragment$WeaponListBroadcastReceiver">
-            <intent-filter>
-                <action android:name="com.yzhang.monsterhunterworldcompanion.updateWeaponList"/>
-            </intent-filter>
-        </receiver>
-
     </application>
 
 </manifest>

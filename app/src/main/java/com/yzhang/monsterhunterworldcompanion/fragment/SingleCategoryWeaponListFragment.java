@@ -3,6 +3,7 @@ package com.yzhang.monsterhunterworldcompanion.fragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -42,6 +43,7 @@ public class SingleCategoryWeaponListFragment extends Fragment {
     private WeaponListViewModelFactory mViewModelFactory;
     private WeaponListViewModel mViewModel;
     private AppDataBase mDb;
+    private BroadcastReceiver mBroadcastReceiver;
 
     public SingleCategoryWeaponListFragment() {
         // Required empty constructor
@@ -69,6 +71,7 @@ public class SingleCategoryWeaponListFragment extends Fragment {
             }
         });
         mWeaponListRv.setAdapter(mAdapter);
+        createBroadcastReceiver();
     }
     /** Life cycle end */
 
@@ -92,25 +95,52 @@ public class SingleCategoryWeaponListFragment extends Fragment {
     }
 
     /** Create broadcast receiver to update weapon list */
-    public static class WeaponListBroadcastReceiver extends BroadcastReceiver {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.v(LOG_TAG, "update pending intent received!");
-            if(intent.getAction().equals(ACTION_UPDATE_WEAPON_LIST)) {
-                Bundle bundle = intent.getBundleExtra(WeaponCategoryFragment.CATEGORY_BUNDLE_KEY);
-                if(bundle == null) {
-                    return;
-                }
-                if(bundle.containsKey(WeaponCategoryFragment.WEAPON_CATEGORY_KEY)
-                        && bundle.containsKey(WeaponCategoryFragment.WEAPON_TYPE_KEY)) {
-                    String type = bundle.getString(WeaponCategoryFragment.WEAPON_CATEGORY_KEY);
-                    String category = bundle.getString(WeaponCategoryFragment.WEAPON_TYPE_KEY);
-                    mInstance.populateWeaponList(type, category);
+    private void createBroadcastReceiver() {
+        mBroadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if(intent.getAction().equals(ACTION_UPDATE_WEAPON_LIST)) {
+                    Bundle bundle = intent.getBundleExtra(WeaponCategoryFragment.CATEGORY_BUNDLE_KEY);
+                    if(bundle == null) {
+                        return;
+                    }
+                    if(bundle.containsKey(WeaponCategoryFragment.WEAPON_CATEGORY_KEY)
+                            && bundle.containsKey(WeaponCategoryFragment.WEAPON_TYPE_KEY)) {
+                        String category = bundle.getString(WeaponCategoryFragment.WEAPON_CATEGORY_KEY);
+                        String type = bundle.getString(WeaponCategoryFragment.WEAPON_TYPE_KEY);
+                        mInstance.populateWeaponList(type, category);
+                    }
                 }
             }
-        }
-
+        };
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ACTION_UPDATE_WEAPON_LIST);
+        getActivity().registerReceiver(mBroadcastReceiver, filter);
     }
+
+//    public static class WeaponListBroadcastReceiver extends BroadcastReceiver {
+//
+//        public WeaponListBroadcastReceiver() {
+//            //Required empty constructor
+//        }
+//
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            Log.v(LOG_TAG, "update pending intent received!");
+//            if(intent.getAction().equals(ACTION_UPDATE_WEAPON_LIST)) {
+//                Bundle bundle = intent.getBundleExtra(WeaponCategoryFragment.CATEGORY_BUNDLE_KEY);
+//                if(bundle == null) {
+//                    return;
+//                }
+//                if(bundle.containsKey(WeaponCategoryFragment.WEAPON_CATEGORY_KEY)
+//                        && bundle.containsKey(WeaponCategoryFragment.WEAPON_TYPE_KEY)) {
+//                    String type = bundle.getString(WeaponCategoryFragment.WEAPON_CATEGORY_KEY);
+//                    String category = bundle.getString(WeaponCategoryFragment.WEAPON_TYPE_KEY);
+//                    mInstance.populateWeaponList(type, category);
+//                }
+//            }
+//        }
+//
+//    }
 
 }

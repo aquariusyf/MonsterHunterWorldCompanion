@@ -78,17 +78,6 @@ public class WeaponCategoryFragment extends Fragment {
         bundle.putString(WEAPON_TYPE_KEY, category.second);
         updateWeaponIntent.putExtra(CATEGORY_BUNDLE_KEY, bundle);
         getActivity().sendBroadcast(updateWeaponIntent);
-//        PendingIntent update = PendingIntent.getBroadcast(
-//                getContext(),
-//                0,
-//                updateWeaponIntent,
-//                PendingIntent.FLAG_UPDATE_CURRENT);
-//        try {
-//            update.send();
-//            Log.v(LOG_TAG, "update pending intent sent!");
-//        } catch (PendingIntent.CanceledException e) {
-//            e.printStackTrace();
-//        }
     }
 
 }
