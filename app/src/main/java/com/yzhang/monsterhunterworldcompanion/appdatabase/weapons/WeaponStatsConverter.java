@@ -39,6 +39,27 @@ public class WeaponStatsConverter {
     }
 
     @TypeConverter
+    public static String shellingToString(CommonMeleeWeapon.Shelling shelling) {
+        if(shelling == null) {
+            return "";
+        }
+        String shellingStr = "";
+        shellingStr += shelling.getType();
+        shellingStr += "@";
+        shellingStr += shelling.getLevel();
+        return shellingStr;
+    }
+
+    @TypeConverter
+    public static CommonMeleeWeapon.Shelling stringToShelling(String shellingStr) {
+        if(shellingStr == null || shellingStr.isEmpty()) {
+            return null;
+        }
+        String[] shellingArray = shellingStr.split("@");
+        return new CommonMeleeWeapon.Shelling(shellingArray[0], Integer.valueOf(shellingArray[1]));
+    }
+
+    @TypeConverter
     public static String durabilityListToString(List<CommonMeleeWeapon.Durability> durability) {
         String durabilityString = "";
         for(int i = 0; i < durability.size(); i++) {

@@ -26,6 +26,8 @@ public class CommonMeleeWeapon {
     private String elderseal;
     @ColumnInfo(name = "attributes")
     private Attribute attributes;
+    @ColumnInfo(name = "shelling")
+    private Shelling shelling;
     @ColumnInfo(name = "durability")
     private List<Durability> durability;
     @ColumnInfo(name = "slots")
@@ -44,7 +46,7 @@ public class CommonMeleeWeapon {
             Attack attack,
             String elderseal,
             Attribute attributes,
-            List<Durability> durability,
+            Shelling shelling, List<Durability> durability,
             List<Slot> slots,
             List<Element> elements,
             Assets assets) {
@@ -56,6 +58,7 @@ public class CommonMeleeWeapon {
         this.attack = attack;
         this.elderseal = elderseal;
         this.attributes = attributes;
+        this.shelling = shelling;
         this.durability = durability;
         this.slots = slots;
         this.elements = elements;
@@ -71,7 +74,7 @@ public class CommonMeleeWeapon {
             Attack attack,
             String elderseal,
             Attribute attributes,
-            List<Durability> durability,
+            Shelling shelling, List<Durability> durability,
             List<Slot> slots,
             List<Element> elements,
             Assets assets) {
@@ -82,6 +85,7 @@ public class CommonMeleeWeapon {
         this.attack = attack;
         this.elderseal = elderseal;
         this.attributes = attributes;
+        this.shelling = shelling;
         this.durability = durability;
         this.slots = slots;
         this.elements = elements;
@@ -118,6 +122,10 @@ public class CommonMeleeWeapon {
 
     public Attribute getAttributes() {
         return attributes;
+    }
+
+    public Shelling getShelling() {
+        return shelling;
     }
 
     public List<Durability> getDurability() {
@@ -172,6 +180,26 @@ public class CommonMeleeWeapon {
 
         public int getAffinity() {
             return affinity;
+        }
+
+    }
+
+    public static class Shelling {
+
+        private String type;
+        private int level;
+
+        public Shelling(String type, int level) {
+            this.type = type;
+            this.level = level;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public int getLevel() {
+            return level;
         }
 
     }
