@@ -13,19 +13,19 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 import com.bumptech.glide.Glide;
 import com.yzhang.monsterhunterworldcompanion.R;
-import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.CommonMeleeWeapon;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.Weapon;
 
 import java.util.List;
 
 public class WeaponListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private Context mContext;
-    private List<CommonMeleeWeapon> mWeaponList;
+    private List<Weapon> mWeaponList;
     private MonsterListAdapter.OnListItemClickListener mListener;
 
     public WeaponListAdapter(
             Context context,
-            List<CommonMeleeWeapon> weaponList,
+            List<Weapon> weaponList,
             MonsterListAdapter.OnListItemClickListener listener) {
         this.mContext = context;
         this.mWeaponList = mWeaponList;
@@ -42,7 +42,7 @@ public class WeaponListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        CommonMeleeWeapon weapon = mWeaponList.get(position);
+        Weapon weapon = mWeaponList.get(position);
         Glide.with(mContext)
                 .load(weapon.getAssets().getIcon())
                 .into(((WeaponViewHolder) holder).weaponIcon);
@@ -80,7 +80,7 @@ public class WeaponListAdapter extends RecyclerView.Adapter<ViewHolder> {
         return position;
     }
 
-        public void updateDataSet(List<CommonMeleeWeapon> newWeaponList) {
+        public void updateDataSet(List<Weapon> newWeaponList) {
         mWeaponList = newWeaponList;
         notifyDataSetChanged();
     }

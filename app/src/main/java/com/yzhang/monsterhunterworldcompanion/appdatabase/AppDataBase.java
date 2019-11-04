@@ -18,8 +18,8 @@ import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.MonsterDao;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.Skill;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.SkillDao;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.SkillRankConverter;
-import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.CommonMeleeWeapon;
-import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.CommonMeleeWeaponDao;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.Weapon;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.WeaponDao;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.WeaponStatsConverter;
 
 @Database(entities = {
@@ -27,7 +27,7 @@ import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.WeaponStatsCon
         ArmorSet.class,
         ArmorDetail.class,
         Skill.class,
-        CommonMeleeWeapon.class}, version = 1, exportSchema = false)
+        Weapon.class}, version = 1, exportSchema = false)
 @TypeConverters({LocationConverter.class, SkillRankConverter.class, WeaponStatsConverter.class})
 public abstract class AppDataBase extends RoomDatabase {
 
@@ -52,6 +52,6 @@ public abstract class AppDataBase extends RoomDatabase {
     public abstract ArmorSetDao armorSetDao();
     public abstract ArmorDetailDao armorDetailDao();
     public abstract SkillDao skillDao();
-    public abstract CommonMeleeWeaponDao commonMeleeWeaponDao();
+    public abstract WeaponDao commonMeleeWeaponDao();
 
 }

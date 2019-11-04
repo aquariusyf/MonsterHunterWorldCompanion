@@ -21,7 +21,7 @@ import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSetMaster;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.Skill;
-import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.CommonMeleeWeapon;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.Weapon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -254,23 +254,23 @@ public class MainActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         GetWeapons request = retrofit.create(GetWeapons.class);
-        Call<List<CommonMeleeWeapon>> greatSwordCall = request.getGreatSwordCall();
-        greatSwordCall.enqueue(new Callback<List<CommonMeleeWeapon>>() {
+        Call<List<Weapon>> greatSwordCall = request.getWeaponCall();
+        greatSwordCall.enqueue(new Callback<List<Weapon>>() {
             @Override
-            public void onResponse(Call<List<CommonMeleeWeapon>> call, final Response<List<CommonMeleeWeapon>> response) {
+            public void onResponse(Call<List<Weapon>> call, final Response<List<Weapon>> response) {
                 AppExecutors.getInstance().diskIO().execute(new Runnable() {
                     @Override
                     public void run() {
                         AppDataBase db = AppDataBase.getInstance(MainActivity.this);
                         db.commonMeleeWeaponDao().insertWeapons(response.body()
-                                .toArray(new CommonMeleeWeapon[response.body().size()]));
+                                .toArray(new Weapon[response.body().size()]));
                     }
                 });
             }
 
             @Override
-            public void onFailure(Call<List<CommonMeleeWeapon>> call, Throwable t) {
-                Log.e(LOG_TAG, "Failed to connect " + UrlUtils.BASE_URL + UrlUtils.ALL_GREAT_SWORD_PATH);
+            public void onFailure(Call<List<Weapon>> call, Throwable t) {
+                Log.e(LOG_TAG, "Failed to connect " + UrlUtils.BASE_URL + UrlUtils.ALL_WEAPON_PATH);
             }
         });
     }

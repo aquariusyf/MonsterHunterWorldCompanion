@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey;
 
 import java.util.List;
 
-@Entity(tableName = "commonMeleeWeapon")
-public class CommonMeleeWeapon {
+@Entity(tableName = "weapon")
+public class Weapon {
 
     @PrimaryKey(autoGenerate = true)
     private int primaryId;
@@ -28,6 +28,16 @@ public class CommonMeleeWeapon {
     private Attribute attributes;
     @ColumnInfo(name = "shelling")
     private Shelling shelling;
+    @ColumnInfo(name = "phial")
+    private Phial phial;
+    @ColumnInfo(name = "boostType")
+    private String boostType;
+    @ColumnInfo(name = "deviation")
+    private String deviation;
+    @ColumnInfo(name = "ammo")
+    private List<Ammo> ammo;
+    @ColumnInfo(name = "coatings")
+    private List<String> coatings;
     @ColumnInfo(name = "durability")
     private List<Durability> durability;
     @ColumnInfo(name = "slots")
@@ -37,7 +47,7 @@ public class CommonMeleeWeapon {
     @ColumnInfo(name = "assets")
     private Assets assets;
 
-    public CommonMeleeWeapon(
+    public Weapon(
             int primaryId,
             int id,
             String name,
@@ -46,7 +56,13 @@ public class CommonMeleeWeapon {
             Attack attack,
             String elderseal,
             Attribute attributes,
-            Shelling shelling, List<Durability> durability,
+            Shelling shelling,
+            Phial phial,
+            String boostType,
+            String deviation,
+            List<Ammo> ammo,
+            List<String> coatings,
+            List<Durability> durability,
             List<Slot> slots,
             List<Element> elements,
             Assets assets) {
@@ -59,6 +75,11 @@ public class CommonMeleeWeapon {
         this.elderseal = elderseal;
         this.attributes = attributes;
         this.shelling = shelling;
+        this.phial = phial;
+        this.boostType = boostType;
+        this.deviation = deviation;
+        this.ammo = ammo;
+        this.coatings = coatings;
         this.durability = durability;
         this.slots = slots;
         this.elements = elements;
@@ -66,7 +87,7 @@ public class CommonMeleeWeapon {
     }
 
     @Ignore
-    public CommonMeleeWeapon(
+    public Weapon(
             int id,
             String name,
             String type,
@@ -74,7 +95,13 @@ public class CommonMeleeWeapon {
             Attack attack,
             String elderseal,
             Attribute attributes,
-            Shelling shelling, List<Durability> durability,
+            Shelling shelling,
+            Phial phial,
+            String boostType,
+            String deviation,
+            List<Ammo> ammo,
+            List<String> coatings,
+            List<Durability> durability,
             List<Slot> slots,
             List<Element> elements,
             Assets assets) {
@@ -86,6 +113,11 @@ public class CommonMeleeWeapon {
         this.elderseal = elderseal;
         this.attributes = attributes;
         this.shelling = shelling;
+        this.phial = phial;
+        this.boostType = boostType;
+        this.deviation = deviation;
+        this.ammo = ammo;
+        this.coatings = coatings;
         this.durability = durability;
         this.slots = slots;
         this.elements = elements;
@@ -126,6 +158,26 @@ public class CommonMeleeWeapon {
 
     public Shelling getShelling() {
         return shelling;
+    }
+
+    public Phial getPhial() {
+        return phial;
+    }
+
+    public String getBoostType() {
+        return boostType;
+    }
+
+    public String getDeviation() {
+        return deviation;
+    }
+
+    public List<Ammo> getAmmo() {
+        return ammo;
+    }
+
+    public List<String> getCoatings() {
+        return coatings;
     }
 
     public List<Durability> getDurability() {
@@ -200,6 +252,46 @@ public class CommonMeleeWeapon {
 
         public int getLevel() {
             return level;
+        }
+
+    }
+
+    public static class Phial {
+
+        private String type;
+        private String damage;
+
+        public Phial(String type, String damage) {
+            this.type = type;
+            this.damage = damage;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public String getDamage() {
+            return damage;
+        }
+
+    }
+
+    public static class Ammo {
+
+        private String type;
+        private List<Integer> capacities;
+
+        public Ammo(String type, List<Integer> capacities) {
+            this.type = type;
+            this.capacities = capacities;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public List<Integer> getCapacity() {
+            return capacities;
         }
 
     }

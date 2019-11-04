@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,7 @@ import com.yzhang.monsterhunterworldcompanion.R;
 import com.yzhang.monsterhunterworldcompanion.adapters.MonsterListAdapter;
 import com.yzhang.monsterhunterworldcompanion.adapters.WeaponListAdapter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
-import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.CommonMeleeWeapon;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.Weapon;
 import com.yzhang.monsterhunterworldcompanion.viewmodels.WeaponListViewModel;
 import com.yzhang.monsterhunterworldcompanion.viewmodels.WeaponListViewModelFactory;
 
@@ -86,9 +85,10 @@ public class SingleCategoryWeaponListFragment extends Fragment {
 
         mViewModel = ViewModelProviders.of(this, mViewModelFactory)
                 .get(WeaponListViewModel.class);
-        mViewModel.getWeapons().observe(this, new Observer<List<CommonMeleeWeapon>>() {
+        mViewModel.updateLiveData(mDb, weaponType);
+        mViewModel.getWeapons().observe(this, new Observer<List<Weapon>>() {
             @Override
-            public void onChanged(List<CommonMeleeWeapon> commonMeleeWeapons) {
+            public void onChanged(List<Weapon> commonMeleeWeapons) {
                 mAdapter.updateDataSet(commonMeleeWeapons);
             }
         });
