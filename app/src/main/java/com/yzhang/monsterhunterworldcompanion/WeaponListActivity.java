@@ -9,6 +9,7 @@ import android.os.Bundle;
 import com.yzhang.monsterhunterworldcompanion.adapters.WeaponListPagerAdapter;
 import com.yzhang.monsterhunterworldcompanion.fragment.SingleCategoryWeaponListFragment;
 import com.yzhang.monsterhunterworldcompanion.fragment.WeaponCategoryFragment;
+import com.yzhang.monsterhunterworldcompanion.fragment.WeaponDetailFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,9 @@ public class WeaponListActivity extends AppCompatActivity {
     //UI
     private static ViewPager mWeaponListViewPager;
     private  WeaponListPagerAdapter mAdapter;
+    private WeaponCategoryFragment mCategoryFragment;
     private  SingleCategoryWeaponListFragment mWeaponListFragment;
+    private WeaponDetailFragment mWeaponDetailFragment;
 
     //val
     private  List<Fragment> mFragmentList;
@@ -38,10 +41,13 @@ public class WeaponListActivity extends AppCompatActivity {
         mWeaponListViewPager = findViewById(R.id.weapon_list_view_pager);
 
         mFragmentList = new ArrayList<>();
-        WeaponCategoryFragment categoryFragment = new WeaponCategoryFragment();
-        mFragmentList.add(categoryFragment);
+        mCategoryFragment = new WeaponCategoryFragment();
+        mFragmentList.add(mCategoryFragment);
         mWeaponListFragment = new SingleCategoryWeaponListFragment();
         mFragmentList.add(mWeaponListFragment);
+        mWeaponDetailFragment = new WeaponDetailFragment();
+        mFragmentList.add(mWeaponDetailFragment);
+
 
         mAdapter = new WeaponListPagerAdapter(getSupportFragmentManager(), mFragmentList, this);
         mWeaponListViewPager.setAdapter(mAdapter);
