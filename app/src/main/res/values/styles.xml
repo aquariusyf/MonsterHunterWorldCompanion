@@ -159,4 +159,21 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="WeaponDetailNameTextStyle">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="WeaponDetailRarityTextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="WeaponDetailLabelTextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
