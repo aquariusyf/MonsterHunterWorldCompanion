@@ -17,6 +17,8 @@ import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.Weapon;
 
 import java.util.List;
 
+import static com.yzhang.monsterhunterworldcompanion.fragment.WeaponDetailFragment.getWeaponTypeId;
+
 public class WeaponListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private Context mContext;
@@ -43,13 +45,22 @@ public class WeaponListAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Weapon weapon = mWeaponList.get(position);
-        Glide.with(mContext)
-                .load(weapon.getAssets().getIcon())
-                .into(((WeaponViewHolder) holder).weaponIcon);
+        if(weapon.getAssets() != null) {
+            Glide.with(mContext)
+                    .load(weapon.getAssets().getIcon())
+                    .placeholder(getWeaponIconPlaceHolder(getWeaponTypeId(weapon.getType())))
+                    .into(((WeaponViewHolder) holder).weaponIcon);
+        } else {
+            Glide.with(mContext)
+                    .load(getWeaponIconPlaceHolder(getWeaponTypeId(weapon.getType())))
+                    .into(((WeaponViewHolder) holder).weaponIcon);
+        }
         ((WeaponViewHolder) holder).weaponName.setText(weapon.getName());
         ((WeaponViewHolder) holder).attackDamage.setText(weapon.getAttack().getDisplay() + "");
         ((WeaponViewHolder) holder).affinity.setText(weapon.getAttributes().getAffinity() + "%");
         if(weapon.getElements() != null && !weapon.getElements().isEmpty()) {
+            ((WeaponViewHolder) holder).elementIcon.setVisibility(View.VISIBLE);
+            ((WeaponViewHolder) holder).elementDamage.setVisibility(View.VISIBLE);
             Glide.with(mContext)
                     .load(getElementIcon(weapon.getElements().get(0).getType()))
                     .into(((WeaponViewHolder) holder).elementIcon);
@@ -80,9 +91,21 @@ public class WeaponListAdapter extends RecyclerView.Adapter<ViewHolder> {
         return position;
     }
 
-        public void updateDataSet(List<Weapon> newWeaponList) {
+    public void updateDataSet(List<Weapon> newWeaponList) {
         mWeaponList = newWeaponList;
         notifyDataSetChanged();
+    }
+
+    private int getWeaponIconPlaceHolder(int typeId) {
+        int resourceId = mContext.getResources().getIdentifier(
+                "weapon" + typeId,
+                "drawable",
+                mContext.getPackageName());
+        return resourceId;
+    }
+
+    public int getCurrentWeaponId(int position) {
+        return mWeaponList.get(position).getId();
     }
 
     private int getElementIcon(String elementType) {

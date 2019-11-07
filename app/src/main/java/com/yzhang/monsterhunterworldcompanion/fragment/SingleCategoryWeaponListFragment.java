@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.yzhang.monsterhunterworldcompanion.R;
+import com.yzhang.monsterhunterworldcompanion.WeaponListActivity;
 import com.yzhang.monsterhunterworldcompanion.adapters.MonsterListAdapter;
 import com.yzhang.monsterhunterworldcompanion.adapters.WeaponListAdapter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
@@ -66,11 +67,18 @@ public class SingleCategoryWeaponListFragment extends Fragment {
         mAdapter = new WeaponListAdapter(getContext(), null, new MonsterListAdapter.OnListItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                //TODO: go to weapon details
+                populateWeaponDetail(mAdapter.getCurrentWeaponId(position));
+                WeaponListActivity.showWeaponDetail();
             }
         });
         mWeaponListRv.setAdapter(mAdapter);
         createBroadcastReceiver();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        getActivity().unregisterReceiver(mBroadcastReceiver);
     }
     /** Life cycle end */
 
@@ -88,8 +96,8 @@ public class SingleCategoryWeaponListFragment extends Fragment {
         mViewModel.updateLiveData(mDb, weaponType);
         mViewModel.getWeapons().observe(this, new Observer<List<Weapon>>() {
             @Override
-            public void onChanged(List<Weapon> commonMeleeWeapons) {
-                mAdapter.updateDataSet(commonMeleeWeapons);
+            public void onChanged(List<Weapon> weapons) {
+                mAdapter.updateDataSet(weapons);
             }
         });
     }
@@ -118,29 +126,14 @@ public class SingleCategoryWeaponListFragment extends Fragment {
         getActivity().registerReceiver(mBroadcastReceiver, filter);
     }
 
-//    public static class WeaponListBroadcastReceiver extends BroadcastReceiver {
-//
-//        public WeaponListBroadcastReceiver() {
-//            //Required empty constructor
-//        }
-//
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//            Log.v(LOG_TAG, "update pending intent received!");
-//            if(intent.getAction().equals(ACTION_UPDATE_WEAPON_LIST)) {
-//                Bundle bundle = intent.getBundleExtra(WeaponCategoryFragment.CATEGORY_BUNDLE_KEY);
-//                if(bundle == null) {
-//                    return;
-//                }
-//                if(bundle.containsKey(WeaponCategoryFragment.WEAPON_CATEGORY_KEY)
-//                        && bundle.containsKey(WeaponCategoryFragment.WEAPON_TYPE_KEY)) {
-//                    String type = bundle.getString(WeaponCategoryFragment.WEAPON_CATEGORY_KEY);
-//                    String category = bundle.getString(WeaponCategoryFragment.WEAPON_TYPE_KEY);
-//                    mInstance.populateWeaponList(type, category);
-//                }
-//            }
-//        }
-//
-//    }
+    /** Create and send broadcast to populate weapon detail */
+    private void populateWeaponDetail(int weaponId) {
+        Intent populateWeaponDetailIntent =
+                new Intent(WeaponDetailFragment.ACTION_POPULATE_WEAPON_DETAIL);
+        Bundle bundle = new Bundle();
+        bundle.putInt(WeaponDetailFragment.WEAPON_ID_KEY, weaponId);
+        populateWeaponDetailIntent.putExtra(WeaponDetailFragment.WEAPON_DETAIL_BUNDLE_KEY, bundle);
+        getActivity().sendBroadcast(populateWeaponDetailIntent);
+    }
 
 }

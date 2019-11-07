@@ -5,17 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/monsterDetailBackgroundColor">
+    android:background="@color/labelOrTitleTextBackgroundColor">
 
-    <ImageView
+    <TextView
+        android:id="@+id/tv_weapon_detail_empty_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/sapphire_star"
-        android:scaleType="fitStart" />
+        android:gravity="center"
+        android:text="@string/weapon_detail_empty_view_text"
+        style="@style/WeaponDetailEmptyViewTextStyle"/>
 
     <ScrollView
+        android:id="@+id/weapon_detail_ui"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="32dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,6 +27,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_weapon_detail_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -32,7 +37,8 @@
                 style="@style/WeaponDetailNameTextStyle"/>
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tv_weapon_detail_rarity"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="8dp"
@@ -42,7 +48,6 @@
 
             <ImageView
                 android:id="@+id/iv_weapon_large_icon"
-                android:src="@drawable/weapon_and_armorset_list_background"
                 android:layout_width="350dp"
                 android:layout_height="350dp"
                 android:layout_marginTop="8dp"
@@ -164,31 +169,55 @@
 
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/weapon_sharpness_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:orientation="horizontal"
                 android:background="@drawable/label_title_text_background">
 
                 <ImageView
+                    android:id="@+id/iv_sharpness_icon"
                     android:src="@drawable/sharpness_icon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
                     android:scaleType="fitXY"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
+                    android:layout_toRightOf="@id/iv_sharpness_icon"
                     android:gravity="center"
                     android:text="@string/weapon_detail_sharpness_label_text"
                     style="@style/WeaponDetailLabelTextStyle"/>
 
-            </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="left">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_sharpness_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="12dp"
+                        android:layout_marginTop="1dp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_full_sharpness_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="12dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_alignParentBottom="true"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/weapon_slot_section"
@@ -222,21 +251,21 @@
 
                     <ImageView
                         android:id="@+id/iv_slot_1"
-                        android:src="@drawable/decorlv4"
+                        android:src="@drawable/no_decor_slot_icon"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:scaleType="fitXY"/>
 
                     <ImageView
                         android:id="@+id/iv_slot_2"
-                        android:src="@drawable/decorlv3"
+                        android:src="@drawable/no_decor_slot_icon"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:scaleType="fitXY"/>
 
                     <ImageView
                         android:id="@+id/iv_slot_3"
-                        android:src="@drawable/decorlv1"
+                        android:src="@drawable/no_decor_slot_icon"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:scaleType="fitXY"/>

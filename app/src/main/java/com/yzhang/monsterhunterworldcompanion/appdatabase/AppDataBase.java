@@ -52,6 +52,6 @@ public abstract class AppDataBase extends RoomDatabase {
     public abstract ArmorSetDao armorSetDao();
     public abstract ArmorDetailDao armorDetailDao();
     public abstract SkillDao skillDao();
-    public abstract WeaponDao commonMeleeWeaponDao();
+    public abstract WeaponDao weaponDao();
 
 }

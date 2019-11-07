@@ -124,9 +124,9 @@ public class WeaponStatsConverter {
         for(int i = 0; i < ammoArray.length; i++) {
             String[] ammoDetailStr = ammoArray[i].split("&");
             List<Integer> capacity = new ArrayList<>();
-            capacity.add(Integer.valueOf(ammoDetailStr[1]));
-            capacity.add(Integer.valueOf(ammoDetailStr[2]));
-            capacity.add(Integer.valueOf(ammoDetailStr[3]));
+            for(int j = 1; j < ammoDetailStr.length; j++) {
+                capacity.add(Integer.valueOf(ammoDetailStr[j]));
+            }
             ammo.add(new Weapon.Ammo(ammoDetailStr[0], capacity));
         }
         return ammo;

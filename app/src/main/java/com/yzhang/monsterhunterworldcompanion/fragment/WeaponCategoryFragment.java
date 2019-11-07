@@ -1,11 +1,9 @@
 package com.yzhang.monsterhunterworldcompanion.fragment;
 
 import android.app.Activity;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,7 +67,7 @@ public class WeaponCategoryFragment extends Fragment {
         return nColumns;
     }
 
-    /** Create and send intent to update weapon list */
+    /** Create and send broadcast to update weapon list */
     private void updateWeaponList(Pair<String, String> category) {
         Intent updateWeaponIntent =
                 new Intent(SingleCategoryWeaponListFragment.ACTION_UPDATE_WEAPON_LIST);

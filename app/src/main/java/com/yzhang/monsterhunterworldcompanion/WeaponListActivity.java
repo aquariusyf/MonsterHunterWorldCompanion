@@ -48,6 +48,7 @@ public class WeaponListActivity extends AppCompatActivity {
         mWeaponDetailFragment = new WeaponDetailFragment();
         mFragmentList.add(mWeaponDetailFragment);
 
+        mWeaponListViewPager.setOffscreenPageLimit(mFragmentList.size() - 1);
 
         mAdapter = new WeaponListPagerAdapter(getSupportFragmentManager(), mFragmentList, this);
         mWeaponListViewPager.setAdapter(mAdapter);
@@ -56,6 +57,11 @@ public class WeaponListActivity extends AppCompatActivity {
     /** Set view pager position to weapon list */
     public static void showWeaponList() {
         mWeaponListViewPager.setCurrentItem(1);
+    }
+
+    /** Set view pager position to weapon detail */
+    public static void showWeaponDetail() {
+        mWeaponListViewPager.setCurrentItem(2);
     }
 
 }

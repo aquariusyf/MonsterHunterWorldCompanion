@@ -262,7 +262,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         AppDataBase db = AppDataBase.getInstance(MainActivity.this);
-                        db.commonMeleeWeaponDao().insertWeapons(response.body()
+                        db.weaponDao().insertWeapons(response.body()
                                 .toArray(new Weapon[response.body().size()]));
                     }
                 });

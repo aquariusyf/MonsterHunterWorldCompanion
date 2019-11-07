@@ -29,4 +29,12 @@
     <color name="colorRare11">#ffea00</color>
     <color name="colorRare12">#FFFFFF</color>
 
+    <color name="colorSharpnessRed">#d32f2f</color>
+    <color name="colorSharpnessOrange">#ff5722</color>
+    <color name="colorSharpnessYellow">#ffeb3b</color>
+    <color name="colorSharpnessGreen">#8bc34a</color>
+    <color name="colorSharpnessBlue">#1e88e5</color>
+    <color name="colorSharpnessWhite">#FFF</color>
+    <color name="colorSharpnessPurple">#9c27b0</color>
+
 </resources>

@@ -13,11 +13,11 @@ public class WeaponListViewModel extends ViewModel {
     private LiveData<List<Weapon>> mWeaponList;
 
     public WeaponListViewModel(AppDataBase db, String weaponType) {
-        mWeaponList = db.commonMeleeWeaponDao().getAllByType(weaponType);
+        mWeaponList = db.weaponDao().getAllByType(weaponType);
     }
 
     public void updateLiveData(AppDataBase db, String weaponType) {
-        mWeaponList = db.commonMeleeWeaponDao().getAllByType(weaponType);
+        mWeaponList = db.weaponDao().getAllByType(weaponType);
     }
 
     public LiveData<List<Weapon>> getWeapons() {

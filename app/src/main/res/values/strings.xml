@@ -30,6 +30,7 @@
     <string name="skill_level_description_label">Skill Level Description</string>
     <string name="weapon_category_screen_title_text">Weapons</string>
     <string name="weapon_list_empty_view_text">Select a weapon category</string>
+    <string name="weapon_detail_empty_view_text">Select a weapon</string>
     <string name="weapon_detail_attack_label_text">Attack</string>
     <string name="weapon_detail_affinity_label_text">Affinity</string>
     <string name="weapon_detail_element_label_text">Element</string>
@@ -39,4 +40,5 @@
     <string name="weapon_detail_phial_type_label_text">Phial</string>
     <string name="weapon_detail_kinsect_bonus_label_text">Kinsect Bonus</string>
     <string name="weapon_detail_deviation_label_text">Deviation</string>
+    <string name="weapon_detail_element_none_text">None</string>
 </resources>
