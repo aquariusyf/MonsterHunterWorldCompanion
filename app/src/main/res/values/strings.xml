@@ -2,6 +2,7 @@
     <string name="app_name">MHW Companion</string>
     <string name="monster_nav_button_text">Monsters</string>
     <string name="skill_nav_button_text">Skills</string>
+    <string name="ailment_nav_button_text">Ailments</string>
     <string name="armor_nav_button_text">Armors</string>
     <string name="weapon_nav_button_text">Weapons</string>
     <string name="armor_list_screen_title_text">Armor Set</string>
