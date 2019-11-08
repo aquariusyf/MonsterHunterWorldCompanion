@@ -411,6 +411,42 @@
             </LinearLayout>
 
             <RelativeLayout
+                android:id="@+id/weapon_coating_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/label_title_text_background">
+
+                <ImageView
+                    android:id="@+id/iv_coating_label_icon"
+                    android:src="@drawable/close_range_coating_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="fitCenter"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/iv_coating_label_icon"
+                    android:layout_marginLeft="6dp"
+                    android:gravity="center"
+                    android:text="@string/weapon_detail_coating_label_text"
+                    style="@style/WeaponDetailLabelTextStyle"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_coating_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_below="@+id/iv_coating_label_icon"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/ammo_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

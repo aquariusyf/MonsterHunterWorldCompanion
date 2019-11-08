@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.yzhang.monsterhunterworldcompanion.R;
 import com.yzhang.monsterhunterworldcompanion.adapters.AmmoListAdapter;
+import com.yzhang.monsterhunterworldcompanion.adapters.CoatingListAdapter;
 import com.yzhang.monsterhunterworldcompanion.adapters.SharpnessColorAdapter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.Weapon;
@@ -94,7 +95,11 @@ public class WeaponDetailFragment extends Fragment {
 
     private RelativeLayout mAmmoSection;
     private RecyclerView mAmmoListRv;
-    private AmmoListAdapter mAmmoListAdapater;
+    private AmmoListAdapter mAmmoListAdapter;
+
+    private RelativeLayout mCoatingSection;
+    private RecyclerView mCoatingListRv;
+    private CoatingListAdapter mCoatingListAdapter;
 
     private WeaponDetailViewModelFactory mViewModelFactory;
     private WeaponDetailViewModel mViewModel;
@@ -167,8 +172,14 @@ public class WeaponDetailFragment extends Fragment {
         mAmmoSection = view.findViewById(R.id.ammo_section);
         mAmmoListRv = view.findViewById(R.id.rv_ammo_list);
         mAmmoListRv.setLayoutManager(new LinearLayoutManager(getContext()));
-        mAmmoListAdapater = new AmmoListAdapter(getContext(), null);
-        mAmmoListRv.setAdapter(mAmmoListAdapater);
+        mAmmoListAdapter = new AmmoListAdapter(getContext(), null);
+        mAmmoListRv.setAdapter(mAmmoListAdapter);
+
+        mCoatingSection = view.findViewById(R.id.weapon_coating_section);
+        mCoatingListRv = view.findViewById(R.id.rv_coating_list);
+        mCoatingListRv.setLayoutManager(new LinearLayoutManager(getContext()));
+        mCoatingListAdapter = new CoatingListAdapter(getContext(), null);
+        mCoatingListRv.setAdapter(mCoatingListAdapter);
 
         createBroadCastReceiver();
     }
@@ -250,7 +261,10 @@ public class WeaponDetailFragment extends Fragment {
                     mColorAdapterFull.updateDataSet(weapon.getDurability().get(5));
                 }
                 if(weapon.getAmmo() != null && !weapon.getAmmo().isEmpty()) {
-                    mAmmoListAdapater.updateDataSet(weapon.getAmmo());
+                    mAmmoListAdapter.updateDataSet(weapon.getAmmo());
+                }
+                if(weapon.getCoatings() != null && !weapon.getCoatings().isEmpty()) {
+                    mCoatingListAdapter.updateDataSet(weapon.getCoatings());
                 }
                 loadDecorSlotIcon(weapon);
             }
@@ -296,6 +310,7 @@ public class WeaponDetailFragment extends Fragment {
                 mKinsectSection.setVisibility(View.GONE);
                 mDeviationSection.setVisibility(View.GONE);
                 mAmmoSection.setVisibility(View.GONE);
+                mCoatingSection.setVisibility(View.GONE);
                 break;
             case GUN_LANCE:
                 mElementSection.setVisibility(View.VISIBLE);
@@ -305,6 +320,7 @@ public class WeaponDetailFragment extends Fragment {
                 mKinsectSection.setVisibility(View.GONE);
                 mDeviationSection.setVisibility(View.GONE);
                 mAmmoSection.setVisibility(View.GONE);
+                mCoatingSection.setVisibility(View.GONE);
                 break;
             case SWITCH_AXE:
             case CHARGE_BLADE:
@@ -315,6 +331,7 @@ public class WeaponDetailFragment extends Fragment {
                 mKinsectSection.setVisibility(View.GONE);
                 mDeviationSection.setVisibility(View.GONE);
                 mAmmoSection.setVisibility(View.GONE);
+                mCoatingSection.setVisibility(View.GONE);
                 break;
             case INSECT_GLAIVE:
                 mElementSection.setVisibility(View.VISIBLE);
@@ -324,6 +341,7 @@ public class WeaponDetailFragment extends Fragment {
                 mKinsectSection.setVisibility(View.VISIBLE);
                 mDeviationSection.setVisibility(View.GONE);
                 mAmmoSection.setVisibility(View.GONE);
+                mCoatingSection.setVisibility(View.GONE);
                 break;
             case LIGHT_BOWGUN:
             case HEAVY_BOWGUN:
@@ -334,6 +352,7 @@ public class WeaponDetailFragment extends Fragment {
                 mKinsectSection.setVisibility(View.GONE);
                 mDeviationSection.setVisibility(View.VISIBLE);
                 mAmmoSection.setVisibility(View.VISIBLE);
+                mCoatingSection.setVisibility(View.GONE);
                 break;
             case BOW:
                 mElementSection.setVisibility(View.VISIBLE);
@@ -343,6 +362,7 @@ public class WeaponDetailFragment extends Fragment {
                 mKinsectSection.setVisibility(View.GONE);
                 mDeviationSection.setVisibility(View.GONE);
                 mAmmoSection.setVisibility(View.GONE);
+                mCoatingSection.setVisibility(View.VISIBLE);
                 break;
             default: break;
         }
