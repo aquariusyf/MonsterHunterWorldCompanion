@@ -1,4 +1,4 @@
-package com.yzhang.monsterhunterworldcompanion.appdatabase.Ailment;
+package com.yzhang.monsterhunterworldcompanion.appdatabase.ailment;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

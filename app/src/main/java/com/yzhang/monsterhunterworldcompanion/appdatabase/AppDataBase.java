@@ -8,6 +8,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
+import com.yzhang.monsterhunterworldcompanion.appdatabase.ailment.Ailment;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.ailment.AilmentDao;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorDetail;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorDetailDao;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
@@ -27,7 +29,8 @@ import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.WeaponStatsCon
         ArmorSet.class,
         ArmorDetail.class,
         Skill.class,
-        Weapon.class}, version = 1, exportSchema = false)
+        Weapon.class,
+        Ailment.class}, version = 1, exportSchema = false)
 @TypeConverters({LocationConverter.class, SkillRankConverter.class, WeaponStatsConverter.class})
 public abstract class AppDataBase extends RoomDatabase {
 
@@ -53,5 +56,6 @@ public abstract class AppDataBase extends RoomDatabase {
     public abstract ArmorDetailDao armorDetailDao();
     public abstract SkillDao skillDao();
     public abstract WeaponDao weaponDao();
+    public abstract AilmentDao ailmentDao();
 
 }
