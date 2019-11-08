@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.yzhang.monsterhunterworldcompanion.R;
+import com.yzhang.monsterhunterworldcompanion.adapters.AmmoListAdapter;
 import com.yzhang.monsterhunterworldcompanion.adapters.SharpnessColorAdapter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.Weapon;
@@ -91,6 +92,10 @@ public class WeaponDetailFragment extends Fragment {
     private LinearLayout mDeviationSection;
     private TextView mDeviationTv;
 
+    private RelativeLayout mAmmoSection;
+    private RecyclerView mAmmoListRv;
+    private AmmoListAdapter mAmmoListAdapater;
+
     private WeaponDetailViewModelFactory mViewModelFactory;
     private WeaponDetailViewModel mViewModel;
     private AppDataBase mDb;
@@ -158,6 +163,12 @@ public class WeaponDetailFragment extends Fragment {
 
         mDeviationSection = view.findViewById(R.id.weapon_deviation_section);
         mDeviationTv = view.findViewById(R.id.tv_weapon_deviation);
+
+        mAmmoSection = view.findViewById(R.id.ammo_section);
+        mAmmoListRv = view.findViewById(R.id.rv_ammo_list);
+        mAmmoListRv.setLayoutManager(new LinearLayoutManager(getContext()));
+        mAmmoListAdapater = new AmmoListAdapter(getContext(), null);
+        mAmmoListRv.setAdapter(mAmmoListAdapater);
 
         createBroadCastReceiver();
     }
@@ -238,6 +249,9 @@ public class WeaponDetailFragment extends Fragment {
                 if(weapon.getDurability() != null && weapon.getDurability().size() > 5) {
                     mColorAdapterFull.updateDataSet(weapon.getDurability().get(5));
                 }
+                if(weapon.getAmmo() != null && !weapon.getAmmo().isEmpty()) {
+                    mAmmoListAdapater.updateDataSet(weapon.getAmmo());
+                }
                 loadDecorSlotIcon(weapon);
             }
         });
@@ -281,6 +295,7 @@ public class WeaponDetailFragment extends Fragment {
                 mPhialSection.setVisibility(View.GONE);
                 mKinsectSection.setVisibility(View.GONE);
                 mDeviationSection.setVisibility(View.GONE);
+                mAmmoSection.setVisibility(View.GONE);
                 break;
             case GUN_LANCE:
                 mElementSection.setVisibility(View.VISIBLE);
@@ -289,6 +304,7 @@ public class WeaponDetailFragment extends Fragment {
                 mPhialSection.setVisibility(View.GONE);
                 mKinsectSection.setVisibility(View.GONE);
                 mDeviationSection.setVisibility(View.GONE);
+                mAmmoSection.setVisibility(View.GONE);
                 break;
             case SWITCH_AXE:
             case CHARGE_BLADE:
@@ -298,6 +314,7 @@ public class WeaponDetailFragment extends Fragment {
                 mPhialSection.setVisibility(View.VISIBLE);
                 mKinsectSection.setVisibility(View.GONE);
                 mDeviationSection.setVisibility(View.GONE);
+                mAmmoSection.setVisibility(View.GONE);
                 break;
             case INSECT_GLAIVE:
                 mElementSection.setVisibility(View.VISIBLE);
@@ -306,6 +323,7 @@ public class WeaponDetailFragment extends Fragment {
                 mPhialSection.setVisibility(View.GONE);
                 mKinsectSection.setVisibility(View.VISIBLE);
                 mDeviationSection.setVisibility(View.GONE);
+                mAmmoSection.setVisibility(View.GONE);
                 break;
             case LIGHT_BOWGUN:
             case HEAVY_BOWGUN:
@@ -315,6 +333,7 @@ public class WeaponDetailFragment extends Fragment {
                 mPhialSection.setVisibility(View.GONE);
                 mKinsectSection.setVisibility(View.GONE);
                 mDeviationSection.setVisibility(View.VISIBLE);
+                mAmmoSection.setVisibility(View.VISIBLE);
                 break;
             case BOW:
                 mElementSection.setVisibility(View.VISIBLE);
@@ -323,6 +342,7 @@ public class WeaponDetailFragment extends Fragment {
                 mPhialSection.setVisibility(View.GONE);
                 mKinsectSection.setVisibility(View.GONE);
                 mDeviationSection.setVisibility(View.GONE);
+                mAmmoSection.setVisibility(View.GONE);
                 break;
             default: break;
         }

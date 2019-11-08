@@ -41,4 +41,8 @@
     <string name="weapon_detail_kinsect_bonus_label_text">Kinsect Bonus</string>
     <string name="weapon_detail_deviation_label_text">Deviation</string>
     <string name="weapon_detail_element_none_text">None</string>
+    <string name="weapon_detail_ammo_type_label_text">Ammo</string>
+    <string name="weapon_detail_ammo_Lv1_label_text">Lv.1</string>
+    <string name="weapon_detail_ammo_Lv2_label_text">Lv.2</string>
+    <string name="weapon_detail_ammo_Lv3_label_text">Lv.3</string>
 </resources>
