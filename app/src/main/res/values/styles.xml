@@ -183,4 +183,15 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="AilmentNameTextStyle">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AilmentDescriptionTextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
 </resources>

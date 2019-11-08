@@ -106,7 +106,8 @@ public class MainActivity extends AppCompatActivity {
         mAilmentNavButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: go to ailment list activity
+                Intent intent = new Intent(MainActivity.this, AilmentListActivity.class);
+                startActivity(intent);
             }
         });
     }

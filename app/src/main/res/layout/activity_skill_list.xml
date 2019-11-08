@@ -23,8 +23,9 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:background="@drawable/label_title_text_background"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/monster_list_screen_title_text_margin_top"

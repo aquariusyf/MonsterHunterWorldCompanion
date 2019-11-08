@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="4dp"
+    android:layout_margin="8dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/navButtonBackgroundColor">
+
+    <ImageView
+        android:id="@+id/iv_ailment_icon"
+        android:src="@drawable/icon_effluvialbuildup"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"/>
+
+    <TextView
+        android:id="@+id/tv_ailment_name"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/iv_ailment_icon"
+        android:gravity="center_vertical|left"
+        tools:text="EffluviaBuildup"
+        style="@style/AilmentNameTextStyle"/>
+
+    <TextView
+        android:id="@+id/tv_ailment_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="54dp"
+        android:layout_below="@+id/tv_ailment_name"
+        tools:text="The is the ailment description section. All description goes here."
+        style="@style/AilmentDescriptionTextStyle"/>
+
+</RelativeLayout>

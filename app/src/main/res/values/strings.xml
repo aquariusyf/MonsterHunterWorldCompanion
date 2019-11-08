@@ -47,4 +47,5 @@
     <string name="weapon_detail_ammo_Lv2_label_text">Lv.2</string>
     <string name="weapon_detail_ammo_Lv3_label_text">Lv.3</string>
     <string name="weapon_detail_coating_label_text">Coating</string>
+    <string name="ailment_screen_title_text">Ailments</string>
 </resources>

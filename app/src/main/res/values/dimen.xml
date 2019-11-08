@@ -45,5 +45,8 @@
     <dimen name="weapon_category_screen_title_text_margin_top">20dp</dimen>
     <dimen name="weapon_category_item_padding">8dp</dimen>
     <dimen name="weapon_category_item_margin">8dp</dimen>
+    <dimen name="ailment_title_text_margin_top">20dp</dimen>
+    <dimen name="ailment_recycler_view_margin_top">16dp</dimen>
+    <dimen name="ailment_recycler_view_margin_bottom">32dp</dimen>
 
 </resources>
