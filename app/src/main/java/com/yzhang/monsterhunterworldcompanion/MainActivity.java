@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.yzhang.monsterhunterworldcompanion.apirequest.GetAilemts;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetArmorSets;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetWeapons;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetMonsters;
@@ -16,6 +17,7 @@ import com.yzhang.monsterhunterworldcompanion.apirequest.GetSkills;
 import com.yzhang.monsterhunterworldcompanion.apirequest.UrlUtils;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppExecutors;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.ailment.Ailment;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorDetail;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSetMaster;
@@ -55,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
             getMonsters();
             getArmorSets();
             getSkills();
-            getCommonMeleeWeapon();
+            getWeapons();
+            getAilments();
         }
     }
     /** Life cycle end */
@@ -247,15 +250,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /** Get common melee weapon data using api and create table in database */
-    private void getCommonMeleeWeapon() {
+    /** Get weapon data using api and create table in database */
+    private void getWeapons() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(UrlUtils.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         GetWeapons request = retrofit.create(GetWeapons.class);
-        Call<List<Weapon>> greatSwordCall = request.getWeaponCall();
-        greatSwordCall.enqueue(new Callback<List<Weapon>>() {
+        Call<List<Weapon>> weaponCall = request.getWeaponCall();
+        weaponCall.enqueue(new Callback<List<Weapon>>() {
             @Override
             public void onResponse(Call<List<Weapon>> call, final Response<List<Weapon>> response) {
                 AppExecutors.getInstance().diskIO().execute(new Runnable() {
@@ -271,6 +274,34 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Weapon>> call, Throwable t) {
                 Log.e(LOG_TAG, "Failed to connect " + UrlUtils.BASE_URL + UrlUtils.ALL_WEAPON_PATH);
+            }
+        });
+    }
+
+    /** Get ailment data using api and create table in database */
+    private void getAilments() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(UrlUtils.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        GetAilemts request = retrofit.create(GetAilemts.class);
+        Call<List<Ailment>> ailmentCall = request.getAilmentCall();
+        ailmentCall.enqueue(new Callback<List<Ailment>>() {
+            @Override
+            public void onResponse(Call<List<Ailment>> call, final Response<List<Ailment>> response) {
+                AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        AppDataBase db = AppDataBase.getInstance(MainActivity.this);
+                        db.ailmentDao().insertAilments(response.body()
+                                .toArray(new Ailment[response.body().size()]));
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<List<Ailment>> call, Throwable t) {
+                Log.e(LOG_TAG, "Failed to connect " + UrlUtils.BASE_URL + UrlUtils.ALL_AILMENT_PATH);
             }
         });
     }
