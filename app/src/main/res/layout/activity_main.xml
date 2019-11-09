@@ -25,6 +25,38 @@
             android:orientation="vertical">
 
             <FrameLayout
+                android:id="@+id/nav_button_events"
+                android:layout_width="@dimen/main_screen_nav_button_width"
+                android:layout_height="@dimen/main_screen_nav_button_height"
+                android:layout_gravity="center"
+                android:elevation="16dp"
+                android:layout_marginTop="@dimen/main_screen_nav_button_margin"
+                android:background="@color/navButtonBackgroundColor">
+
+                <ImageView
+                    android:src="@drawable/nav_button_frame_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="left"/>
+
+                <ImageView
+                    android:src="@drawable/nav_button_frame_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="right"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/event_nav_button_text"
+                    style="@style/NavButtonTextStyle"/>
+
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/nav_button_monsters"
                 android:layout_width="@dimen/main_screen_nav_button_width"
                 android:layout_height="@dimen/main_screen_nav_button_height"

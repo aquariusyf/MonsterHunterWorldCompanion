@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String IS_FIRST_START_KEY = "is_first_start";
 
     //UI
+    private FrameLayout mEventsNavButton;
     private FrameLayout mMonstersNavButton;
     private FrameLayout mSkillsNavButton;
     private FrameLayout mArmorSetNavButton;
@@ -66,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
 
     /** Initiate views and set listener */
     private void initViews() {
+        mEventsNavButton = findViewById(R.id.nav_button_events);
+        mEventsNavButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: go to events activity
+            }
+        });
+
         mMonstersNavButton = findViewById(R.id.nav_button_monsters);
         mMonstersNavButton.setOnClickListener(new View.OnClickListener() {
             @Override

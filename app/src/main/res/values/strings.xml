@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">MHW Companion</string>
+    <string name="event_nav_button_text">Events</string>
     <string name="monster_nav_button_text">Monsters</string>
     <string name="skill_nav_button_text">Skills</string>
     <string name="ailment_nav_button_text">Ailments</string>
