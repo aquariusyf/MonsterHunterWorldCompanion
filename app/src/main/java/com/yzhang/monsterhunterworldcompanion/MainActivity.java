@@ -158,10 +158,14 @@ public class MainActivity extends AppCompatActivity {
         if(sharedPreferences.contains(IS_FIRST_START_KEY)) {
             return false;
         } else {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean(IS_FIRST_START_KEY, false);
-            editor.commit();
-            return true;
+            if(isNetworkAvailable()) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(IS_FIRST_START_KEY, false);
+                editor.commit();
+                return true;
+            } else {
+                return true;
+            }
         }
     }
 
