@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetAilemts;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetArmorSets;
+import com.yzhang.monsterhunterworldcompanion.apirequest.GetEvents;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetWeapons;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetMonsters;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetSkills;
@@ -21,6 +22,7 @@ import com.yzhang.monsterhunterworldcompanion.appdatabase.ailment.Ailment;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorDetail;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSetMaster;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.events.EventQuest;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.Skill;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.Weapon;
@@ -323,6 +325,31 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(LOG_TAG, "Failed to connect " + UrlUtils.BASE_URL + UrlUtils.ALL_AILMENT_PATH);
             }
         });
+    }
+
+    /** Get event data using api */
+    public static List<EventQuest> getEvents() {
+        final List<EventQuest> eventQuestList = new ArrayList<>();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(UrlUtils.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        final GetEvents request = retrofit.create(GetEvents.class);
+        Call<List<EventQuest>> eventCall = request.getEventCall();
+        eventCall.enqueue(new Callback<List<EventQuest>>() {
+            @Override
+            public void onResponse(Call<List<EventQuest>> call, Response<List<EventQuest>> response) {
+                if(response.body() != null) {
+                    eventQuestList.addAll(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<EventQuest>> call, Throwable t) {
+                Log.e(LOG_TAG, "Failed to connect " + UrlUtils.BASE_URL + UrlUtils.ALL_EVENT_PATH);
+            }
+        });
+        return eventQuestList;
     }
 
 }
