@@ -8,5 +8,6 @@ public class UrlUtils {
     public static final String ALL_SKILL_PATH = "skills";
     public static final String ALL_WEAPON_PATH = "weapons";
     public static final String ALL_AILMENT_PATH = "ailments";
+    public static final String ALL_EVENT_PATH = "events?q={\"platform\": \"console\"}";
 
 }
