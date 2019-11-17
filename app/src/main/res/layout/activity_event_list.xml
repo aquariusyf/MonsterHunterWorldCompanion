@@ -20,6 +20,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_indicator_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -28,6 +29,7 @@
             style="@style/NavButtonTextStyle"/>
 
         <ProgressBar
+            android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyleLarge"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
