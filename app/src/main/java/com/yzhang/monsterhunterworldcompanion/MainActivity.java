@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
+import com.yzhang.monsterhunterworldcompanion.adapters.EventListAdapter;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetAilemts;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetArmorSets;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetEvents;
@@ -73,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
         mEventsNavButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: go to events activity
+                Intent intent = new Intent(MainActivity.this, EventListActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -328,8 +331,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /** Get event data using api */
-    public static List<EventQuest> getEvents() {
-        final List<EventQuest> eventQuestList = new ArrayList<>();
+    public static void getEvents(final EventListAdapter adapter, final LinearLayout loadingIndicator) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(UrlUtils.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -340,7 +342,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<EventQuest>> call, Response<List<EventQuest>> response) {
                 if(response.body() != null) {
-                    eventQuestList.addAll(response.body());
+                    adapter.updateDataSet(response.body());
+                    loadingIndicator.setVisibility(View.GONE);
                 }
             }
 
@@ -349,7 +352,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(LOG_TAG, "Failed to connect " + UrlUtils.BASE_URL + UrlUtils.ALL_EVENT_PATH);
             }
         });
-        return eventQuestList;
     }
 
 }

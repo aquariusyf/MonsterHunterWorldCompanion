@@ -49,4 +49,10 @@
     <string name="weapon_detail_ammo_Lv3_label_text">Lv.3</string>
     <string name="weapon_detail_coating_label_text">Coating</string>
     <string name="ailment_screen_title_text">Ailments</string>
+    <string name="event_screen_title_text">Event Quests</string>
+    <string name="event_requirements_label_text">Requirements:</string>
+    <string name="event_conditions_label_text">Conditions:</string>
+    <string name="event_location_label_text">Location:</string>
+    <string name="event_time_available_label_text">Available:</string>
+    <string name="event_loading_indicator_text">Fetching event data...</string>
 </resources>
