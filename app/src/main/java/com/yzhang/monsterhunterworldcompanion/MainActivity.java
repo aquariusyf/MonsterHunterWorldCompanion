@@ -2,13 +2,18 @@ package com.yzhang.monsterhunterworldcompanion;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.yzhang.monsterhunterworldcompanion.adapters.EventListAdapter;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetAilemts;
@@ -45,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String IS_FIRST_START_KEY = "is_first_start";
 
     //UI
+    private TextView mNetworkIndicatorTv;
+    private ScrollView mMenuView;
     private FrameLayout mEventsNavButton;
     private FrameLayout mMonstersNavButton;
     private FrameLayout mSkillsNavButton;
@@ -60,17 +67,36 @@ public class MainActivity extends AppCompatActivity {
 
         initViews();
         if(isFirstStart()) {
-            getMonsters();
-            getArmorSets();
-            getSkills();
-            getWeapons();
-            getAilments();
+            if(isNetworkAvailable()) {
+                getMonsters();
+                getArmorSets();
+                getSkills();
+                getWeapons();
+                getAilments();
+                mMenuView.setVisibility(View.VISIBLE);
+                mNetworkIndicatorTv.setVisibility(View.GONE);
+            } else {
+                mMenuView.setVisibility(View.GONE);
+                mNetworkIndicatorTv.setVisibility(View.VISIBLE);
+            }
         }
     }
     /** Life cycle end */
 
+    /** Check network connectivity */
+    private boolean isNetworkAvailable() {
+        ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+        return isConnected;
+    }
+
     /** Initiate views and set listener */
     private void initViews() {
+        mNetworkIndicatorTv = findViewById(R.id.tv_connectivity_indicator);
+        mMenuView = findViewById(R.id.menu_section);
+
         mEventsNavButton = findViewById(R.id.nav_button_events);
         mEventsNavButton.setOnClickListener(new View.OnClickListener() {
             @Override

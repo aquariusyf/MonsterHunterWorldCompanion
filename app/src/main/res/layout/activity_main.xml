@@ -13,7 +13,17 @@
         android:src="@drawable/main_screen_background"
         android:scaleType="fitXY" />
 
+    <TextView
+        android:id="@+id/tv_connectivity_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/network_connectivity_indicator_text"
+        style="@style/NetworkConnectivityIndicatorTextStyle"
+        android:visibility="gone"/>
+
     <ScrollView
+        android:id="@+id/menu_section"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/main_screen_scollView_margin_top"

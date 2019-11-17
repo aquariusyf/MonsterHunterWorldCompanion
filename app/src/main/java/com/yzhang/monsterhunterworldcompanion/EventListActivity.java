@@ -35,7 +35,7 @@ public class EventListActivity extends AppCompatActivity {
 
         if(savedInstanceState != null && savedInstanceState.containsKey(EVENT_LIST_KEY)) {
             mLoadingIndicator.setVisibility(View.GONE);
-            ArrayList<EventQuest> eventQuestList = new ArrayList<>();
+            ArrayList<EventQuest> eventQuestList;
             eventQuestList = savedInstanceState.getParcelableArrayList(EVENT_LIST_KEY);
             mAdapter.updateDataSet(eventQuestList);
         } else {
