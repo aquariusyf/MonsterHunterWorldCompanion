@@ -13,6 +13,23 @@
         android:src="@drawable/main_screen_background"
         android:scaleType="fitXY" />
 
+    <ImageView
+        android:src="@drawable/options_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="@dimen/option_icon_margin"
+        android:layout_marginRight="@dimen/option_icon_margin"
+        android:layout_gravity="end|bottom"
+        android:scaleType="fitXY"/>
+
+    <ImageView
+        android:src="@drawable/sapphire_star"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="4dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="centerCrop"/>
+
     <TextView
         android:id="@+id/tv_connectivity_indicator"
         android:layout_width="match_parent"
