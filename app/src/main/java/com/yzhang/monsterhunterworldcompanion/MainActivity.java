@@ -1,6 +1,7 @@
 package com.yzhang.monsterhunterworldcompanion;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,8 +10,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout mArmorSetNavButton;
     private FrameLayout mWeaponNavButton;
     private FrameLayout mAilmentNavButton;
+    private ImageView mOptionsMenu;
 
     /** Life cycle begin */
     @Override
@@ -150,6 +154,36 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        mOptionsMenu = findViewById(R.id.options_menu);
+        mOptionsMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showOptionsMenu(v);
+            }
+        });
+    }
+
+    /** Show popup options menu */
+    private void showOptionsMenu(View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.getMenuInflater().inflate(R.menu.main_screen_popup_menu, popupMenu.getMenu());
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case 0:
+                        //TODO: sync database
+                        break;
+                    case 1:
+                        //TODO: go to about
+                        break;
+                    default: break;
+                }
+                return true;
+            }
+        });
+        popupMenu.show();
     }
 
     /** Check whether is initial app start */

@@ -14,6 +14,7 @@
         android:scaleType="fitXY" />
 
     <ImageView
+        android:id="@+id/options_menu"
         android:src="@drawable/options_icon"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -27,7 +28,7 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginBottom="4dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center_horizontal|bottom"
         android:scaleType="centerCrop"/>
 
     <TextView

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">MHW Companion</string>
     <string name="network_connectivity_indicator_text">No network connection</string>
+    <string name="sync_database_menu_option_text">Sync Game Data</string>
+    <string name="about_menu_option_text">About</string>
     <string name="event_nav_button_text">Events</string>
     <string name="monster_nav_button_text">Monsters</string>
     <string name="skill_nav_button_text">Skills</string>

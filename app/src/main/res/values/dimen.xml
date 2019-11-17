@@ -3,7 +3,7 @@
     <dimen name="main_screen_nav_button_height">100dp</dimen>
     <dimen name="main_screen_nav_button_width">350dp</dimen>
     <dimen name="main_screen_nav_button_margin">24dp</dimen>
-    <dimen name="main_screen_scollView_margin_top">150dp</dimen>
+    <dimen name="main_screen_scollView_margin_top">30dp</dimen>
     <dimen name="main_screen_scollView_margin_bottom">100dp</dimen>
     <dimen name="option_icon_margin">16dp</dimen>
     <dimen name="recyclerview_scrollbar_size">3dp</dimen>

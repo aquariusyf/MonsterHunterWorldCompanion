@@ -3,9 +3,21 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="popupMenuStyle">@style/PopupMenu</item>
+        <item name="textAppearanceLargePopupMenu">@style/OptionsMenuTextStyle</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="PopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@color/navButtonBackgroundColor</item>
+    </style>
+
+    <style name="OptionsMenuTextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/navButtonTextColor</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="NetworkConnectivityIndicatorTextStyle">
