@@ -28,10 +28,10 @@ public interface WeaponDao {
     @Query("SELECT * FROM weapon WHERE name = :name")
     Weapon getWeaponByName(String name);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertWeapon(Weapon newWeapon);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertWeapons(Weapon... weapons);
 
     @Update(onConflict = OnConflictStrategy.REPLACE)

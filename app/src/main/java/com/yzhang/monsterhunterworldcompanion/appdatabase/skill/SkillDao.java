@@ -28,10 +28,10 @@ public interface SkillDao {
     @Query("SELECT * FROM skill WHERE name = :name")
     Skill getSkillByName(String name);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertSkill(Skill newSkill);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertSkills(Skill... skills);
 
     @Update(onConflict = OnConflictStrategy.REPLACE)

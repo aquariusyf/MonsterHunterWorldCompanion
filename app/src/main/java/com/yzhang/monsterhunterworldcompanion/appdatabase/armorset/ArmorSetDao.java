@@ -25,10 +25,10 @@ public interface ArmorSetDao {
     @Query("SELECT * FROM armorSet WHERE rank = :rank ORDER BY name")
     LiveData<List<ArmorSet>> getArmorSetByRank(String rank);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertArmorset(ArmorSet newArmorSet);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertArmorSets(ArmorSet... armorSets);
 
     @Update(onConflict = OnConflictStrategy.REPLACE)

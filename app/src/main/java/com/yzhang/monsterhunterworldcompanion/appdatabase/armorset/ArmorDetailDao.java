@@ -18,10 +18,10 @@ public interface ArmorDetailDao {
     @Query("SELECT * FROM armorDetail WHERE armorSetId = :id")
     ArmorDetail getArmorDetailById(int id);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertArmorDetail(ArmorDetail newArmorDetail);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertArmorDetails(ArmorDetail... armorDetails);
 
     @Update(onConflict = OnConflictStrategy.REPLACE)

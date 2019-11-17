@@ -25,10 +25,10 @@ public interface AilmentDao {
     @Query("SELECT * FROM ailment WHERE name = :name")
     Ailment getAilmentByName(String name);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAilment(Ailment newAilment);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAilments(Ailment... ailments);
 
     @Update(onConflict = OnConflictStrategy.REPLACE)

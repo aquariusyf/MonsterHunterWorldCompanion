@@ -25,10 +25,10 @@ public interface MonsterDao {
     @Query("SELECT * FROM monster WHERE name = :name")
     LiveData<Monster> getMonsterByName(String name);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertMonster(Monster newMonster);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertMonsters(Monster... monsters);
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
