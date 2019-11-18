@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yzhang.monsterhunterworldcompanion.adapters.EventListAdapter;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetAilemts;
@@ -171,11 +172,11 @@ public class MainActivity extends AppCompatActivity {
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()){
-                    case 0:
-                        //TODO: sync database
+                switch (item.getTitle().toString()){
+                    case "Sync Game Data":
+                        syncGameData();
                         break;
-                    case 1:
+                    case "About":
                         //TODO: go to about
                         break;
                     default: break;
@@ -203,6 +204,32 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /** Sync game data using api */
+    private void syncGameData() {
+        if(isNetworkAvailable()) {
+            getMonsters();
+            getArmorSets();
+            getSkills();
+            getWeapons();
+            getAilments();
+            SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(IS_FIRST_START_KEY, false);
+            editor.commit();
+            mMenuView.setVisibility(View.VISIBLE);
+            mNetworkIndicatorTv.setVisibility(View.GONE);
+            Toast.makeText(
+                    MainActivity.this,
+                    getString(R.string.sync_database_success_toast_text),
+                    Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(
+                    MainActivity.this,
+                    getString(R.string.sync_database_fail_toast_text),
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
     /** Get monsters data using api and create monster table in database */
     private void getMonsters() {
         Retrofit retrofit = new Retrofit.Builder()
@@ -218,6 +245,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         AppDataBase db = AppDataBase.getInstance(MainActivity.this);
+                        db.monsterDao().nukeTable();
                         db.monsterDao().insertMonsters(response.body().toArray(new Monster[response.body().size()]));
                     }
                 });
@@ -267,7 +295,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         AppDataBase db = AppDataBase.getInstance(MainActivity.this);
+                        db.armorSetDao().nukeTable();
                         db.armorSetDao().insertArmorSets(armorSetList.toArray(new ArmorSet[armorSetList.size()]));
+                        db.armorDetailDao().nukeTable();
                         db.armorDetailDao().insertArmorDetails(armorDetailList.toArray(new ArmorDetail[armorDetailList.size()]));
                     }
                 });
@@ -326,6 +356,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         AppDataBase db = AppDataBase.getInstance(MainActivity.this);
+                        db.skillDao().nukeTable();
                         db.skillDao().insertSkills(response.body().toArray(new Skill[response.body().size()]));
                     }
                 });
@@ -381,6 +412,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         AppDataBase db = AppDataBase.getInstance(MainActivity.this);
+                        db.ailmentDao().nukeTable();
                         db.ailmentDao().insertAilments(response.body()
                                 .toArray(new Ailment[response.body().size()]));
                     }

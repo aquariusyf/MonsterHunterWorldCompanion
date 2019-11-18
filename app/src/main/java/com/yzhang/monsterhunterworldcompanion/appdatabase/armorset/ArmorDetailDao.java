@@ -18,6 +18,9 @@ public interface ArmorDetailDao {
     @Query("SELECT * FROM armorDetail WHERE armorSetId = :id")
     ArmorDetail getArmorDetailById(int id);
 
+    @Query("DELETE FROM armorDetail")
+    void nukeTable();
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertArmorDetail(ArmorDetail newArmorDetail);
 

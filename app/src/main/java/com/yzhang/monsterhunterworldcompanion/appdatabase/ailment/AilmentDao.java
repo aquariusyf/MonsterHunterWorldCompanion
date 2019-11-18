@@ -25,6 +25,9 @@ public interface AilmentDao {
     @Query("SELECT * FROM ailment WHERE name = :name")
     Ailment getAilmentByName(String name);
 
+    @Query("DELETE FROM ailment")
+    void nukeTable();
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAilment(Ailment newAilment);
 

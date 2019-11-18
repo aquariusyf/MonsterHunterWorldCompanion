@@ -28,6 +28,9 @@ public interface SkillDao {
     @Query("SELECT * FROM skill WHERE name = :name")
     Skill getSkillByName(String name);
 
+    @Query("DELETE FROM skill")
+    void nukeTable();
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertSkill(Skill newSkill);
 

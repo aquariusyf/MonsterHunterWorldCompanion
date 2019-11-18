@@ -25,6 +25,9 @@ public interface ArmorSetDao {
     @Query("SELECT * FROM armorSet WHERE rank = :rank ORDER BY name")
     LiveData<List<ArmorSet>> getArmorSetByRank(String rank);
 
+    @Query("DELETE FROM armorSet")
+    void nukeTable();
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertArmorset(ArmorSet newArmorSet);
 

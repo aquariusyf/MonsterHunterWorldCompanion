@@ -25,6 +25,9 @@ public interface MonsterDao {
     @Query("SELECT * FROM monster WHERE name = :name")
     LiveData<Monster> getMonsterByName(String name);
 
+    @Query("DELETE FROM monster")
+    void nukeTable();
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertMonster(Monster newMonster);
 
