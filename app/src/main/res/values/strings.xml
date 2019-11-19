@@ -60,4 +60,6 @@
     <string name="event_location_label_text">Location:</string>
     <string name="event_time_available_label_text">Available:</string>
     <string name="event_loading_indicator_text">Fetching event data...</string>
+    <string name="dialog_header_text">MHW Companion</string>
+    <string name="dialog_content_version_label_text">Version</string>
 </resources>
