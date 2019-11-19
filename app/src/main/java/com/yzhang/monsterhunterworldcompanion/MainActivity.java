@@ -10,8 +10,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -19,6 +21,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.DialogPlusBuilder;
+import com.orhanobut.dialogplus.ViewHolder;
 import com.yzhang.monsterhunterworldcompanion.adapters.EventListAdapter;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetAilemts;
 import com.yzhang.monsterhunterworldcompanion.apirequest.GetArmorSets;
@@ -52,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
     //const
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
     private static final String IS_FIRST_START_KEY = "is_first_start";
+    private static final int ABOUT_DIALOG_MARGIN_TOP = 120;
+    private static final int ABOUT_DIALOG_MARGIN_LEFT = 48;
+    private static final int ABOUT_DIALOG_MARGIN_RIGHT = 48;
+    private static final int ABOUT_DIALOG_MARGIN_BOTTOM = 240;
+    private static final int ABOUT_DIALOG_PADDING = 20;
 
     //UI
     private TextView mNetworkIndicatorTv;
@@ -63,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout mWeaponNavButton;
     private FrameLayout mAilmentNavButton;
     private ImageView mOptionsMenu;
+    private DialogPlus mDialogPlus;
+    private DialogPlusBuilder mDialogPlusBuilder;
 
     /** Life cycle begin */
     @Override
@@ -163,6 +175,8 @@ public class MainActivity extends AppCompatActivity {
                 showOptionsMenu(v);
             }
         });
+
+        createDialogPlusBuilder();
     }
 
     /** Show popup options menu */
@@ -177,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                         syncGameData();
                         break;
                     case "About":
-                        //TODO: go to about
+                        showAboutDialog();
                         break;
                     default: break;
                 }
@@ -185,6 +199,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         popupMenu.show();
+    }
+
+    /** Create about dialog */
+    private void createDialogPlusBuilder() {
+        mDialogPlusBuilder = DialogPlus.newDialog(this)
+                .setHeader(R.layout.dialog_header)
+                .setContentHolder(new ViewHolder(R.layout.dialog_content))
+                .setContentBackgroundResource(R.color.colorDialogHeaderBackground)
+                .setGravity(Gravity.CENTER)
+                .setCancelable(true)
+                .setMargin(
+                        ABOUT_DIALOG_MARGIN_LEFT,
+                        ABOUT_DIALOG_MARGIN_TOP,
+                        ABOUT_DIALOG_MARGIN_RIGHT,
+                        ABOUT_DIALOG_MARGIN_BOTTOM)
+                .setPadding(ABOUT_DIALOG_PADDING, ABOUT_DIALOG_PADDING, ABOUT_DIALOG_PADDING, ABOUT_DIALOG_PADDING)
+                .setInAnimation(R.anim.fade_in_center)
+                .setOutAnimation(R.anim.fade_out_center)
+                .setContentWidth(ViewGroup.LayoutParams.MATCH_PARENT)
+                .setContentHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+        mDialogPlus = mDialogPlusBuilder.create();
+    }
+
+    /** Show about dialog */
+    private void showAboutDialog() {
+        mDialogPlus.show();
     }
 
     /** Check whether is initial app start */

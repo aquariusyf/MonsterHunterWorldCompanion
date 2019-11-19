@@ -37,7 +37,7 @@
     <color name="colorSharpnessWhite">#FFF</color>
     <color name="colorSharpnessPurple">#9c27b0</color>
 
-    <color name="colorDialogHeaderBackground">#90607D8B</color>
+    <color name="colorDialogHeaderBackground">#80000000</color>
     <color name="colorDialogHeaderText">#80000000</color>
 
 </resources>

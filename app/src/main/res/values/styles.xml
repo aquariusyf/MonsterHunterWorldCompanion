@@ -230,13 +230,13 @@
 
     <style name="DialogHeaderTextStyle">
         <item name="android:textSize">32sp</item>
-        <item name="android:textColor">@color/colorDialogHeaderText</item>
+        <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="DialogContentTextStyle">
         <item name="android:textSize">24sp</item>
-        <item name="android:textColor">@color/colorDialogHeaderText</item>
+        <item name="android:textColor">@color/colorWhite</item>
     </style>
 
 </resources>
