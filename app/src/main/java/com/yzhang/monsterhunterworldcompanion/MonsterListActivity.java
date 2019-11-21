@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yzhang.monsterhunterworldcompanion.adapters.MonsterListAdapter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 import com.yzhang.monsterhunterworldcompanion.viewmodels.MonsterListViewModel;
@@ -28,6 +30,7 @@ public class MonsterListActivity extends AppCompatActivity {
     //UI
     private RecyclerView mMonsterListRv;
     private MonsterListAdapter mAdapter;
+    private FloatingActionButton mSearchBtn;
 
     /** Life cycle begin */
     @Override
@@ -58,6 +61,13 @@ public class MonsterListActivity extends AppCompatActivity {
             }
         });
         mMonsterListRv.setAdapter(mAdapter);
+        mSearchBtn = findViewById(R.id.search_btn);
+        mSearchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: show or hide search view
+            }
+        });
     }
 
     /** Initiate and setup view model */
