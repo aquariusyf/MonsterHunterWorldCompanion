@@ -21,6 +21,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.DialogPlusBuilder;
@@ -47,6 +48,7 @@ import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.Weapon;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.fabric.sdk.android.Fabric;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -88,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
         initViews();
         setupAnalyticsInstance();
+        setupCrashlytics();
         if(isFirstStart()) {
             if(isNetworkAvailable()) {
                 getMonsters();
@@ -500,6 +503,11 @@ public class MainActivity extends AppCompatActivity {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.APP_OPEN, null);
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.POST_SCORE, null);
+    }
+
+    /** Setup Crashlytics */
+    private void setupCrashlytics() {
+        Fabric.with(this, new Crashlytics());
     }
 
 }
