@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yzhang.monsterhunterworldcompanion.adapters.AilmentListAdapter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.ailment.Ailment;
 import com.yzhang.monsterhunterworldcompanion.viewmodels.AilmentListViewModel;
@@ -22,6 +24,7 @@ public class AilmentListActivity extends AppCompatActivity {
     //UI
     private RecyclerView mAilmentListRv;
     private AilmentListAdapter mAdapter;
+    private FloatingActionButton mBackBtn;
 
     /** Life cycle begin */
     @Override
@@ -40,6 +43,13 @@ public class AilmentListActivity extends AppCompatActivity {
         mAilmentListRv.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new AilmentListAdapter(this, null);
         mAilmentListRv.setAdapter(mAdapter);
+        mBackBtn = findViewById(R.id.back_btn);
+        mBackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     /** Setup view model */

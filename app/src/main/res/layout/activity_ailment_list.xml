@@ -12,6 +12,16 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/back_btn"
+        android:src="@drawable/back_icon"
+        app:maxImageSize="40dp"
+        app:backgroundTint="@color/navButtonBackgroundColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,7 +32,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/ailment_title_text_margin_top"
             android:gravity="center"
-            android:background="@drawable/label_title_text_background"
             android:text="@string/ailment_screen_title_text"
             style="@style/NavButtonTextStyle"/>
 
