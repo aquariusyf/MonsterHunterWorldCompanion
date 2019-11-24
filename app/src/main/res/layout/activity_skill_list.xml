@@ -17,6 +17,16 @@
             android:src="@drawable/skill_list_background"
             android:scaleType="centerCrop" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/back_btn"
+            android:src="@drawable/back_icon"
+            app:maxImageSize="40dp"
+            app:backgroundTint="@color/navButtonBackgroundColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="8dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -26,7 +36,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:background="@drawable/label_title_text_background"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/monster_list_screen_title_text_margin_top"
                 android:text="@string/skill_list_title"
@@ -44,6 +53,40 @@
                 android:scrollbarDefaultDelayBeforeFade="3000"/>
 
         </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="32dp">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/skill_search_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:imeOptions="flagNoExtractUi"
+                android:iconifiedByDefault="false"
+                android:visibility="gone"
+                app:searchIcon="@null"
+                app:queryBackground="@color/colorWhite"
+                app:submitBackground="@color/colorWhite"
+                app:searchHintIcon="@null"
+                app:queryHint="Search"/>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/search_btn"
+                android:src="@drawable/search_icon"
+                app:maxImageSize="40dp"
+                app:backgroundTint="@color/navButtonBackgroundColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
 
     </FrameLayout>
 

@@ -1,6 +1,7 @@
 package com.yzhang.monsterhunterworldcompanion;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.widget.NestedScrollView;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -12,12 +13,15 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yzhang.monsterhunterworldcompanion.adapters.MonsterListAdapter;
 import com.yzhang.monsterhunterworldcompanion.adapters.SkillRankListAdapter;
 import com.yzhang.monsterhunterworldcompanion.adapters.SkillListAdapter;
+import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.Skill;
 import com.yzhang.monsterhunterworldcompanion.viewmodels.SkillListViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SkillListActivity extends AppCompatActivity {
@@ -32,6 +36,12 @@ public class SkillListActivity extends AppCompatActivity {
     private SkillRankListAdapter mSkillRankListAdapter;
     private NestedScrollView mSkillDetailsView;
     private TextView mSkillEffectTv;
+    private FloatingActionButton mSearchBtn;
+    private SearchView mSearchView;
+    private FloatingActionButton mBackBtn;
+
+    //val
+    private List<Skill> mSkillList;
 
     /** Life cycle begin */
     @Override
@@ -71,7 +81,56 @@ public class SkillListActivity extends AppCompatActivity {
         });
         mSKillListRv.setAdapter(mSkillListAdapter);
 
+        mSearchView = findViewById(R.id.skill_search_view);
+        mSearchView.setSubmitButtonEnabled(true);
+        mSearchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                mSearchBtn.show();
+                mSearchView.setVisibility(View.GONE);
+                return true;
+            }
+        });
+        setSearchViewListener();
+        mSearchBtn = findViewById(R.id.search_btn);
+        mSearchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSearchView.setVisibility(View.VISIBLE);
+                mSearchView.setIconified(false);
+                mSearchBtn.hide();
+            }
+        });
+        mBackBtn = findViewById(R.id.back_btn);
+        mBackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
 
+    /** Set listener to search view */
+    private void setSearchViewListener() {
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                String userInput = newText.toLowerCase();
+                List<Skill> searchResult = new ArrayList<>();
+                for(Skill skill: mSkillList) {
+                    if(skill.getName().toLowerCase().contains(userInput)) {
+                        searchResult.add(skill);
+                    }
+                }
+                mSkillListAdapter.updateDataSet(searchResult);
+                return true;
+            }
+        });
     }
 
     /** Initiate and setup view model */
@@ -82,6 +141,7 @@ public class SkillListActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Skill> skills) {
                 mSkillListAdapter.updateDataSet(skills);
+                mSkillList = skills;
             }
         });
     }
