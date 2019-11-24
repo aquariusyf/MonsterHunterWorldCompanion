@@ -1,9 +1,9 @@
 package com.yzhang.monsterhunterworldcompanion;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,6 +31,11 @@ public class MonsterListActivity extends AppCompatActivity {
     private RecyclerView mMonsterListRv;
     private MonsterListAdapter mAdapter;
     private FloatingActionButton mSearchBtn;
+    private SearchView mSearchView;
+    private FloatingActionButton mBackBtn;
+
+    //val
+    private List<Monster> mMonsterList;
 
     /** Life cycle begin */
     @Override
@@ -61,11 +66,32 @@ public class MonsterListActivity extends AppCompatActivity {
             }
         });
         mMonsterListRv.setAdapter(mAdapter);
+
+        mSearchView = findViewById(R.id.monster_search_view);
+        mSearchView.setSubmitButtonEnabled(true);
+        mSearchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                mSearchBtn.show();
+                mSearchView.setVisibility(View.GONE);
+                return true;
+            }
+        });
+        setSearchViewListener();
         mSearchBtn = findViewById(R.id.search_btn);
         mSearchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: show or hide search view
+                mSearchView.setVisibility(View.VISIBLE);
+                mSearchView.setIconified(false);
+                mSearchBtn.hide();
+            }
+        });
+        mBackBtn = findViewById(R.id.back_btn);
+        mBackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -78,7 +104,31 @@ public class MonsterListActivity extends AppCompatActivity {
         viewModel.getMonsters().observe(this, new Observer<List<Monster>>() {
             @Override
             public void onChanged(List<Monster> monsterList) {
+                mMonsterList = monsterList;
                 mAdapter.updateDataSet(monsterList);
+            }
+        });
+    }
+
+    /** Set listener to search view */
+    private void setSearchViewListener() {
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                String userInput = newText.toLowerCase();
+                List<Monster> searchResult = new ArrayList<>();
+                for(Monster monster: mMonsterList) {
+                    if(monster.getName().toLowerCase().contains(userInput)) {
+                        searchResult.add(monster);
+                    }
+                }
+                mAdapter.updateDataSet(searchResult);
+                return true;
             }
         });
     }
