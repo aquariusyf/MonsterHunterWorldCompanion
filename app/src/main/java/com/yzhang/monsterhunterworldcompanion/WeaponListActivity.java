@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yzhang.monsterhunterworldcompanion.adapters.WeaponListPagerAdapter;
 import com.yzhang.monsterhunterworldcompanion.fragment.SingleCategoryWeaponListFragment;
 import com.yzhang.monsterhunterworldcompanion.fragment.WeaponCategoryFragment;
@@ -25,6 +27,7 @@ public class WeaponListActivity extends AppCompatActivity {
     private WeaponCategoryFragment mCategoryFragment;
     private  SingleCategoryWeaponListFragment mWeaponListFragment;
     private WeaponDetailFragment mWeaponDetailFragment;
+    private FloatingActionButton mBackBtn;
 
     //val
     private  List<Fragment> mFragmentList;
@@ -33,6 +36,13 @@ public class WeaponListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weapon_list);
+        mBackBtn = findViewById(R.id.back_btn);
+        mBackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         initViewPager();
     }
 

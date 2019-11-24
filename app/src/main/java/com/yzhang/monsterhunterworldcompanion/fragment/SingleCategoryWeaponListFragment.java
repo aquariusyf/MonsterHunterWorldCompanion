@@ -10,12 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yzhang.monsterhunterworldcompanion.R;
 import com.yzhang.monsterhunterworldcompanion.WeaponListActivity;
 import com.yzhang.monsterhunterworldcompanion.adapters.MonsterListAdapter;
@@ -25,6 +27,7 @@ import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.Weapon;
 import com.yzhang.monsterhunterworldcompanion.viewmodels.WeaponListViewModel;
 import com.yzhang.monsterhunterworldcompanion.viewmodels.WeaponListViewModelFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SingleCategoryWeaponListFragment extends Fragment {
@@ -44,6 +47,11 @@ public class SingleCategoryWeaponListFragment extends Fragment {
     private WeaponListViewModel mViewModel;
     private AppDataBase mDb;
     private BroadcastReceiver mBroadcastReceiver;
+    private FloatingActionButton mSearchBtn;
+    private SearchView mSearchView;
+
+    //val
+    private List<Weapon> mWeaponList;
 
     public SingleCategoryWeaponListFragment() {
         // Required empty constructor
@@ -73,6 +81,27 @@ public class SingleCategoryWeaponListFragment extends Fragment {
         });
         mWeaponListRv.setAdapter(mAdapter);
         createBroadcastReceiver();
+
+        mSearchView = view.findViewById(R.id.weapon_search_view);
+        mSearchView.setSubmitButtonEnabled(true);
+        mSearchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                mSearchBtn.show();
+                mSearchView.setVisibility(View.GONE);
+                return true;
+            }
+        });
+        setSearchViewListener();
+        mSearchBtn = view.findViewById(R.id.search_btn);
+        mSearchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mSearchView.setVisibility(View.VISIBLE);
+                mSearchView.setIconified(false);
+                mSearchBtn.hide();
+            }
+        });
     }
 
     @Override
@@ -81,6 +110,29 @@ public class SingleCategoryWeaponListFragment extends Fragment {
         getActivity().unregisterReceiver(mBroadcastReceiver);
     }
     /** Life cycle end */
+
+    /** Set listener to search view */
+    private void setSearchViewListener() {
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                String userInput = newText.toLowerCase();
+                List<Weapon> searchResult = new ArrayList<>();
+                for(Weapon weapon: mWeaponList) {
+                    if(weapon.getName().toLowerCase().contains(userInput)) {
+                        searchResult.add(weapon);
+                    }
+                }
+                mAdapter.updateDataSet(searchResult);
+                return true;
+            }
+        });
+    }
 
     /** Initiate and setup view model */
     private void populateWeaponList(String weaponType, String weaponCategory) {
@@ -98,6 +150,7 @@ public class SingleCategoryWeaponListFragment extends Fragment {
             @Override
             public void onChanged(List<Weapon> weapons) {
                 mAdapter.updateDataSet(weapons);
+                mWeaponList = weapons;
             }
         });
     }

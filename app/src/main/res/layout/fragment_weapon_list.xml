@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/labelOrTitleTextBackgroundColor">
 
     <LinearLayout
@@ -29,6 +30,40 @@
             android:layout_marginBottom="16dp"/>
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="32dp">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/weapon_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:imeOptions="flagNoExtractUi"
+            android:iconifiedByDefault="false"
+            android:visibility="gone"
+            app:searchIcon="@null"
+            app:queryBackground="@color/colorWhite"
+            app:submitBackground="@color/colorWhite"
+            app:searchHintIcon="@null"
+            app:queryHint="Search"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/search_btn"
+            android:src="@drawable/search_icon"
+            app:maxImageSize="40dp"
+            app:backgroundTint="@color/navButtonBackgroundColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/empty_view"

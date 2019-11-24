@@ -12,7 +12,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.yzhang.monsterhunterworldcompanion.adapters.ArmorSetPagerAdapter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.armorset.ArmorSet;
-import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 import com.yzhang.monsterhunterworldcompanion.fragment.ArmorSetListFragment;
 
 import java.util.ArrayList;
