@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yzhang.monsterhunterworldcompanion.adapters.EventListAdapter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.events.EventQuest;
 
@@ -31,6 +32,7 @@ public class EventListActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private RecyclerView mEventListRv;
     private EventListAdapter mAdapter;
+    private FloatingActionButton mBackBtn;
 
     /** Life cycle begin */
     @Override
@@ -87,6 +89,13 @@ public class EventListActivity extends AppCompatActivity {
         mEventListRv.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new EventListAdapter(this, null);
         mEventListRv.setAdapter(mAdapter);
+        mBackBtn = findViewById(R.id.back_btn);
+        mBackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 }
