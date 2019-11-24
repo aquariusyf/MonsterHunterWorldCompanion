@@ -47,6 +47,7 @@ public class ArmorSetListFragment extends Fragment {
 
     //val
     private AppDataBase mDb;
+    private List<ArmorSet> mArmorSetList;
 
     public ArmorSetListFragment() {
         // Required empty constructor
@@ -119,8 +120,19 @@ public class ArmorSetListFragment extends Fragment {
             @Override
             public void onChanged(List<ArmorSet> armorSets) {
                 mAdapter.updateDataSet(armorSets);
+                mArmorSetList = armorSets;
             }
         });
+    }
+
+    /** Get armor list */
+    public List<ArmorSet> getArmorSetList() {
+        return mArmorSetList;
+    }
+
+    /** Update armor set list to search result */
+    public void updateSearchResult(List<ArmorSet> searchResult) {
+        mAdapter.updateDataSet(searchResult);
     }
 
 }
