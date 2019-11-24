@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "692050469156",
+    "firebase_url": "https://mhw-companion-36967.firebaseio.com",
+    "project_id": "mhw-companion-36967",
+    "storage_bucket": "mhw-companion-36967.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692050469156:android:f2d992acae43eecb9953b1",
+        "android_client_info": {
+          "package_name": "com.yzhang.monsterhunterworldcompanion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692050469156-uc1p280h9p40f3qql5fev8bnrcrt0re7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yzhang.monsterhunterworldcompanion",
+            "certificate_hash": "844bbda7a704fcaf0083be7faa196df989e935ff"
+          }
+        },
+        {
+          "client_id": "692050469156-m0hcj4upe1rk431l7b0hnubv6lrh99u8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjrh6QQ2NdsUrzPBrxfl599CqGVh4p0kw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692050469156-m0hcj4upe1rk431l7b0hnubv6lrh99u8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

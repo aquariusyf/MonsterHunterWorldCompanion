@@ -21,6 +21,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.DialogPlusBuilder;
 import com.orhanobut.dialogplus.ViewHolder;
@@ -76,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
     private DialogPlus mDialogPlus;
     private DialogPlusBuilder mDialogPlusBuilder;
 
+    //Firebase
+    private FirebaseAnalytics mFirebaseAnalytics;
+
     /** Life cycle begin */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initViews();
+        setupAnalyticsInstance();
         if(isFirstStart()) {
             if(isNetworkAvailable()) {
                 getMonsters();
@@ -488,6 +493,13 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(LOG_TAG, "Failed to connect " + UrlUtils.BASE_URL + UrlUtils.ALL_EVENT_PATH);
             }
         });
+    }
+
+    /** Get the Firebase Analytics instance and set log events*/
+    private void setupAnalyticsInstance() {
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.APP_OPEN, null);
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.POST_SCORE, null);
     }
 
 }
