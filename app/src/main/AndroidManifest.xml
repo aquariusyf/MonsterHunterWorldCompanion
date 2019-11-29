@@ -12,7 +12,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EventListActivity"></activity>
+        <receiver android:name=".widget.AppWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/event_widget_info" />
+        </receiver>
+
+        <activity android:name=".EventListActivity" />
         <activity android:name=".AilmentListActivity" />
         <activity android:name=".WeaponListActivity" />
         <activity android:name=".SkillListActivity" />

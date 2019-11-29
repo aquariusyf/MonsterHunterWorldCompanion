@@ -62,4 +62,6 @@
     <string name="event_loading_indicator_text">Fetching event data...</string>
     <string name="dialog_header_text">MHW Companion</string>
     <string name="dialog_content_version_label_text">Version</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>
