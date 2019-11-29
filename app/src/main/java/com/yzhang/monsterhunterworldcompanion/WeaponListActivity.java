@@ -40,7 +40,17 @@ public class WeaponListActivity extends AppCompatActivity {
         mBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                switch (mWeaponListViewPager.getCurrentItem()) {
+                    case 0:
+                        finish();
+                    case 1:
+                        mWeaponListViewPager.setCurrentItem(0);
+                        break;
+                    case 2:
+                        mWeaponListViewPager.setCurrentItem(1);
+                        break;
+                    default: break;
+                }
             }
         });
         initViewPager();

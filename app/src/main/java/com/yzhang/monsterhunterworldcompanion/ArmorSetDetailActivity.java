@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yzhang.monsterhunterworldcompanion.adapters.ArmorSetSkillListAdapter;
 import com.yzhang.monsterhunterworldcompanion.adapters.ArmorSkillListAdapter;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.AppDataBase;
@@ -69,6 +70,8 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
     private ArmorSetSkillListAdapter mSetSkillListAdapter;
     private TextView mArmorSetSkillName;
     private ImageView mArmorSetSkillIcon;
+
+    private FloatingActionButton mBackBtn;
 
     //val
     private int mArmorSetId;
@@ -185,6 +188,14 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
 
         mArmorSetSkillName = findViewById(R.id.tv_set_skill_name);
         mArmorSetSkillIcon = findViewById(R.id.iv_set_skill_icon);
+
+        mBackBtn = findViewById(R.id.back_btn);
+        mBackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     /** Get and check armor set data from intent */

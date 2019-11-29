@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 
 import java.util.List;
@@ -25,6 +27,7 @@ public class MonsterDetailActivity extends AppCompatActivity {
     private TextView mSpeciesTv;
     private TextView mDescriptionTv;
     private TextView mLocationTv;
+    private FloatingActionButton mBackBtn;
 
     //val
     private Bundle monsterBundle = new Bundle();
@@ -78,6 +81,14 @@ public class MonsterDetailActivity extends AppCompatActivity {
         for(int i = 0; i < locations.size(); i++) {
             mLocationTv.append(locations.get(i).getName() + "\n");
         }
+
+        mBackBtn = findViewById(R.id.back_btn);
+        mBackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     /** Get the corresponding large icon of monster */
