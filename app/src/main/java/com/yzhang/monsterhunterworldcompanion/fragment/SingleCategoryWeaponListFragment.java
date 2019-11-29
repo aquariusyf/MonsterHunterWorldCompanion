@@ -123,12 +123,14 @@ public class SingleCategoryWeaponListFragment extends Fragment {
             public boolean onQueryTextChange(String newText) {
                 String userInput = newText.toLowerCase();
                 List<Weapon> searchResult = new ArrayList<>();
-                for(Weapon weapon: mWeaponList) {
-                    if(weapon.getName().toLowerCase().contains(userInput)) {
-                        searchResult.add(weapon);
+                if(mWeaponList != null) {
+                    for(Weapon weapon: mWeaponList) {
+                        if(weapon.getName().toLowerCase().contains(userInput)) {
+                            searchResult.add(weapon);
+                        }
                     }
+                    mAdapter.updateDataSet(searchResult);
                 }
-                mAdapter.updateDataSet(searchResult);
                 return true;
             }
         });

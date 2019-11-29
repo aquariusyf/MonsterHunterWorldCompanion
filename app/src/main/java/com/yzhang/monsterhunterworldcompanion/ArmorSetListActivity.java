@@ -98,13 +98,15 @@ public class ArmorSetListActivity extends AppCompatActivity {
                         ((ArmorSetListFragment) mFragmentList.get(mViewPager.getCurrentItem())).getArmorSetList();
                 String userInput = newText.toLowerCase();
                 List<ArmorSet> searchResult = new ArrayList<>();
-                for(ArmorSet armorSet: armorSetList) {
-                    if(armorSet.getName().toLowerCase().contains(userInput)) {
-                        searchResult.add(armorSet);
+                if(armorSetList != null) {
+                    for(ArmorSet armorSet: armorSetList) {
+                        if(armorSet.getName().toLowerCase().contains(userInput)) {
+                            searchResult.add(armorSet);
+                        }
                     }
+                    ((ArmorSetListFragment) mFragmentList.get(mViewPager.getCurrentItem()))
+                            .updateSearchResult(searchResult);
                 }
-                ((ArmorSetListFragment) mFragmentList.get(mViewPager.getCurrentItem()))
-                        .updateSearchResult(searchResult);
                 return true;
             }
         });
