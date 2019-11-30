@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ public class WeaponDetailFragment extends Fragment {
 
     //const
     private static final String LOG_TAG = WeaponDetailFragment.class.getSimpleName();
+    private static final String WEAPON_ID_SAVE_INSTANCE_KEY = "weapon-id";
     public static final String WEAPON_DETAIL_BUNDLE_KEY = "weapon_detail_bundle";
     public static final String WEAPON_ID_KEY = "weapon_id";
     public static final String ACTION_POPULATE_WEAPON_DETAIL =
@@ -124,6 +126,7 @@ public class WeaponDetailFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         mInstance = this;
         mDb = AppDataBase.getInstance(getContext());
+        mWeaponId = -1;
 
         mWeaponDetailUi = view.findViewById(R.id.weapon_detail_ui);
         mWeaponDetailUi.setVisibility(View.GONE);
@@ -188,9 +191,11 @@ public class WeaponDetailFragment extends Fragment {
         createBroadCastReceiver();
 
         if(savedInstanceState != null) {
-            if(savedInstanceState.containsKey(WEAPON_ID_KEY)) {
-                mWeaponId = savedInstanceState.getInt(WEAPON_ID_KEY);
-                populateWeaponDetail(mWeaponId);
+            if(savedInstanceState.containsKey(WEAPON_ID_SAVE_INSTANCE_KEY)) {
+                mWeaponId = savedInstanceState.getInt(WEAPON_ID_SAVE_INSTANCE_KEY);
+                if(mWeaponId != -1) {
+                    populateWeaponDetail(mWeaponId);
+                }
             }
         }
     }
@@ -198,7 +203,7 @@ public class WeaponDetailFragment extends Fragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(WEAPON_ID_KEY, mWeaponId);
+        outState.putInt(WEAPON_ID_SAVE_INSTANCE_KEY, mWeaponId);
     }
 
     @Override
