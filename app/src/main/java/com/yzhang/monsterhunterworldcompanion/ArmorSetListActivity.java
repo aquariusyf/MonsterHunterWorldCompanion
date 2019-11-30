@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -52,6 +53,7 @@ public class ArmorSetListActivity extends AppCompatActivity {
 
         mViewPager.setAdapter(
                 new ArmorSetPagerAdapter(getSupportFragmentManager(), mFragmentList, this));
+        mViewPager.setOffscreenPageLimit(2);
         mTab.setupWithViewPager(mViewPager);
 
         mSearchView = findViewById(R.id.armor_search_view);
@@ -74,7 +76,6 @@ public class ArmorSetListActivity extends AppCompatActivity {
                 mSearchBtn.hide();
             }
         });
-
         mBackBtn = findViewById(R.id.back_btn);
         mBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override

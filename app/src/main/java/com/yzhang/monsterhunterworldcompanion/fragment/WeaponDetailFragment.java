@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -106,6 +107,9 @@ public class WeaponDetailFragment extends Fragment {
     private AppDataBase mDb;
     private BroadcastReceiver mBroadcastReceiver;
 
+    //val
+    private int mWeaponId;
+
     public WeaponDetailFragment() {
         // Required empty constructor
     }
@@ -182,6 +186,19 @@ public class WeaponDetailFragment extends Fragment {
         mCoatingListRv.setAdapter(mCoatingListAdapter);
 
         createBroadCastReceiver();
+
+        if(savedInstanceState != null) {
+            if(savedInstanceState.containsKey(WEAPON_ID_KEY)) {
+                mWeaponId = savedInstanceState.getInt(WEAPON_ID_KEY);
+                populateWeaponDetail(mWeaponId);
+            }
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(WEAPON_ID_KEY, mWeaponId);
     }
 
     @Override
@@ -282,8 +299,8 @@ public class WeaponDetailFragment extends Fragment {
                         return;
                     }
                     if(bundle.containsKey(WEAPON_ID_KEY)) {
-                        int weaponId = bundle.getInt(WEAPON_ID_KEY);
-                        mInstance.populateWeaponDetail(weaponId);
+                        mWeaponId = bundle.getInt(WEAPON_ID_KEY);
+                        mInstance.populateWeaponDetail(mWeaponId);
                     }
                 }
             }

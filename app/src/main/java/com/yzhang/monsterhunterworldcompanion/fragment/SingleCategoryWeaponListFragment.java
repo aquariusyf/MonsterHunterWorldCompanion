@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -34,6 +35,8 @@ public class SingleCategoryWeaponListFragment extends Fragment {
 
     //const
     private static final String LOG_TAG = SingleCategoryWeaponListFragment.class.getSimpleName();
+    private static final String WEAPON_TYPE_KEY = "weapon-type";
+    private static final String WEAPON_CATEGORY_KEY = "weapon-category";
     public static final String ACTION_UPDATE_WEAPON_LIST =
             "com.yzhang.monsterhunterworldcompanion.updateWeaponList";
 
@@ -52,6 +55,9 @@ public class SingleCategoryWeaponListFragment extends Fragment {
 
     //val
     private List<Weapon> mWeaponList;
+    private String mCategory;
+    private String mType;
+
 
     public SingleCategoryWeaponListFragment() {
         // Required empty constructor
@@ -102,6 +108,22 @@ public class SingleCategoryWeaponListFragment extends Fragment {
                 mSearchBtn.hide();
             }
         });
+
+        if(savedInstanceState != null) {
+            if(savedInstanceState.containsKey(WEAPON_TYPE_KEY)
+                    && savedInstanceState.containsKey(WEAPON_CATEGORY_KEY)) {
+                mType = savedInstanceState.getString(WEAPON_TYPE_KEY);
+                mCategory = savedInstanceState.getString(WEAPON_CATEGORY_KEY);
+                populateWeaponList(mType, mCategory);
+            }
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(WEAPON_TYPE_KEY, mType);
+        outState.putString(WEAPON_CATEGORY_KEY, mCategory);
     }
 
     @Override
@@ -138,6 +160,9 @@ public class SingleCategoryWeaponListFragment extends Fragment {
 
     /** Initiate and setup view model */
     private void populateWeaponList(String weaponType, String weaponCategory) {
+        if(weaponType == null || weaponCategory == null) {
+            return;
+        }
         mEmptyView.setVisibility(View.GONE);
         if(mViewModel != null && mViewModel.getWeapons().hasObservers()) {
             mViewModel.getWeapons().removeObservers(this);
@@ -169,9 +194,9 @@ public class SingleCategoryWeaponListFragment extends Fragment {
                     }
                     if(bundle.containsKey(WeaponCategoryFragment.WEAPON_CATEGORY_KEY)
                             && bundle.containsKey(WeaponCategoryFragment.WEAPON_TYPE_KEY)) {
-                        String category = bundle.getString(WeaponCategoryFragment.WEAPON_CATEGORY_KEY);
-                        String type = bundle.getString(WeaponCategoryFragment.WEAPON_TYPE_KEY);
-                        mInstance.populateWeaponList(type, category);
+                        mCategory = bundle.getString(WeaponCategoryFragment.WEAPON_CATEGORY_KEY);
+                        mType = bundle.getString(WeaponCategoryFragment.WEAPON_TYPE_KEY);
+                        mInstance.populateWeaponList(mType, mCategory);
                     }
                 }
             }
