@@ -54,11 +54,13 @@
 
             <FrameLayout
                 android:id="@+id/nav_button_events"
-                android:layout_width="@dimen/main_screen_nav_button_width"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/main_screen_nav_button_height"
                 android:layout_gravity="center"
                 android:elevation="16dp"
                 android:layout_marginTop="@dimen/main_screen_nav_button_margin"
+                android:layout_marginLeft="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginRight="@dimen/main_screen_nav_button_margin_left_right"
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
@@ -86,11 +88,13 @@
 
             <FrameLayout
                 android:id="@+id/nav_button_monsters"
-                android:layout_width="@dimen/main_screen_nav_button_width"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/main_screen_nav_button_height"
                 android:layout_gravity="center"
                 android:elevation="16dp"
                 android:layout_marginTop="@dimen/main_screen_nav_button_margin"
+                android:layout_marginLeft="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginRight="@dimen/main_screen_nav_button_margin_left_right"
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
@@ -118,11 +122,13 @@
 
             <FrameLayout
                 android:id="@+id/nav_button_armor"
-                android:layout_width="@dimen/main_screen_nav_button_width"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/main_screen_nav_button_height"
                 android:layout_gravity="center"
                 android:elevation="16dp"
                 android:layout_marginTop="@dimen/main_screen_nav_button_margin"
+                android:layout_marginLeft="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginRight="@dimen/main_screen_nav_button_margin_left_right"
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
@@ -150,11 +156,13 @@
 
             <FrameLayout
                 android:id="@+id/nav_button_weapon"
-                android:layout_width="@dimen/main_screen_nav_button_width"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/main_screen_nav_button_height"
                 android:layout_gravity="center"
                 android:elevation="16dp"
                 android:layout_marginTop="@dimen/main_screen_nav_button_margin"
+                android:layout_marginLeft="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginRight="@dimen/main_screen_nav_button_margin_left_right"
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
@@ -182,11 +190,13 @@
 
             <FrameLayout
                 android:id="@+id/nav_button_skills"
-                android:layout_width="@dimen/main_screen_nav_button_width"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/main_screen_nav_button_height"
                 android:layout_gravity="center"
                 android:elevation="16dp"
                 android:layout_marginTop="@dimen/main_screen_nav_button_margin"
+                android:layout_marginLeft="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginRight="@dimen/main_screen_nav_button_margin_left_right"
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
@@ -214,11 +224,13 @@
 
             <FrameLayout
                 android:id="@+id/nav_button_ailments"
-                android:layout_width="@dimen/main_screen_nav_button_width"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/main_screen_nav_button_height"
                 android:layout_gravity="center"
                 android:elevation="16dp"
                 android:layout_marginTop="@dimen/main_screen_nav_button_margin"
+                android:layout_marginLeft="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginRight="@dimen/main_screen_nav_button_margin_left_right"
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
