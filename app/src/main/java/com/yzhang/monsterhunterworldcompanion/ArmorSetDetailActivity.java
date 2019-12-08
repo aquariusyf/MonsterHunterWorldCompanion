@@ -326,7 +326,7 @@ public class ArmorSetDetailActivity extends AppCompatActivity {
             List<Pair<String, String>> skillList,
             HashMap<String, Integer> skillNameIdMap) {
         if(name == null || name.isEmpty()) {
-            nameTv.setText("No Armor Piece");
+            nameTv.setText(getString(R.string.armor_detail_no_armor_set_text));
             for(ImageView imageView: decorIcon) {
                 imageView.setVisibility(View.INVISIBLE);
             }

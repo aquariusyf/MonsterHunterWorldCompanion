@@ -21,6 +21,7 @@
     <string name="armor_piece_arm">gloves</string>
     <string name="armor_piece_waist">waist</string>
     <string name="armor_piece_leg">legs</string>
+    <string name="armor_detail_no_armor_set_text">No Armor Piece</string>
     <string name="armor_detail_armorlist_label">Armor List</string>
     <string name="armor_detail_skill_summary_label">Skill Summary</string>
     <string name="armor_detail_set_skill_label">Set Skill</string>
