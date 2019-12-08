@@ -99,7 +99,7 @@ public class AmmoListAdapter extends RecyclerView.Adapter<ViewHolder> {
                     ammoLevelViewList.get(i).setText(capacity.get(i) + "");
                 }
             } else {
-                ammoLevelViewList.get(i).setVisibility(View.GONE);
+                ammoLevelViewList.get(i).setVisibility(View.INVISIBLE);
             }
         }
     }
