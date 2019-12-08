@@ -28,6 +28,9 @@ public interface WeaponDao {
     @Query("SELECT * FROM weapon WHERE name = :name")
     Weapon getWeaponByName(String name);
 
+    @Query("DELETE FROM weapon")
+    void nukeTable();
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertWeapon(Weapon newWeapon);
 
