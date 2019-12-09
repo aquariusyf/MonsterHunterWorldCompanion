@@ -15,6 +15,7 @@
         android:scaleType="centerCrop" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:contentDescription="@string/back_fab_button_content_description"
         android:id="@+id/back_btn"
         android:src="@drawable/back_icon"
         app:maxImageSize="40dp"
@@ -75,6 +76,7 @@
             app:queryHint="Search"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:contentDescription="@string/search_fab_button_content_description"
             android:id="@+id/search_btn"
             android:src="@drawable/search_icon"
             app:maxImageSize="40dp"
