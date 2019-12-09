@@ -6,6 +6,14 @@ repositories {
 apply plugin: 'com.google.gms.google-services'
 
 android {
+    signingConfigs {
+        release {
+            keyAlias 'key0'
+            keyPassword 'xiaoshi8'
+            storeFile file('keystore/appKey.jks')
+            storePassword '880209'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.yzhang.monsterhunterworldcompanion"
@@ -19,6 +27,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }
