@@ -9,6 +9,7 @@
     android:background="@color/navButtonBackgroundColor">
 
     <ImageView
+        android:contentDescription="@null"
         android:id="@+id/iv_ailment_icon"
         android:src="@drawable/icon_effluvialbuildup"
         android:layout_width="50dp"

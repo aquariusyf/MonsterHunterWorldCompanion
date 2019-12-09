@@ -8,6 +8,7 @@
     android:padding="8dp">
 
     <ImageView
+        android:contentDescription="@null"
         android:id="@+id/iv_ammo_icon"
         android:layout_width="30dp"
         android:layout_height="30dp"

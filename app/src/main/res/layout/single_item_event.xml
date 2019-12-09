@@ -31,6 +31,7 @@
             android:textColor="@color/colorWhite"/>
 
         <ImageView
+            android:contentDescription="@null"
             android:src="@drawable/quest_rank_star_icon"
             android:layout_width="20dp"
             android:layout_height="20dp"

@@ -8,6 +8,7 @@
     tools:context=".MonsterListActivity">
 
     <ImageView
+        android:contentDescription="@null"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/monster_list_background"

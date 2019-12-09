@@ -47,6 +47,7 @@
                 style="@style/WeaponDetailRarityTextStyle"/>
 
             <ImageView
+                android:contentDescription="@null"
                 android:id="@+id/iv_weapon_large_icon"
                 android:layout_width="350dp"
                 android:layout_height="350dp"
@@ -64,6 +65,7 @@
                 android:background="@drawable/label_title_text_background">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/damage_icon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -97,6 +99,7 @@
                 android:background="@drawable/label_title_text_background">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/affinity_icon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -131,6 +134,7 @@
                 android:background="@drawable/label_title_text_background">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:id="@+id/iv_weapon_element_icon"
                     android:src="@drawable/element_icon"
                     android:layout_width="30dp"
@@ -152,6 +156,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:contentDescription="@null"
                         android:id="@+id/iv_weapon_element_damage_icon"
                         android:src="@drawable/blast"
                         android:layout_width="30dp"
@@ -179,6 +184,7 @@
                 android:background="@drawable/label_title_text_background">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:id="@+id/iv_sharpness_icon"
                     android:src="@drawable/sharpness_icon"
                     android:layout_width="30dp"
@@ -230,6 +236,7 @@
                 android:background="@drawable/label_title_text_background">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/slot_icon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -250,6 +257,7 @@
                     android:gravity="right|center_vertical">
 
                     <ImageView
+                        android:contentDescription="@null"
                         android:id="@+id/iv_slot_1"
                         android:src="@drawable/no_decor_slot_icon"
                         android:layout_width="25dp"
@@ -257,6 +265,7 @@
                         android:scaleType="fitXY"/>
 
                     <ImageView
+                        android:contentDescription="@null"
                         android:id="@+id/iv_slot_2"
                         android:src="@drawable/no_decor_slot_icon"
                         android:layout_width="25dp"
@@ -264,6 +273,7 @@
                         android:scaleType="fitXY"/>
 
                     <ImageView
+                        android:contentDescription="@null"
                         android:id="@+id/iv_slot_3"
                         android:src="@drawable/no_decor_slot_icon"
                         android:layout_width="25dp"
@@ -285,6 +295,7 @@
                 android:background="@drawable/label_title_text_background">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/shelling_icon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -319,6 +330,7 @@
                 android:background="@drawable/label_title_text_background">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/phial_type_icon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -353,6 +365,7 @@
                 android:background="@drawable/label_title_text_background">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/kinsect_bonus_icon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -387,6 +400,7 @@
                 android:background="@drawable/label_title_text_background">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/deviation_icon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -420,6 +434,7 @@
                 android:background="@drawable/label_title_text_background">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:id="@+id/iv_coating_label_icon"
                     android:src="@drawable/close_range_coating_icon"
                     android:layout_width="30dp"

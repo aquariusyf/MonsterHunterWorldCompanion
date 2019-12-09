@@ -6,12 +6,14 @@
     android:padding="@dimen/widget_margin">
 
     <ImageView
+        android:contentDescription="@null"
         android:src="@drawable/widget_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"/>
 
     <ImageView
+        android:contentDescription="@null"
         android:src="@drawable/palico_icon"
         android:layout_width="100dp"
         android:layout_height="100dp"

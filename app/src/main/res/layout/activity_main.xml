@@ -8,12 +8,14 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:contentDescription="@null"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/main_screen_background"
         android:scaleType="fitXY" />
 
     <ImageView
+        android:contentDescription="@null"
         android:id="@+id/options_menu"
         android:src="@drawable/options_icon"
         android:layout_width="50dp"
@@ -24,6 +26,7 @@
         android:scaleType="fitXY"/>
 
     <ImageView
+        android:contentDescription="@null"
         android:src="@drawable/sapphire_star"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -64,6 +67,7 @@
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/nav_button_frame_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -71,6 +75,7 @@
                     android:layout_gravity="left"/>
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/nav_button_frame_right"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -98,6 +103,7 @@
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/nav_button_frame_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -105,6 +111,7 @@
                     android:layout_gravity="left"/>
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/nav_button_frame_right"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -132,6 +139,7 @@
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/nav_button_frame_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -139,6 +147,7 @@
                     android:layout_gravity="left"/>
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/nav_button_frame_right"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -166,6 +175,7 @@
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/nav_button_frame_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -173,6 +183,7 @@
                     android:layout_gravity="left"/>
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/nav_button_frame_right"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -200,6 +211,7 @@
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/nav_button_frame_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -207,6 +219,7 @@
                     android:layout_gravity="left"/>
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/nav_button_frame_right"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -234,6 +247,7 @@
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/nav_button_frame_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -241,6 +255,7 @@
                     android:layout_gravity="left"/>
 
                 <ImageView
+                    android:contentDescription="@null"
                     android:src="@drawable/nav_button_frame_right"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

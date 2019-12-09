@@ -10,6 +10,7 @@
     android:layout_margin="4dp">
 
     <ImageView
+        android:contentDescription="@null"
         android:id="@+id/iv_weapon_icon"
         android:src="@drawable/weapon1"
         android:scaleType="fitXY"
@@ -38,6 +39,7 @@
             android:layout_marginTop="4dp">
 
             <ImageView
+                android:contentDescription="@null"
                 android:src="@drawable/damage_icon"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
@@ -53,6 +55,7 @@
                 style="@style/WeaponAttackDamageTextStyle"/>
 
             <ImageView
+                android:contentDescription="@null"
                 android:src="@drawable/affinity_icon"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
@@ -68,6 +71,7 @@
                 style="@style/WeaponAttackDamageTextStyle"/>
 
             <ImageView
+                android:contentDescription="@null"
                 android:id="@+id/iv_element_damage_icon"
                 android:src="@drawable/sleep"
                 android:layout_width="25dp"

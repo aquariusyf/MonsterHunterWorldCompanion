@@ -16,6 +16,7 @@
         android:orientation="horizontal">
         
         <ImageView
+            android:contentDescription="@null"
             android:id="@+id/iv_armorset_icon"
             android:layout_width="@dimen/armorset_list_item_armor_icon_width"
             android:layout_height="@dimen/armorset_list_item_armor_icon_height"
@@ -40,6 +41,7 @@
         android:layout_marginTop="@dimen/armorset_list_item_defence_elemental_line_margin_top">
         
         <ImageView
+            android:contentDescription="@null"
             android:src="@drawable/defence"
             android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_width"
             android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
@@ -54,6 +56,7 @@
             style="@style/ArmorSetDefenceTextStyle"/>
 
         <ImageView
+            android:contentDescription="@null"
             android:src="@drawable/thunder"
             android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_width"
             android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
@@ -68,6 +71,7 @@
             style="@style/ArmorSetDefenceTextStyle"/>
 
         <ImageView
+            android:contentDescription="@null"
             android:src="@drawable/fire"
             android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_width"
             android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
@@ -91,6 +95,7 @@
         android:layout_marginTop="@dimen/armorset_list_item_defence_elemental_line_margin_top">
 
         <ImageView
+            android:contentDescription="@null"
             android:src="@drawable/ice"
             android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_width"
             android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
@@ -105,6 +110,7 @@
             style="@style/ArmorSetDefenceTextStyle"/>
 
         <ImageView
+            android:contentDescription="@null"
             android:src="@drawable/water"
             android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_width"
             android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"
@@ -119,6 +125,7 @@
             style="@style/ArmorSetDefenceTextStyle"/>
 
         <ImageView
+            android:contentDescription="@null"
             android:src="@drawable/dragon"
             android:layout_width="@dimen/armorset_list_item_defence_elemental_icon_width"
             android:layout_height="@dimen/armorset_list_item_defence_elemental_icon_height"

@@ -8,6 +8,7 @@
     android:background="@color/monsterDetailBackgroundColor">
 
     <ImageView
+        android:contentDescription="@null"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/sapphire_star"
@@ -61,6 +62,7 @@
             </LinearLayout>
 
             <ImageView
+                android:contentDescription="@null"
                 android:id="@+id/iv_monster_large_icon"
                 android:layout_width="@dimen/monster_detail_large_icon_width"
                 android:layout_height="@dimen/monster_detail_large_icon_height"
@@ -99,6 +101,7 @@
             </LinearLayout>
 
             <ImageView
+                android:contentDescription="@null"
                 android:id="@+id/iv_monster_guide"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/monster_detail_guide_image_height"

@@ -13,6 +13,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:contentDescription="@null"
             android:id="@+id/iv_num_of_pieces"
             android:src="@drawable/setof3"
             android:layout_width="@dimen/armorset_detail_skill_summary_icon_size"
@@ -22,6 +23,7 @@
             android:scaleType="fitXY"/>
 
         <ImageView
+            android:contentDescription="@null"
             android:id="@+id/iv_single_set_skill_icon"
             android:layout_width="@dimen/armorset_detail_skill_summary_icon_size"
             android:layout_height="@dimen/armorset_detail_skill_summary_icon_size"
