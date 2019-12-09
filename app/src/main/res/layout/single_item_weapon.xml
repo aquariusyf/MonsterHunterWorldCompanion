@@ -20,7 +20,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
         android:orientation="vertical">
 
         <TextView
@@ -43,14 +43,14 @@
                 android:src="@drawable/damage_icon"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginRight="4dp"
+                android:layout_marginEnd="4dp"
                 android:scaleType="fitXY"/>
 
             <TextView
                 android:id="@+id/tv_attack_damage"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 tools:text="1024"
                 style="@style/WeaponAttackDamageTextStyle"/>
 
@@ -59,14 +59,14 @@
                 android:src="@drawable/affinity_icon"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginRight="4dp"
+                android:layout_marginEnd="4dp"
                 android:scaleType="fitXY"/>
 
             <TextView
                 android:id="@+id/tv_affinity"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 tools:text="20%"
                 style="@style/WeaponAttackDamageTextStyle"/>
 
@@ -76,14 +76,14 @@
                 android:src="@drawable/sleep"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginRight="4dp"
+                android:layout_marginEnd="4dp"
                 android:scaleType="fitXY"/>
 
             <TextView
                 android:id="@+id/tv_element_damage"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 tools:text="(350)"
                 style="@style/WeaponAttackDamageTextStyle"/>
 

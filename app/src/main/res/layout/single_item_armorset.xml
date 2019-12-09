@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/armorset_list_item_name_to_icon_margin"
+            android:layout_marginStart="@dimen/armorset_list_item_name_to_icon_margin"
             tools:text="ArmorSet Name goes here"
             style="@style/ArmorSetNameTextStyle"/>
         

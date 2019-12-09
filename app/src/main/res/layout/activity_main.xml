@@ -21,7 +21,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="@dimen/option_icon_margin"
-        android:layout_marginRight="@dimen/option_icon_margin"
+        android:layout_marginEnd="@dimen/option_icon_margin"
         android:layout_gravity="end|bottom"
         android:scaleType="fitXY"/>
 
@@ -62,8 +62,8 @@
                 android:layout_gravity="center"
                 android:elevation="16dp"
                 android:layout_marginTop="@dimen/main_screen_nav_button_margin"
-                android:layout_marginLeft="@dimen/main_screen_nav_button_margin_left_right"
-                android:layout_marginRight="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginStart="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginEnd="@dimen/main_screen_nav_button_margin_left_right"
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
@@ -72,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="left"/>
+                    android:layout_gravity="start"/>
 
                 <ImageView
                     android:contentDescription="@null"
@@ -80,7 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="right"/>
+                    android:layout_gravity="end"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -98,8 +98,8 @@
                 android:layout_gravity="center"
                 android:elevation="16dp"
                 android:layout_marginTop="@dimen/main_screen_nav_button_margin"
-                android:layout_marginLeft="@dimen/main_screen_nav_button_margin_left_right"
-                android:layout_marginRight="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginStart="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginEnd="@dimen/main_screen_nav_button_margin_left_right"
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
@@ -108,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="left"/>
+                    android:layout_gravity="start"/>
 
                 <ImageView
                     android:contentDescription="@null"
@@ -116,7 +116,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="right"/>
+                    android:layout_gravity="end"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -134,8 +134,8 @@
                 android:layout_gravity="center"
                 android:elevation="16dp"
                 android:layout_marginTop="@dimen/main_screen_nav_button_margin"
-                android:layout_marginLeft="@dimen/main_screen_nav_button_margin_left_right"
-                android:layout_marginRight="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginStart="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginEnd="@dimen/main_screen_nav_button_margin_left_right"
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
@@ -144,7 +144,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="left"/>
+                    android:layout_gravity="start"/>
 
                 <ImageView
                     android:contentDescription="@null"
@@ -152,7 +152,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="right"/>
+                    android:layout_gravity="end"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -170,8 +170,8 @@
                 android:layout_gravity="center"
                 android:elevation="16dp"
                 android:layout_marginTop="@dimen/main_screen_nav_button_margin"
-                android:layout_marginLeft="@dimen/main_screen_nav_button_margin_left_right"
-                android:layout_marginRight="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginStart="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginEnd="@dimen/main_screen_nav_button_margin_left_right"
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
@@ -180,7 +180,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="left"/>
+                    android:layout_gravity="start"/>
 
                 <ImageView
                     android:contentDescription="@null"
@@ -188,7 +188,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="right"/>
+                    android:layout_gravity="end"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -206,8 +206,8 @@
                 android:layout_gravity="center"
                 android:elevation="16dp"
                 android:layout_marginTop="@dimen/main_screen_nav_button_margin"
-                android:layout_marginLeft="@dimen/main_screen_nav_button_margin_left_right"
-                android:layout_marginRight="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginStart="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginEnd="@dimen/main_screen_nav_button_margin_left_right"
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
@@ -216,7 +216,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="left"/>
+                    android:layout_gravity="start"/>
 
                 <ImageView
                     android:contentDescription="@null"
@@ -224,7 +224,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="right"/>
+                    android:layout_gravity="end"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -242,8 +242,8 @@
                 android:layout_gravity="center"
                 android:elevation="16dp"
                 android:layout_marginTop="@dimen/main_screen_nav_button_margin"
-                android:layout_marginLeft="@dimen/main_screen_nav_button_margin_left_right"
-                android:layout_marginRight="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginStart="@dimen/main_screen_nav_button_margin_left_right"
+                android:layout_marginEnd="@dimen/main_screen_nav_button_margin_left_right"
                 android:background="@color/navButtonBackgroundColor">
 
                 <ImageView
@@ -252,7 +252,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="left"/>
+                    android:layout_gravity="start"/>
 
                 <ImageView
                     android:contentDescription="@null"
@@ -260,7 +260,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="right"/>
+                    android:layout_gravity="end"/>
 
                 <TextView
                     android:layout_width="wrap_content"

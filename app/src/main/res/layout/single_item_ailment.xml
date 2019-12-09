@@ -14,7 +14,7 @@
         android:src="@drawable/icon_effluvialbuildup"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:scaleType="fitXY"/>
 
@@ -22,9 +22,9 @@
         android:id="@+id/tv_ailment_name"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginLeft="4dp"
-        android:layout_toRightOf="@+id/iv_ailment_icon"
-        android:gravity="center_vertical|left"
+        android:layout_marginStart="4dp"
+        android:layout_toEndOf="@+id/iv_ailment_icon"
+        android:gravity="center_vertical|start"
         tools:text="EffluviaBuildup"
         style="@style/AilmentNameTextStyle"/>
 
@@ -32,7 +32,7 @@
         android:id="@+id/tv_ailment_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="54dp"
+        android:layout_marginStart="54dp"
         android:layout_below="@+id/tv_ailment_name"
         tools:text="The is the ailment description section. All description goes here."
         style="@style/AilmentDescriptionTextStyle"/>

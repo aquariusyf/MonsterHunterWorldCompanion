@@ -31,8 +31,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp"
-                android:gravity="left|center"
+                android:layout_marginStart="8dp"
+                android:gravity="start|center"
                 tools:text="Weapon Name"
                 style="@style/WeaponDetailNameTextStyle"/>
 
@@ -41,8 +41,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp"
-                android:gravity="left|center"
+                android:layout_marginStart="8dp"
+                android:gravity="start|center"
                 tools:text="Rare 11"
                 style="@style/WeaponDetailRarityTextStyle"/>
 
@@ -59,8 +59,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="horizontal"
                 android:background="@drawable/label_title_text_background">
 
@@ -74,7 +74,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
+                    android:layout_marginStart="6dp"
                     android:gravity="center"
                     android:text="@string/weapon_detail_attack_label_text"
                     style="@style/WeaponDetailLabelTextStyle"/>
@@ -83,7 +83,7 @@
                     android:id="@+id/tv_weapon_attack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
+                    android:gravity="end"
                     tools:text="1200"
                     style="@style/WeaponDetailLabelTextStyle"/>
 
@@ -93,8 +93,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="horizontal"
                 android:background="@drawable/label_title_text_background">
 
@@ -108,7 +108,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
+                    android:layout_marginStart="6dp"
                     android:gravity="center"
                     android:text="@string/weapon_detail_affinity_label_text"
                     style="@style/WeaponDetailLabelTextStyle"/>
@@ -117,7 +117,7 @@
                     android:id="@+id/tv_weapon_affinity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
+                    android:gravity="end"
                     tools:text="20%"
                     style="@style/WeaponDetailLabelTextStyle"/>
 
@@ -128,8 +128,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="horizontal"
                 android:background="@drawable/label_title_text_background">
 
@@ -144,7 +144,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
+                    android:layout_marginStart="6dp"
                     android:gravity="center"
                     android:text="@string/weapon_detail_element_label_text"
                     style="@style/WeaponDetailLabelTextStyle"/>
@@ -152,7 +152,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
+                    android:gravity="end"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -179,8 +179,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/label_title_text_background">
 
                 <ImageView
@@ -189,14 +189,14 @@
                     android:src="@drawable/sharpness_icon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:scaleType="fitXY"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
-                    android:layout_toRightOf="@id/iv_sharpness_icon"
+                    android:layout_marginStart="6dp"
+                    android:layout_toEndOf="@id/iv_sharpness_icon"
                     android:gravity="center"
                     android:text="@string/weapon_detail_sharpness_label_text"
                     style="@style/WeaponDetailLabelTextStyle"/>
@@ -204,9 +204,9 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_alignParentRight="true"
-                    android:gravity="left">
+                    android:layout_marginStart="50dp"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="start">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_sharpness_color"
@@ -230,8 +230,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="horizontal"
                 android:background="@drawable/label_title_text_background">
 
@@ -245,7 +245,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
+                    android:layout_marginStart="6dp"
                     android:gravity="center"
                     android:text="@string/weapon_detail_slot_label_text"
                     style="@style/WeaponDetailLabelTextStyle"/>
@@ -254,7 +254,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:gravity="right|center_vertical">
+                    android:gravity="end|center_vertical">
 
                     <ImageView
                         android:contentDescription="@null"
@@ -289,8 +289,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="horizontal"
                 android:background="@drawable/label_title_text_background">
 
@@ -304,7 +304,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
+                    android:layout_marginStart="6dp"
                     android:gravity="center"
                     android:text="@string/weapon_detail_shelling_label_text"
                     style="@style/WeaponDetailLabelTextStyle"/>
@@ -313,7 +313,7 @@
                     android:id="@+id/tv_weapon_shelling"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
+                    android:gravity="end"
                     tools:text="Normal Lv.3"
                     style="@style/WeaponDetailLabelTextStyle"/>
 
@@ -324,8 +324,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="horizontal"
                 android:background="@drawable/label_title_text_background">
 
@@ -339,7 +339,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
+                    android:layout_marginStart="6dp"
                     android:gravity="center"
                     android:text="@string/weapon_detail_phial_type_label_text"
                     style="@style/WeaponDetailLabelTextStyle"/>
@@ -348,7 +348,7 @@
                     android:id="@+id/tv_weapon_phial_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
+                    android:gravity="end"
                     tools:text="Impact"
                     style="@style/WeaponDetailLabelTextStyle"/>
 
@@ -359,8 +359,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="horizontal"
                 android:background="@drawable/label_title_text_background">
 
@@ -374,7 +374,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
+                    android:layout_marginStart="6dp"
                     android:gravity="center"
                     android:text="@string/weapon_detail_kinsect_bonus_label_text"
                     style="@style/WeaponDetailLabelTextStyle"/>
@@ -383,7 +383,7 @@
                     android:id="@+id/tv_weapon_kinsect_bonus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
+                    android:gravity="end"
                     tools:text="Sever Boost"
                     style="@style/WeaponDetailLabelTextStyle"/>
 
@@ -394,8 +394,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:orientation="horizontal"
                 android:background="@drawable/label_title_text_background">
 
@@ -409,7 +409,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="6dp"
+                    android:layout_marginStart="6dp"
                     android:gravity="center"
                     android:text="@string/weapon_detail_deviation_label_text"
                     style="@style/WeaponDetailLabelTextStyle"/>
@@ -418,7 +418,7 @@
                     android:id="@+id/tv_weapon_deviation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
+                    android:gravity="end"
                     tools:text="Low"
                     style="@style/WeaponDetailLabelTextStyle"/>
 
@@ -429,8 +429,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/label_title_text_background">
 
                 <ImageView
@@ -440,13 +440,13 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:scaleType="fitCenter"
-                    android:layout_alignParentLeft="true"/>
+                    android:layout_alignParentStart="true"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/iv_coating_label_icon"
-                    android:layout_marginLeft="6dp"
+                    android:layout_toEndOf="@+id/iv_coating_label_icon"
+                    android:layout_marginStart="6dp"
                     android:gravity="center"
                     android:text="@string/weapon_detail_coating_label_text"
                     style="@style/WeaponDetailLabelTextStyle"/>
@@ -455,7 +455,7 @@
                     android:id="@+id/rv_coating_list"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="36dp"
+                    android:layout_marginStart="36dp"
                     android:layout_marginTop="4dp"
                     android:layout_below="@+id/iv_coating_label_icon"/>
 
@@ -466,8 +466,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:background="@color/armorsetListItemBackgroundColor">
 
                 <androidx.recyclerview.widget.RecyclerView

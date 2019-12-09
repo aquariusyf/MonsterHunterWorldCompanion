@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_marginBottom="16dp"
-        android:layout_marginLeft="8dp"/>
+        android:layout_marginStart="8dp"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -924,7 +924,7 @@
                         android:id="@+id/iv_set_skill_icon"
                         android:layout_width="@dimen/armorset_detail_set_skill_icon_size"
                         android:layout_height="@dimen/armorset_detail_set_skill_icon_size"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
                         android:scaleType="fitXY"/>
 
                     <TextView
@@ -932,8 +932,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="8dp"
-                        android:gravity="left"
+                        android:layout_marginStart="8dp"
+                        android:gravity="start"
                         tools:text="Set Skill Name Demo"
                         style="@style/ArmorSetDetailSetSkillNameTextStyle"/>
 

@@ -25,7 +25,7 @@
             android:id="@+id/tv_event_rank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             tools:text="9"
             style="@style/EventQuestNameTextStyle"
             android:textColor="@color/colorWhite"/>
@@ -64,7 +64,7 @@
             android:id="@+id/tv_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             tools:text="Elder's Recess"
             style="@style/EventQuestOtherTextStyle"/>
 
@@ -86,7 +86,7 @@
             android:id="@+id/tv_requirements"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             tools:text="HR 50 or higher"
             style="@style/EventQuestOtherTextStyle"/>
 
@@ -108,7 +108,7 @@
             android:id="@+id/tv_conditions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             tools:text="Slay Lunastra"
             style="@style/EventQuestOtherTextStyle"/>
 
@@ -130,7 +130,7 @@
             android:id="@+id/tv_available"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             tools:text="2019/11/21 16:00 ~ 2019/11/28 15:59"
             style="@style/EventQuestOtherTextStyle"/>
 

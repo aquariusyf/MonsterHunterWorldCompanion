@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_marginBottom="16dp"
-        android:layout_marginLeft="8dp"/>
+        android:layout_marginStart="8dp"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -45,7 +45,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:gravity="left|center"
+                    android:gravity="start|center"
                     tools:text="Monster Name"
                     style="@style/MonsterDetailNameTextStyle"/>
 
@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:gravity="left|center"
+                    android:gravity="start|center"
                     android:textAllCaps="true"
                     tools:text="Species"
                     style="@style/MonsterDetailSpeciesTextStyle"/>
@@ -108,8 +108,8 @@
                 android:layout_gravity="center"
                 android:elevation="16dp"
                 android:layout_marginBottom="@dimen/monster_detail_guide_image_margin_bottom"
-                android:layout_marginLeft="@dimen/monster_detail_guide_image_side_margin"
-                android:layout_marginRight="@dimen/monster_detail_guide_image_side_margin"
+                android:layout_marginStart="@dimen/monster_detail_guide_image_side_margin"
+                android:layout_marginEnd="@dimen/monster_detail_guide_image_side_margin"
                 android:scaleType="fitXY" />
 
         </LinearLayout>
