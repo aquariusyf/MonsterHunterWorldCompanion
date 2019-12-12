@@ -44,6 +44,8 @@ import com.yzhang.monsterhunterworldcompanion.appdatabase.events.EventQuest;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.monster.Monster;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.skill.Skill;
 import com.yzhang.monsterhunterworldcompanion.appdatabase.weapons.Weapon;
+import com.yzhang.monsterhunterworldcompanion.asynctask.AsyncResponse;
+import com.yzhang.monsterhunterworldcompanion.asynctask.CheckConnectionAsyncTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +57,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AsyncResponse {
 
     //const
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
@@ -82,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
     //Firebase
     private FirebaseAnalytics mFirebaseAnalytics;
 
+
+    //AsyncTask
+    private CheckConnectionAsyncTask mAsyncTask;
+
     /** Life cycle begin */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,22 +97,36 @@ public class MainActivity extends AppCompatActivity {
         initViews();
         setupAnalyticsInstance();
         setupCrashlytics();
+        mAsyncTask = new CheckConnectionAsyncTask();
         if(isFirstStart()) {
-            if(isNetworkAvailable()) {
-                getMonsters();
-                getArmorSets();
-                getSkills();
-                getWeapons();
-                getAilments();
-                mMenuView.setVisibility(View.VISIBLE);
-                mNetworkIndicatorTv.setVisibility(View.GONE);
-            } else {
-                mMenuView.setVisibility(View.GONE);
-                mNetworkIndicatorTv.setVisibility(View.VISIBLE);
-            }
+            mAsyncTask.asyncResponse = this;
+            mAsyncTask.execute();
         }
     }
     /** Life cycle end */
+
+    /** Async Task Interface*/
+    @Override
+    public Boolean process() {
+        return isNetworkAvailable();
+    }
+
+    @Override
+    public void postProcess(Boolean isConnected) {
+        if(isConnected) {
+            getMonsters();
+            getArmorSets();
+            getSkills();
+            getWeapons();
+            getAilments();
+            mMenuView.setVisibility(View.VISIBLE);
+            mNetworkIndicatorTv.setVisibility(View.GONE);
+        } else {
+            mMenuView.setVisibility(View.GONE);
+            mNetworkIndicatorTv.setVisibility(View.VISIBLE);
+        }
+    }
+    /** Async Task Interface ends */
 
     /** Check network connectivity */
     private boolean isNetworkAvailable() {
